@@ -1,0 +1,19 @@
+{
+  "name": "bbn/appui-cron",
+  "description": "GUI for managing CRON tasks sent by appui",
+  "keywords": ["cron","php","appui"],
+  "homepage": "https://github.com/nabab/appui-cron",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Nabet",
+      "email": "thomas.nabet@gmail.com",
+      "homepage": "http://bbn.solutions",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "bbn/bbn": "dev-master"
+  }
+}
