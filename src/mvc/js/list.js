@@ -134,7 +134,7 @@ table.kendoGrid({
             }
           }
         });
-      appui.fn.alert('<div class="tree"></tree>', 'Choose CLI', 250, 500, function(ele){
+      appui.fn.popup('<div class="tree"></tree>', 'Choose CLI', 250, 500, function(ele){
         $tree = $("div.tree", ele);
         $tree.kendoTreeView({
           dataTextField: "name",
@@ -145,7 +145,7 @@ table.kendoGrid({
             $("#dscawerejio98yI00").val(r.name).change();
             //d.model.set("file", r.name);
             appui.fn.log(r.name, d.model, d.model.get("file"), d);
-            appui.fn.closeAlert();
+            appui.fn.closePopup();
           }
         });
       });
