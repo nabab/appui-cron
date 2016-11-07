@@ -164,25 +164,25 @@ table.kendoGrid({
     },
     transport: {
       create: function(options) {
-        appui.fn.post("admin/cron", appui.fn.gridParse(options.data), function(d){
+        appui.fn.post(data.root + "list", appui.fn.gridParse(options.data), function(d){
           options.success(d);
           table.data("kendoGrid").dataSource.read();
         });
       },
       read: function(options) {
-        appui.fn.post("admin/cron", {json:1}, function(d){
+        appui.fn.post(data.root + "list", {json:1}, function(d){
           options.success(d);
         });
       },
       update: function(options) {
-        appui.fn.post("admin/cron", appui.fn.gridParse(options.data), function(d){
+        appui.fn.post(data.root + "list", appui.fn.gridParse(options.data), function(d){
           options.success(d);
           table.data("kendoGrid").dataSource.read();
         });
       },
       destroy: function(options) {
         var action = options.data.active ? 'delete' : 'restore';
-        appui.fn.post("admin/cron", $.extend({}, appui.fn.gridParse(options.data), {action: action}), function(d){
+        appui.fn.post(data.root + "list", $.extend({}, appui.fn.gridParse(options.data), {action: action}), function(d){
           options.success(d);
           table.data("kendoGrid").dataSource.read();
         });
@@ -236,7 +236,7 @@ table.kendoGrid({
       dataSource: {
         transport: {
           read: function(options) {
-            appui.fn.post("admin/cron", $.extend({}, options.data, {id_cron: e.data.id, action: "journal"}), function(d){
+            appui.fn.post(data.root + "list", $.extend({}, options.data, {id_cron: e.data.id, action: "journal"}), function(d){
               options.success(d);
             });
           },

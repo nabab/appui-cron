@@ -1,9 +1,11 @@
 <?php
 /* @var $ctrl \bbn\mvc\controller */
-if ( isset($ctrl->post['appui_baseURL']) ){
-  echo $ctrl->set_title('Tâches automatisées (CRON)')->add_js(['is_dev' => $ctrl->inc->user->is_admin()])->get_view();
+if ( empty($ctrl->post) ){
+  echo $ctrl->combo(_("Tâches automatisées (CRON)"), [
+    'is_dev' => $ctrl->inc->user->is_admin(),
+    'root' => $ctrl->data['root']
+  ]);
 }
 else{
-  $ctrl->data = $ctrl->post;
-  $ctrl->obj = \bbn\x::to_object($ctrl->get_model());
+  $ctrl->obj = $ctrl->get_object_model($ctrl->post);
 }
