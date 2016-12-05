@@ -81,14 +81,17 @@ if ( data.is_dev ){
     title: "Actions",
     sortable: false,
     field: "id",
-    width: 190,
+    width: 120,
     template: function(e){
-      var st = '<a class="k-button k-button-icontext k-grid-edit" href="#"><span class="k-icon k-edit"></span>Mod.</a>';
+      var st = '<a class="k-button k-grid-edit" href="javascript:;"><i class="fa fa-edit" title="' + data.lng.edit + '"></i></a>';
       if ( e.active ){
-        st += '<a class="k-button k-button-icontext k-grid-delete" href="#"><span class="k-icon k-delete"></span>Désactiver</a>';
+        st += '<a class="k-button k-grid-delete" href="javascript:;"><i class="fa fa-times" title="' + data.lng.deactivate + '"></i></a>';
       }
       else{
-        st += '<a class="k-button k-button-icontext k-grid-delete" href="#"><span class="k-icon k-tick"></span>Ré-activer</a>';
+        st += '<a class="k-button k-button-icontext k-grid-delete" href="javascript:;" title="' + data.lng.reactivate + '"><i class="fa fa-check"></i></a>';
+      }
+      if ( data.can_run ){
+        st += '<button class="k-button appui-button-cron-run" href="javascript:;" title="' + data.lng.run + '"><i class="fa fa-play"></i></button>';
       }
       return st;
     }
@@ -101,6 +104,24 @@ table.kendoGrid({
   editable: {
     mode: "popup",
     template: apst.get_template("form_cron")
+  },
+  dataBound: function(){
+    var grid = this;
+    $(".appui-button-cron-run", table).click(function(){
+      var it = grid.dataItem($(this).closest("tr"));
+      appui.fn.post(data.root + 'run', {id: it.id}, function(d){
+        if ( d && d.file ){
+          appui.fn.popup(
+            d.output ? d.output : data.lng.no_output,
+            d.file + ' ' + data.lng.executed_in + ' ' + d.time + ' ' + data.lng.seconds,
+            500
+          )
+        }
+        else{
+          appui.fn.alert(data.lng.an_error_occured)
+        }
+      })
+    });
   },
   edit: function(d){
     $("#dscawerejio98yI05").data("kendoDateTimePicker").setOptions({
