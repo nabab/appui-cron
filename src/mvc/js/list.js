@@ -103,7 +103,8 @@ table.kendoGrid({
   ],
   editable: {
     mode: "popup",
-    template: apst.get_template("form_cron")
+    template: apst.get_template("form_cron"),
+    confirmation: false
   },
   dataBound: function(){
     var grid = this;
@@ -203,10 +204,18 @@ table.kendoGrid({
       },
       destroy: function(options) {
         var action = options.data.active ? 'delete' : 'restore';
-        appui.fn.post(data.root + "list", $.extend({}, appui.fn.gridParse(options.data), {action: action}), function(d){
-          options.success(d);
-          table.data("kendoGrid").dataSource.read();
-        });
+        appui.fn.confirm(
+          "Êtes-vous sûr vouloir " +
+            (action === 'delete' ? "désactiver" : "réactiver") +
+            " cette tâche automatisée?",
+          "Confirmation d'action",
+          function(){
+            appui.fn.post(data.root + "list", $.extend({}, appui.fn.gridParse(options.data), {action: action}), function(d){
+              options.success(d);
+              table.data("kendoGrid").dataSource.read();
+            });
+          });
+        return true;
       }
     },
     schema: {
