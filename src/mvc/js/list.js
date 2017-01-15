@@ -20,7 +20,7 @@ var table = $("#cron_grid"),
       field: "prev",
       width: 90,
       template: function(e){
-        return appui.fn.fdate(e.prev, 'Never');
+        return bbn.fn.fdate(e.prev, 'Never');
       }
     }, {
       title: "Next",
@@ -37,7 +37,7 @@ var table = $("#cron_grid"),
 
           case "hold":
             color = "green";
-            mess = appui.fn.fdate(e.next);
+            mess = bbn.fn.fdate(e.next);
             break;
 
           case "error":
@@ -110,16 +110,16 @@ table.kendoGrid({
     var grid = this;
     $(".appui-button-cron-run", table).click(function(){
       var it = grid.dataItem($(this).closest("tr"));
-      appui.fn.post(data.root + 'run', {id: it.id}, function(d){
+      bbn.fn.post(data.root + 'run', {id: it.id}, function(d){
         if ( d && d.file ){
-          appui.fn.popup(
+          bbn.fn.popup(
             d.output ? d.output : data.lng.no_output,
             d.file + ' ' + data.lng.executed_in + ' ' + d.time + ' ' + data.lng.seconds,
             500
           )
         }
         else{
-          appui.fn.alert(data.lng.an_error_occured)
+          bbn.fn.alert(data.lng.an_error_occured)
         }
       })
     });
@@ -156,7 +156,7 @@ table.kendoGrid({
             }
           }
         });
-      appui.fn.popup('<div class="tree"></tree>', 'Choose CLI', 250, 500, function(ele){
+      bbn.fn.popup('<div class="tree"></tree>', 'Choose CLI', 250, 500, function(ele){
         $tree = $("div.tree", ele);
         $tree.kendoTreeView({
           dataTextField: "name",
@@ -166,8 +166,8 @@ table.kendoGrid({
             var r = this.dataItem(e.node);
             $("#dscawerejio98yI00").val(r.name).change();
             //d.model.set("file", r.name);
-            appui.fn.log(r.name, d.model, d.model.get("file"), d);
-            appui.fn.closePopup();
+            bbn.fn.log(r.name, d.model, d.model.get("file"), d);
+            bbn.fn.closePopup();
           }
         });
       });
@@ -186,31 +186,31 @@ table.kendoGrid({
     },
     transport: {
       create: function(options) {
-        appui.fn.post(data.root + "list", appui.fn.gridParse(options.data), function(d){
+        bbn.fn.post(data.root + "list", bbn.fn.gridParse(options.data), function(d){
           options.success(d);
           table.data("kendoGrid").dataSource.read();
         });
       },
       read: function(options) {
-        appui.fn.post(data.root + "list", {json:1}, function(d){
+        bbn.fn.post(data.root + "list", {json:1}, function(d){
           options.success(d);
         });
       },
       update: function(options) {
-        appui.fn.post(data.root + "list", appui.fn.gridParse(options.data), function(d){
+        bbn.fn.post(data.root + "list", bbn.fn.gridParse(options.data), function(d){
           options.success(d);
           table.data("kendoGrid").dataSource.read();
         });
       },
       destroy: function(options) {
         var action = options.data.active ? 'delete' : 'restore';
-        appui.fn.confirm(
+        bbn.fn.confirm(
           "Êtes-vous sûr vouloir " +
             (action === 'delete' ? "désactiver" : "réactiver") +
             " cette tâche automatisée?",
           "Confirmation d'action",
           function(){
-            appui.fn.post(data.root + "list", $.extend({}, appui.fn.gridParse(options.data), {action: action}), function(d){
+            bbn.fn.post(data.root + "list", $.extend({}, bbn.fn.gridParse(options.data), {action: action}), function(d){
               options.success(d);
               table.data("kendoGrid").dataSource.read();
             });
@@ -266,7 +266,7 @@ table.kendoGrid({
       dataSource: {
         transport: {
           read: function(options) {
-            appui.fn.post(data.root + "list", $.extend({}, options.data, {id_cron: e.data.id, action: "journal"}), function(d){
+            bbn.fn.post(data.root + "list", $.extend({}, options.data, {id_cron: e.data.id, action: "journal"}), function(d){
               options.success(d);
             });
           },
@@ -299,14 +299,14 @@ table.kendoGrid({
         field: "start",
         width: 100,
         template: function(e){
-          return appui.fn.fdate(e.start, 'unknown');
+          return bbn.fn.fdate(e.start, 'unknown');
         }
       }, {
         title: "End",
         field: "end",
         width: 100,
         template: function(e){
-          //return appui.fn.fdate(e.finish, 'unknown');
+          //return bbn.fn.fdate(e.finish, 'unknown');
           var color,
             mess = e.state;
 
@@ -317,12 +317,12 @@ table.kendoGrid({
 
             case "error":
               color = "red";
-              mess = appui.fn.fdate(e.finish);
+              mess = bbn.fn.fdate(e.finish);
               break;
 
             default:
               color = "green";
-              mess = appui.fn.fdate(e.finish);
+              mess = bbn.fn.fdate(e.finish);
               break;
           }
           return '<span style="color: ' + color + '">' + mess + '</span>';
@@ -331,7 +331,7 @@ table.kendoGrid({
         title: "Résultat",
         field: "res",
         template: function(e){
-          return appui.fn.nl2br(e.res);
+          return bbn.fn.nl2br(e.res);
         },
         encoded: false
       }]
