@@ -10,8 +10,8 @@
 var_dump(
 
   $ctrl->say_plugin(),
-  $ctrl->plugin_url('appui-cron'),
-  $ctrl->plugin_path('appui-cron'),
+  $ctrl->plugin_url('bbn-cron'),
+  $ctrl->plugin_path('bbn-cron'),
   $ctrl->get_plugin_model('buzz', ['var' => 'woo'])
 );
 

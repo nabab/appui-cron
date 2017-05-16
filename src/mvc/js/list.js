@@ -91,7 +91,7 @@ if ( data.is_dev ){
         st += '<a class="k-button k-button-icontext k-grid-delete" href="javascript:;" title="' + data.lng.reactivate + '"><i class="fa fa-check"></i></a>';
       }
       if ( data.can_run ){
-        st += '<button class="k-button appui-button-cron-run" href="javascript:;" title="' + data.lng.run + '"><i class="fa fa-play"></i></button>';
+        st += '<button class="k-button bbn-button-cron-run" href="javascript:;" title="' + data.lng.run + '"><i class="fa fa-play"></i></button>';
       }
       return st;
     }
@@ -108,7 +108,7 @@ table.kendoGrid({
   },
   dataBound: function(){
     var grid = this;
-    $(".appui-button-cron-run", table).click(function(){
+    $(".bbn-button-cron-run", table).click(function(){
       var it = grid.dataItem($(this).closest("tr"));
       bbn.fn.post(data.root + 'run', {id: it.id}, function(d){
         if ( d && d.file ){

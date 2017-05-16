@@ -17,7 +17,7 @@ if ( isset($model->data['id']) ){
   if ( is_array($r) ){
     $res['output'] = '';
     foreach ( $r as $s ){
-      $res['output'] .= '<div class="appui-form-full">'.nl2br($s, false).'</div>'.PHP_EOL;
+      $res['output'] .= '<div class="bbn-form-full">'.nl2br($s, false).'</div>'.PHP_EOL;
     }
   }
 }
