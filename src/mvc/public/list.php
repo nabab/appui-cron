@@ -1,5 +1,8 @@
 <?php
 /* @var $ctrl \bbn\mvc\controller */
+if ( !empty($ctrl->arguments) ){
+  $ctrl->post['id_cron'] = $ctrl->arguments[0];
+}
 if ( empty($ctrl->post) ){
   echo $ctrl->combo(_("Tâches automatisées (CRON)"), [
     'is_dev' => $ctrl->inc->user->is_admin(),

@@ -1,103 +1,187 @@
 // Javascript Document
 (function(){
-  return function(ele, data){
-    var table = $("#cron_grid"),
-        cols = [{
-          field: "id",
-          hidden: true
-        }, {
-          title: "Controller",
-          field: "file",
-          width: 150,
-          template: function(e){
-            return '<span class="' + ( e.active ? 'adherent' : 'radie' ) + '">' + e.file + '</span>';
-          }
-        }, {
-          title: "Pri",
-          field: "priority",
-          width: 30
-        }, {
-          title: "Prev",
-          field: "prev",
-          width: 90,
-          template: function(e){
-            return bbn.fn.fdate(e.prev, 'Never');
-          }
-        }, {
-          title: "Next",
-          field: "next",
-          width: 90,
-          template: function(e){
-            var color,
-                mess = e.state;
+  return {
+    props: {
+      source: {
+        type: Object
+      }
+    },
+    data(){
+      return {
 
-            switch ( e.state ){
-              case "progress":
-                color = "blue";
-                break;
+      };
+    },
+    methods: {
+      addRunning(a){
+        a.isRunning = false;
+        a.startRun = false;
+        return a;
+      },
+      insert(){
+        this.$refs.table.addTmp();
+      },
+      test(e){
+        bbn.fn.log("test");
+        return e.file + ' Yoohoo';
+      },
+      renderFile(e){
+        return '<span class="' + ( e.active ? 'adherent' : 'radie' ) + '">' + e.file + '</span>';
+      },
+      renderNext(e){
+        let color,
+            mess = e.state;
 
-              case "hold":
-                color = "green";
-                mess = bbn.fn.fdate(e.next);
-                break;
+        switch ( e.state ){
+          case "progress":
+            color = "blue";
+            break;
 
-              case "error":
-                color = "red";
-                break;
+          case "hold":
+            color = "green";
+            mess = bbn.fn.fdate(e.next);
+            break;
 
-              case "progress_error":
-                color = "red";
-                mess = "progress";
-                break;
+          case "error":
+            color = "red";
+            break;
 
-              default:
-                color = "DarkGray";
-                mess = "unknown";
-                break;
-            }
-            return '<span style="color: ' + color + '">' + mess + '</span>';
-          }
-        }, {
-          title: "Dur.",
-          field: "duration",
-          width: 60,
-          template: function(e){
-            var d = parseFloat(e.duration);
-            if ( d > 0 ) {
-              return d < 10 ? d.toMoney() : Math.round(d);
-            }
-            return 0;
-          }
-        }, {
-          title: "Num",
-          field: "num",
-          width: 70
-        }, {
-          title: "Description",
-          field: "description"
+          case "progress_error":
+            color = "red";
+            mess = "progress";
+            break;
+
+          default:
+            color = "DarkGray";
+            mess = "unknown";
+            break;
         }
-      ];
-    if ( data.is_dev ){
-      cols.push({
-        title: "Actions",
-        sortable: false,
-        field: "id",
-        width: 120,
-        template: function(e){
-          var st = '<a class="k-button k-grid-edit" href="javascript:;"><i class="fa fa-edit" title="' + data.lng.edit + '"></i></a>';
-          if ( e.active ){
-            st += '<a class="k-button k-grid-delete" href="javascript:;"><i class="fa fa-times" title="' + data.lng.deactivate + '"></i></a>';
+        return '<span style="color: ' + color + '">' + mess + '</span>';
+      },
+      renderAvgDuration(e){
+        let d = parseFloat(e.duration);
+        if ( d > 0 ) {
+          return d < 10 ? Math.round(d*100)/100 : Math.round(d);
+        }
+        return 0;
+      },
+
+      renderDuration(e){
+        let d = parseFloat(e.duration);
+        if ( d > 0 ) {
+          return d < 100 ? Math.round(d*1000)/1000 : Math.round(d);
+        }
+        return 0;
+      },
+
+      renderButtons(e){
+        let buttons = [{
+          text: this._('Edit'),
+          icon: 'fa fa-edit',
+          notext: true,
+          command: 'edit'
+        }];
+        if ( e.active ){
+          buttons.push({
+            text: this._('Deactivate'),
+            icon: 'fa fa-times',
+            notext: true,
+            command: this.deactivate
+          });
+        }
+        else{
+          buttons.push({
+            text: this._('Activate'),
+            icon: 'fa fa-check',
+            notext: true,
+            command: this.activate
+          });
+        }
+        if ( this.source.can_run ){
+          buttons.push({
+            text: this._('Run task'),
+            icon: 'fa fa-play',
+            notext: true,
+            command: this.run
+          });
+        }
+        return buttons;
+      },
+
+      activate(e){
+
+      },
+
+      deactivate(e){
+
+      },
+
+      edit(e){
+
+      },
+
+      run(e){
+        e.isRunning = true;
+        bbn.fn.post(this.source.root + 'run', {id: e.id}, (d) => {
+          e.isRunning = false;
+          if ( d && d.file ){
+            this.getTab().popup(
+              d.output ? d.output : bbn._('No output'),
+              d.file + ' ' + bbn._('executed in') + ' ' + d.time + ' ' + bbn._('seconds'),
+              500
+            );
           }
           else{
-            st += '<a class="k-button k-button-icontext k-grid-delete" href="javascript:;" title="' + data.lng.reactivate + '"><i class="fa fa-check"></i></a>';
+            bbn.fn.alert(bbn._('An error occured...'))
           }
-          if ( data.can_run ){
-            st += '<button class="k-button bbn-button-cron-run" href="javascript:;" title="' + data.lng.run + '"><i class="fa fa-play"></i></button>';
+        })
+      },
+    },
+    components: {
+      'appui-cron-history': {
+        name: 'appui-cron-history',
+        data(){
+          return {
+            parentTable: bbn.vue.closest(this, 'bbn-table')
           }
-          return st;
+        },
+        template: `
+        <div class="bbn-w-100" style="height: 300px">
+          <bbn-table :source="parentTable.source + '/' + source.id"
+                     :pageable="true"
+                     :serverPaging="true"
+                     :limit="10"
+          >
+            <bbn-column field="start"
+                        title="` + bbn._('Start') + `"
+                        :width="150"
+                        type="date"
+            ></bbn-column>
+            <bbn-column field="duration"
+                        :width="150"
+                        title="` + bbn._('Duration') + `"
+                        :render="renderDuration"
+            ></bbn-column>
+            <bbn-column field="res"
+                        title="` + bbn._('Result') + `"
+                        :render="(d) => {return '<pre>' + d.res + '</pre>';}"
+            ></bbn-column>
+          </bbn-table>
+        </div>`,
+        props: ['source'],
+        methods: {
+          renderDuration(e){
+            let d = parseFloat(e.duration);
+            if ( d > 0 ) {
+              return d < 100 ? Math.round(d*1000)/1000 : Math.round(d);
+            }
+            return 0;
+          },
+
         }
-      });
+      }
     }
+  };
+  return function(ele, data){
     table.kendoGrid({
       toolbar: [
         {name: "create", text: "Nouvelle tâche automatisée CRON"}

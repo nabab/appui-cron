@@ -1,4 +1,78 @@
-<div id="cron_grid" class="bbn-full-height"></div>
+<bbn-table :source="source.root + 'list'"
+           :expander="$options.components['appui-cron-history']"
+           :sortable="true"
+           :pageable="true"
+           editable="popup"
+           :map="addRunning"
+           :trClass="(data) => {if ( data.isRunning ){ return 'bbn-bg-red';}}"
+           uid="id"
+           ref="table"
+           :toolbar="[{
+             text: _('New task'),
+             command: 'insert',
+             icon: 'fa fa-new'
+           }]"
+>
+  <bbn-column field="id"
+              :hidden="true"
+              :editable="false"
+  ></bbn-column>
+  <bbn-column field="file"
+              :width="150"
+              title="<?=_('Controller')?>"
+              :render="renderFile"
+              :required="true"
+  ></bbn-column>
+  <bbn-column field="priority"
+              :width="50"
+              title="<?=_('Prio.')?>"
+              ftitle="<?=_('Priority')?>"
+              type="number"
+              :required="true"
+              :default="5"
+              :options="{min: 1, max: 5}"
+  ></bbn-column>
+  <bbn-column field="prev"
+              :width="90"
+              title="<?=_('Prev')?>"
+              ftitle="<?=_('Date/time of the previous execution')?>"
+              type="date"
+              :editable="false"
+  ></bbn-column>
+  <bbn-column field="next"
+              :width="90"
+              title="<?=_('Next')?>"
+              ftitle="<?=_('Date/time planned for the next execution')?>"
+              type="date"
+              :render="renderNext"
+  ></bbn-column>
+  <bbn-column field="duration"
+              :width="60"
+              title="<?=_('Dur.')?>"
+              ftitle="<?=_('Average duration of the execution')?>"
+              :render="renderAvgDuration"
+              :editable="false"
+  ></bbn-column>
+  <bbn-column field="num"
+              :width="70"
+              type="number"
+              title="<?=_('Num')?>"
+              ftitle="<?=_('Total number of executions')?>"
+              :editable="false"
+  ></bbn-column>
+  <bbn-column field="description"
+              title="<?=_('Description')?>"
+              ftitle="<?=_('Description of the task')?>"
+              editor="bbn-rte"
+  ></bbn-column>
+  <bbn-column v-if="source.is_dev"
+              :width="110"
+              title="<?=_('Actions')?>"
+              :buttons="renderButtons"
+              fixed="right"
+  ></bbn-column>
+  
+</bbn-table>
 <script id="tpl-form_cron" type="text/x-kendo-template">
   <input type="hidden" name="id">
   <input type="hidden" name="project">
@@ -7,7 +81,7 @@
     Controller
   </label>
   <div class="bbn-form-field">
-    <input type="text" class="k-textbox" id="dscawerejio98yI00" name="file" required maxlength="100">&nbsp;
+    <input class="k-textbox" id="dscawerejio98yI00" name="file" required maxlength="100">&nbsp;
     <button class="k-button">Browse CLI</button>
   </div>
 
