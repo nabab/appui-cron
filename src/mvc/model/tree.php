@@ -1,6 +1,6 @@
 <?php
 /* @var $model \bbn\mvc\model */
-if ( !defined('BBN_APP_PATH') ){
+if ( !\defined('BBN_APP_PATH') ){
   die('You must define BBN_APP_PATH!');
 }
 $model->data['dir'] = BBN_APP_PATH.'mvc/cli/'.(!empty($model->data['path']) ? $model->data['path'].'/' : '');
@@ -13,7 +13,7 @@ $dirs = array_map(function($a) use($model){
   return [
     'path' => str_replace("./", "", str_replace($model->data['dir'], '', $a)),
     'name' => basename($a),
-    'is_parent' => count($fs) > 0,
+    'is_parent' => \count($fs) > 0,
     'icon' => "fa fa-folder",
     'type' => "dir"
   ];

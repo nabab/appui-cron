@@ -83,11 +83,11 @@ switch ( $model->data['action'] ){
 
   default:
     $grid = new \bbn\appui\grid($model->db, $model->data, isset($model->data['id_cron']) ? 'bbn_cron_journal' : 'bbn_cron');
-    $limit = empty($model->data['limit']) || !is_int($model->data['limit']) ? 50 : $model->data['limit'];
-    $start = !isset($model->data['start']) || !is_int($model->data['start']) ? 0 : $model->data['start'];
+    $limit = empty($model->data['limit']) || !\is_int($model->data['limit']) ? 50 : $model->data['limit'];
+    $start = !isset($model->data['start']) || !\is_int($model->data['start']) ? 0 : $model->data['start'];
     if ( isset($model->data['id_cron']) ){
-      $limit = empty($model->data['limit']) || !is_int($model->data['limit']) ? 50 : $model->data['limit'];
-      $start = !isset($model->data['start']) || !is_int($model->data['start']) ? 0 : $model->data['start'];
+      $limit = empty($model->data['limit']) || !\is_int($model->data['limit']) ? 50 : $model->data['limit'];
+      $start = !isset($model->data['start']) || !\is_int($model->data['start']) ? 0 : $model->data['start'];
       $data = $model->db->get_rows("
         SELECT *
         FROM bbn_cron_journal
@@ -119,10 +119,10 @@ switch ( $model->data['action'] ){
             ORDER BY start DESC
             LIMIT 50",
             $a['id']);
-          if ( (count($tasks) > 0) && ($tasks[0]['res'] === 'error') ){
+          if ( (\count($tasks) > 0) && ($tasks[0]['res'] === 'error') ){
             $a['state'] = 'error';
           }
-          else if ( (count($tasks) > 0) && is_null($tasks[0]['finish']) ){
+          else if ( (\count($tasks) > 0) && \is_null($tasks[0]['finish']) ){
               $a['state'] = ( isset($tasks[1]) && ($tasks[1]['res'] === 'error') ) ? 'progress_error' : 'progress';
           }
           else {
@@ -130,7 +130,7 @@ switch ( $model->data['action'] ){
           }
         }
         else {
-          $a['state'] = $a['res'] === 'error' ? 'error' : (is_null($a['finish']) ? 'progress' : 'complete');
+          $a['state'] = $a['res'] === 'error' ? 'error' : (\is_null($a['finish']) ? 'progress' : 'complete');
         }
         if ( $cfg = json_decode($a['cfg'], 1) ){
           unset($a['cfg']);

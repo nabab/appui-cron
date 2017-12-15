@@ -14,7 +14,7 @@ if ( isset($model->data['id']) ){
   $res['time'] = $timer->measure();
   $res['success'] = 1;
   $res['file'] = $cron['file'];
-  if ( is_array($r) ){
+  if ( \is_array($r) ){
     $res['output'] = '';
     foreach ( $r as $s ){
       $res['output'] .= '<div class="bbn-form-full">'.nl2br($s, false).'</div>'.PHP_EOL;
