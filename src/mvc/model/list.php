@@ -94,7 +94,7 @@ switch ( $model->data['action'] ){
         WHERE id_cron = ?
         ORDER BY start DESC
         LIMIT $start, $limit",
-        $model->data['id_cron']);
+        hex2bin($model->data['id_cron']));
       $total = $model->db->count('bbn_cron_journal', ['id_cron' => $model->data['id_cron']]);
     }
     else{
@@ -118,7 +118,7 @@ switch ( $model->data['action'] ){
             WHERE id_cron = ?
             ORDER BY start DESC
             LIMIT 50",
-            $a['id']);
+            hex2bin($a['id']));
           if ( (\count($tasks) > 0) && ($tasks[0]['res'] === 'error') ){
             $a['state'] = 'error';
           }
