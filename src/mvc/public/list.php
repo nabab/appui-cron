@@ -5,7 +5,7 @@ if ( !empty($ctrl->arguments) ){
 }
 if ( empty($ctrl->post) ){
   echo $ctrl->combo(_("Tâches automatisées (CRON)"), [
-    'is_dev' => $ctrl->inc->user->is_admin(),
+    'is_dev' => $ctrl->inc->user->is_dev(),
     'root' => $ctrl->data['root'],
     'can_run' => $ctrl->inc->perm->has($ctrl->data['root'].'run'),
     'lng' => [
