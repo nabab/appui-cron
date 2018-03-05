@@ -188,7 +188,7 @@
       ],
       editable: {
         mode: "popup",
-        template: apst.get_template("form_cron"),
+        template: appui.app.get_template("form_cron"),
         confirmation: false,
         window: {
           activate: function(e){
