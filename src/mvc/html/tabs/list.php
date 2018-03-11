@@ -1,4 +1,5 @@
-<bbn-table :source="source.root + 'list'"
+<bbn-table :source="source.root + 'tabs/list'"
+           :url="source.root + 'tabs/list'"
            :expander="$options.components['appui-cron-history']"
            :sortable="true"
            :pageable="true"
@@ -17,6 +18,12 @@
               :hidden="true"
               :editable="false"
   ></bbn-column>
+  <bbn-column field="active"
+              :width="150"
+              title="<?=_('Active')?>"
+              :component="$options.components['appui-cron-switch']"
+              :editable="false"
+  ></bbn-column>
   <bbn-column field="file"
               :width="150"
               title="<?=_('Controller')?>"
@@ -31,6 +38,13 @@
               :required="true"
               :default="5"
               :options="{min: 1, max: 5}"
+  ></bbn-column>
+  <bbn-column field="frequency"
+              :source="frequencies"
+              :hidden="true"
+              title="<?=_('Frequency')?>"
+              ftitle="<?=_('The time to wait between each execution')?>"
+              :required="true"
   ></bbn-column>
   <bbn-column field="prev"
               :width="90"
@@ -66,7 +80,7 @@
               editor="bbn-rte"
   ></bbn-column>
   <bbn-column v-if="source.is_dev"
-              :width="110"
+              :width="130"
               title="<?=_('Actions')?>"
               :buttons="renderButtons"
               fixed="right"
@@ -97,29 +111,6 @@
   </label>
   <div class="bbn-form-field">
     <select name="frequency" id="dscawerejio98yI02" required data-role="dropdownlist" data-option-label="Choose" style="width: 300px">
-      <option value="i1">Every minute</option>
-      <option value="i2">Every 2 minutes</option>
-      <option value="i5">Every 5 minutes</option>
-      <option value="i10">Every 10 minutes</option>
-      <option value="i15">Every 15 minutes</option>
-      <option value="i20">Every 20 minutes</option>
-      <option value="i30">Every 30 minutes</option>
-      <option value="i45">Every 45 minutes</option>
-      <option value="h1">Every hour</option>
-      <option value="h2">Every 2 hours</option>
-      <option value="h4">Every 4 hours</option>
-      <option value="h8">Every 8 hours</option>
-      <option value="h12">Every 12 hours</option>
-      <option value="d1">Every day</option>
-      <option value="d2">Every 2 days</option>
-      <option value="d3">Every 3 days</option>
-      <option value="w1">Every week</option>
-      <option value="w2">Every 2 weeks</option>
-      <option value="m1">Every month</option>
-      <option value="m2">Every 2 month</option>
-      <option value="m3">Every 3 month</option>
-      <option value="m6">Every 6 month</option>
-      <option value="y1">Every year</option>
     </select>
   </div>
 

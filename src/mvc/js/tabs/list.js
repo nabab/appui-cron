@@ -1,5 +1,6 @@
 // Javascript Document
 (function(){
+  let cp;
   return {
     props: {
       source: {
@@ -8,7 +9,32 @@
     },
     data(){
       return {
-
+        frequencies: [
+          {value: 'i1', text: _('Every minute')},
+          {value: 'i2', text: _('Every 2 minutes')},
+          {value: 'i5', text: _('Every 5 minutes')},
+          {value: 'i10', text: _('Every 10 minutes')},
+          {value: 'i15', text: _('Every 15 minutes')},
+          {value: 'i20', text: _('Every 20 minutes')},
+          {value: 'i30', text: _('Every 30 minutes')},
+          {value: 'i45', text: _('Every 45 minutes')},
+          {value: 'h1', text: _('Every hour')},
+          {value: 'h2', text: _('Every 2 hours')},
+          {value: 'h4', text: _('Every 4 hours')},
+          {value: 'h8', text: _('Every 8 hours')},
+          {value: 'h12', text: _('Every 12 hours')},
+          {value: 'd1', text: _('Every day')},
+          {value: 'd2', text: _('Every 2 days')},
+          {value: 'd3', text: _('Every 3 days')},
+          {value: 'w1', text: _('Every week')},
+          {value: 'w2', text: _('Every 2 weeks')},
+          {value: 'w3', text: _('Every 3 weeks')},
+          {value: 'm1', text: _('Every month')},
+          {value: 'm2', text: _('Every 2 month')},
+          {value: 'm3', text: _('Every 3 month')},
+          {value: 'm6', text: _('Every 6 month')},
+          {value: 'y1', text: _('Every year')}
+        ]
       };
     },
     methods: {
@@ -136,9 +162,28 @@
         })
       },
     },
+    created(){
+      cp = this;
+    },
     components: {
+      'appui-cron-switch': {
+        props: ['source', 'value'],
+        template: '<bbn-switch v-model="source.active" @change="activation"></bbn-switch>',
+        methods: {
+          activation(){
+            let url = cp.source.root + 'actions/' + (this.source.active ? 'activate' : 'deactivate');
+            bbn.fn.post(url, {id: this.source.id}, (d) => {
+              if ( !d.success ){
+                this.$set(this.source, 'active', !this.source.active);
+                this.$forceUpdate();
+              }
+            })
+          }
+        }
+      },
       'appui-cron-history': {
         name: 'appui-cron-history',
+        props: ['source'],
         data(){
           return {
             parentTable: bbn.vue.closest(this, 'bbn-table')
@@ -167,7 +212,6 @@
             ></bbn-column>
           </bbn-table>
         </div>`,
-        props: ['source'],
         methods: {
           renderDuration(e){
             let d = parseFloat(e.duration);
@@ -181,6 +225,7 @@
       }
     }
   };
+  /*
   return function(ele, data){
     table.kendoGrid({
       toolbar: [
@@ -429,4 +474,5 @@
       }
     });
   }
+  */
 })();
