@@ -6,6 +6,7 @@
  * Time: 23:03
  */
 if ( isset($ctrl->post['file'], $ctrl->post['id']) ){
+  clearstatcache();
   $active = $ctrl->plugin_data_path().'.active';
   $file = $ctrl->plugin_data_path().'.cron';
   if ( file_exists($active) && file_exists($file) ){

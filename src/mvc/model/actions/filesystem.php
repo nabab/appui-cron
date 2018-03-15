@@ -10,10 +10,8 @@ if ( isset($model->data['file']) && \bbn\str::check_name($model->data['file']) )
     unlink($f);
   }
   else{
-    if ( $model->data['file'] === 'active' ){
-      file_put_contents($f, (string)date('Y-m-d H:i:s'));
-    }
-    else if ( $model->data['file'] === 'poll' ){
+    file_put_contents($f, (string)date('Y-m-d H:i:s'));
+    if ( $model->data['file'] === 'poll' ){
       $model->inc->cron->poll();
     }
     else if ( $model->data['file'] === 'cron' ){

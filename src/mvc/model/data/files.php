@@ -6,6 +6,7 @@
 
 /** @var $this \bbn\mvc\model*/
 if ( isset($model->data['data_path']) ){
+  clearstatcache();
   $has_active = is_file($model->data['data_path'].'.active');
   $has_cron = is_file($model->data['data_path'].'.cron');
   $has_poll = is_file($model->data['data_path'].'.poll');
@@ -14,7 +15,7 @@ if ( isset($model->data['data_path']) ){
   $polltime = false;
   $pollid = false;
   if ( $has_cron ){
-    $tmp = explode('|', file_get_contents($model->data['data_path'].'.cron'));
+    $tmp = explode('|', file_get_contents($model->data['data_path'].'.cronid'));
     $cronid = $tmp[0];
     $crontime = $tmp[1];
   }
