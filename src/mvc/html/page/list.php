@@ -1,5 +1,5 @@
-<bbn-table :source="source.root + 'tabs/list'"
-           :url="source.root + 'tabs/list'"
+<bbn-table :source="source.root + 'page/list'"
+           :url="source.root + 'actions/task'"
            :expander="$options.components['appui-cron-history']"
            :sortable="true"
            :pageable="true"
@@ -57,8 +57,7 @@
               :width="90"
               title="<?=_('Next')?>"
               ftitle="<?=_('Date/time planned for the next execution')?>"
-              type="date"
-              :render="renderNext"
+              type="datetime"
   ></bbn-column>
   <bbn-column field="duration"
               :width="60"

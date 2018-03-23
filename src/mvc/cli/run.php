@@ -5,19 +5,12 @@
  * Date: 10/03/2018
  * Time: 23:03
  */
-if ( isset($ctrl->post['file'], $ctrl->post['id']) ){
-  clearstatcache();
-  $active = $ctrl->plugin_data_path().'.active';
-  $file = $ctrl->plugin_data_path().'.cron';
-  if ( file_exists($active) && file_exists($file) ){
-    file_put_contents($filepid, getmypid().'|'.time());
-    register_shutdown_function(function() use($filepid){
-      @unlink($filepid);
-    });
-    $bbn_c = $ctrl->add($ctrl->post['file']);
-    echo $bbn_c->content ?? 'No output';
-  }
+if ( isset($ctrl->post['type']) ){
+  $cron = new \bbn\appui\cron($ctrl);
+  var_dump("Hello from RUN");
+  $cron->run($ctrl->post['type']);
 }
+
 /*
 if ( file_exists($filepid) ){
   $pid_content = explode('|', file_get_contents($filepid));

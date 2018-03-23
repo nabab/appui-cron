@@ -1,5 +1,10 @@
 <?php
-/** @var $model \bbn\mvc\model */
+/*
+ * Describe what it does!
+ *
+ **/
+
+/** @var $this \bbn\mvc\controller */
 if ( isset($model->data['file']) && !isset($model->data['action']) ){
   $model->data['action'] = empty($model->data['id']) ? 'insert' : 'update';
 }
@@ -80,26 +85,4 @@ switch ( $model->data['action'] ){
     }
   }
   break;
-
-  default:
-    $limit = empty($model->data['limit']) || !\is_int($model->data['limit']) ? 50 : $model->data['limit'];
-    $start = !isset($model->data['start']) || !\is_int($model->data['start']) ? 0 : $model->data['start'];
-    if ( isset($model->data['id_cron']) ){
-      $grid = new \bbn\appui\grid($model->db, $model->data, [
-        'table' => 'bbn_cron_journal',
-        'filters' => [[
-          'field' => 'id_cron',
-          'operator' => 'eq',
-          'value' => $model->data['id_cron']
-        ]]
-      ]);
-    }
-    else{
-      $grid = new \bbn\appui\grid($model->db, $model->data, [
-        'table' => 'bbn_cron'
-      ]);
-    }
-    if ( $grid->check() ){
-      return $grid->get_datatable();
-    }
 }

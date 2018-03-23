@@ -50,30 +50,13 @@
   </bbn-pane>
   <bbn-pane>
     <bbn-splitter orientation="horizontal" :resizable="true">
-      <bbn-pane>
+      <bbn-pane size="40%">
         <bbn-splitter orientation="vertical">
           <bbn-pane>
-            <ul>
-              <li :class="['k-widget', 'bbn-w-100', 'bbn-spadded', source.pollid ? 'bbn-green' : 'bbn-red']">
-                <div class="bbn-block">
-                  <span class="bbn-large"
-                     :title="_('Poller')"
-                     v-text="_('Poller')"></span>
-                </div>
-                <div class="bbn-block bbn-xl" style="float: right">
-                  <a :title="_('Started at ') + fdate(source.polltime)" href="javascript:;">
-                    <i class="fa fa-clock-o"></i>
-                  </a>
-                  <a :title="_('ProcessID ') + source.pollid" href="javascript:;">
-                    <i class="fa fa-cog"></i>
-                  </a>
-                  <a :title="_('See log')" href="javascript:;" @click="currentLog = 'poll'">
-                    <i class="fa fa-file-text"></i>
-                  </a>
-                </div>
-              </li>
-              <li v-for="(t, i) in source.tasks"
-                   class="k-widget bbn-w-100 bbn-spadded">
+            <bbn-list :source="source.tasks">
+              <div class="k-widget bbn-w-100 bbn-spadded"
+                   slot="item"
+                   slot-scope="t">
                 <div class="bbn-block">
                   <span class="bbn-large"
                      :title="t.description"
@@ -87,17 +70,17 @@
                     <i class="fa fa-file-text"></i>
                   </a>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </bbn-list>
           </bbn-pane>
           <bbn-pane :size="30" class="bbn-middle">
             <div class="bbn-large bbn-c">
-	            <a :href="source.root + 'tabs/list'">Go to full list</a>
+	            <a :href="source.root + 'page/list'">Go to full list</a>
             </div>
           </bbn-pane>
         </bbn-splitter>
       </bbn-pane>
-      <bbn-pane>
+      <bbn-pane size="60%">
         <bbn-code ref="code"
                   :value="currentCode"
                   :readonly="true"

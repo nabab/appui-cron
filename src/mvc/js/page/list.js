@@ -53,36 +53,6 @@
       renderFile(e){
         return '<span class="' + ( e.active ? 'adherent' : 'radie' ) + '">' + e.file + '</span>';
       },
-      renderNext(e){
-        let color,
-            mess = e.state;
-
-        switch ( e.state ){
-          case "progress":
-            color = "blue";
-            break;
-
-          case "hold":
-            color = "green";
-            mess = bbn.fn.fdate(e.next);
-            break;
-
-          case "error":
-            color = "red";
-            break;
-
-          case "progress_error":
-            color = "red";
-            mess = "progress";
-            break;
-
-          default:
-            color = "DarkGray";
-            mess = "unknown";
-            break;
-        }
-        return '<span style="color: ' + color + '">' + mess + '</span>';
-      },
       renderAvgDuration(e){
         let d = parseFloat(e.duration);
         if ( d > 0 ) {
