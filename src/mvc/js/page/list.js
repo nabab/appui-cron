@@ -127,7 +127,7 @@
             );
           }
           else{
-            bbn.fn.alert(bbn._('An error occured...'))
+            appui.alert(bbn._('An error occured...'))
           }
         })
       },
@@ -224,7 +224,7 @@
               )
             }
             else{
-              bbn.fn.alert(data.lng.an_error_occured)
+              appui.alert(data.lng.an_error_occured)
             }
           })
         });
@@ -309,7 +309,7 @@
           },
           destroy: function(options) {
             var action = options.data.active ? 'delete' : 'restore';
-            bbn.fn.confirm(
+            appui.confirm(
               "Êtes-vous sûr vouloir " +
                 (action === 'delete' ? "désactiver" : "réactiver") +
                 " cette tâche automatisée?",
