@@ -6,18 +6,11 @@ if ( !empty($ctrl->arguments) ){
 if ( empty($ctrl->post) ){
   echo $ctrl->combo(_("Tasks' list"), [
     'is_dev' => $ctrl->inc->user->is_dev(),
-    'root' => $ctrl->data['root'],
-    'can_run' => $ctrl->inc->perm->has($ctrl->data['root'].'run'),
-    'lng' => [
-      'edit' => _("Edit"),
-      'deactivate' => _("Deactivate"),
-      'reactivate' => _("Reactivate"),
-      'edit' => _("Edit"),
-      'no_output' => _("No output"),
-      'executed_in' => _("Executed in"),
-      'an_error_occured' => _("An error occurred"),
-      'seconds' => _("sec.")
-    ]
+    'root' => APPUI_CRON_ROOT,
+    'can_run' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'run'),
+    'can_delete' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'actions/task/delete'),
+    'can_delete_error' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'actions/log/delete_error'),
+    'can_delete_all_error' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'actions/log/delete_all_error')
   ]);
 }
 else{

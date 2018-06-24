@@ -14,15 +14,13 @@ if ( isset($model->data['data_path']) ){
   $cronid = false;
   $polltime = false;
   $pollid = false;
-  if ( $has_cron ){
+  if ( $has_cron &&is_file($model->inc->cron->get_pid_path(['type' => 'cron'])) ){
     $tmp = explode('|', file_get_contents($model->inc->cron->get_pid_path(['type' => 'cron'])));
-    $cronid = $tmp[0];
-    $crontime = $tmp[1];
+    [$cronid, $crontime] = $tmp;
   }
-  if ( $has_poll ){
+  if ( $has_poll && is_file($model->inc->cron->get_pid_path(['type' => 'poll'])) ){
     $tmp = explode('|', file_get_contents($model->inc->cron->get_pid_path(['type' => 'poll'])));
-    $pollid = $tmp[0];
-    $polltime = $tmp[1];
+    [$pollid, $polltime] = $tmp;
   }
   return [
     'active' => $has_active,
