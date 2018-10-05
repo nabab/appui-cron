@@ -1,8 +1,7 @@
 <?php
 /** @var $model \bbn\mvc\model */
 $grid = new \bbn\appui\grid($model->db, $model->data, [
-  'table' => 'bbn_cron',
-  'filters' => ['actif' => 1]
+  'table' => 'bbn_cron'
 ]);
 if ( $grid->check() ){
   $d = $grid->get_datatable();

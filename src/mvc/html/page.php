@@ -4,7 +4,7 @@
 	<bbns-tab :title="_('Home')"
            :loaded="false"
            :load="true"
-           icon="fa fa-home"
+           icon="fas fa-home"
            :pinned="true"
            url="home">
   </bbns-tab>
