@@ -1,0 +1,318 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: info@bbn.so\n"
+"last-Translator: BBN Solutions <support@bbn.solutions>\n"
+"Language-Team: FR <FR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2018-10-26 16:53+0200\n"
+"POT-Revision-Date: 2018-10-26 16:53+0200\n"
+"Language: fr\n"
+"X-Domain: appui-cron3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Refresh list"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Go to full list"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "The poller process is running"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "The poller process is not running"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "The CRON process is running"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "The CRON process is not running"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Prev"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Next"
+msgstr "Prochain"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Delete log file"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Delete all log files"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Auto-refresh"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Active"
+msgstr "Actif"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Controller"
+msgstr "Contrôleur"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Prio."
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Priority"
+msgstr "Priorité"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Frequency"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "The time to wait between each execution"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Timeout"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Timeout in seconds"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Date/time of the previous execution"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Date/time planned for the next execution"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Dur."
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Average duration of the execution"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Num"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Total number of executions"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Description"
+msgstr "Description"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Description of the task"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Actions"
+msgstr "Actions"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "delete"
+msgstr "Supprimer"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "deleted"
+msgstr "Supprimé"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Are you sure you want to delete this log file?"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Deleted"
+msgstr "Supprimé"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Are you sure you want to delete all log files of this task?"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Last"
+msgstr "Dernier"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every minute"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 5 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 10 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 15 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 20 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 30 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 45 minutes"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every hour"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 hours"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 4 hours"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 8 hours"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 12 hours"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every day"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 days"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 3 days"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every week"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 weeks"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 3 weeks"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every month"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 month"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 3 month"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 6 month"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every year"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Edit"
+msgstr "Modifier"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Delete task"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Run task"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to delete this task?"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to run this task?"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "No output"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "executed in"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "seconds"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "An error occured..."
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to delete this error log?"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Error"
+msgstr "Erreur"
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to delete all error logs of this task?"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "All logs deleted"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Browse CLI"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/public/page.php
+msgid "Automatized tasks"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/public/page/home.php
+msgid "Home"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-cron/src/mvc/public/page/list.php
+msgid "Tasks' list"
+msgstr ""
