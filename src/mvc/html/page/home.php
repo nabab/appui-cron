@@ -40,7 +40,7 @@
                      'bbn-red': !!source.poll && !source.pollid
                    }]"
                    v-text="_('The application poller process is') + ' ' + (source.poll ? '' : _('not') + ' ') + _('activated')">
-                   :title="!!source.poll && source.pollid ? '<?=_('The poller process is running')?>' : (!!source.poll && !source.pollid ? '<?=_('The poller process is not running')?>' : '')"
+                   :title="!!source.poll && source.pollid ? '<?=\bbn\str::escape_squotes(_('The poller process is running'))?>' : (!!source.poll && !source.pollid ? '<?=\bbn\str::escape_squotes(_('The poller process is not running'))?>' : '')"
             </label>
             <bbn-switch v-model="source.poll"
                         :novalue="false"
@@ -53,7 +53,7 @@
                      'bbn-red': !!source.cron && !source.cronid
                    }]"
                    v-text="_('The application CRON task system ') + ' ' + (source.cron ? '' : _('not') + ' ') + _('activated')"
-                   :title="!!source.cron && source.cronid ? '<?=_('The CRON process is running')?>' : (!!source.cron && !source.cronid ? '<?=_('The CRON process is not running')?>' : '')"
+                   :title="!!source.cron && source.cronid ? '<?=\bbn\str::escape_squotes(_('The CRON process is running'))?>' : (!!source.cron && !source.cronid ? '<?=\bbn\str::escape_squotes(_('The CRON process is not running'))?>' : '')"
             ></label>
             <bbn-switch v-model="source.cron"
                         :novalue="false"
