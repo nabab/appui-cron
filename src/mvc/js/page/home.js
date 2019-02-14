@@ -193,14 +193,14 @@
       tasksItem: {
         props: ['source'],
         template: `
-<div :class="['bbn-w-100', 'bbn-spadded', {'k-state-selected': tab.currentLog === source.id}]">
+<div :class="['bbn-w-100', {'k-state-selected': tab.currentLog === source.id, 'node': true}]">
   <div class="bbn-block">
-    <span class="bbn-large"
+    <span class="bbn-medium"
           :title="source.description"
           v-text="source.file"
     ></span>
   </div>
-  <div class="bbn-block bbn-xl" style="float: right">
+  <div class="bbn-block bbn-medium" style="float: right">
     <i v-if="source.next !== undefined"
        class="far fa-clock bbn-p"
        :title="info"

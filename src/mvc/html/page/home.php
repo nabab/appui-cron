@@ -2,7 +2,7 @@
 <bbn-splitter orientation="horizontal"
               class="appui-cron-main-container"
 >
-  <bbn-pane size="40%">
+  <bbn-pane size="35%">
     <bbn-toolbar>
       <div>
         <bbn-button title="<?=_('Refresh list')?>"
@@ -22,7 +22,7 @@
               :component="$options.components['tasksItem']"
     ></bbn-list>
   </bbn-pane>
-  <bbn-pane size="60%">
+  <bbn-pane>
     <bbn-splitter orientation="vertical" >
       <bbn-pane :size="150">
         <div class="bbn-full-screen bbn-middle">
