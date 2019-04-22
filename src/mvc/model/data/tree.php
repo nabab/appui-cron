@@ -14,7 +14,7 @@ $dirs = array_map(function($a) use($model){
     'path' => str_replace("./", "", str_replace($model->data['dir'], '', $a)),
     'text' => basename($a),
     'num' => \count($fs),
-    'icon' => "fas fa-folder",
+    'icon' => "nf nf-fa-folder",
     'folder' => true
   ];
 }, \bbn\file\dir::get_dirs($model->data['dir']));
@@ -24,7 +24,7 @@ $files = array_map(function($a) use($model){
   return [
     'path' => str_replace($model->data['dir'], '', $a),
     'text' => basename($a, ".php"),
-    'icon' => "fas fa-file-code",
+    'icon' => "nf nf-fa-file_code",
     'folder' => false
   ];
 }, \bbn\file\dir::get_files($model->data['dir']));

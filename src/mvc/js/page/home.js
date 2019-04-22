@@ -1,7 +1,7 @@
 // Javascript Document
 (() => {
   return {
-    mixins: [bbn.vue.basicComponent],
+    //mixins: [bbn.vue.basicComponent],
     data(){
       return {
         interval: 0,
@@ -20,19 +20,22 @@
         return false;
       },
       tasksList(){
-        let tasks = this.source.tasks.slice();
-        tasks.unshift({
-          id: 'cron',
-          description: 'CRON tasks system',
-          file: 'CRON',
-          cls: 'bbn-b'
-        }, {
-          id: 'poll',
-          description: 'POLLER process',
-          file: 'POLLER',
-          cls: 'bbn-b'
-        });
-        return tasks;
+        if ( this.source.tasks ){
+          let tasks = this.source.tasks.slice();
+          tasks.unshift({
+            id: 'cron',
+            description: 'CRON tasks system',
+            file: 'CRON',
+            cls: 'bbn-b'
+          }, {
+            id: 'poll',
+            description: 'POLLER process',
+            file: 'POLLER',
+            cls: 'bbn-b'
+          });
+          return tasks;
+        }
+        return [];
       }
     },
     methods: {
@@ -202,10 +205,10 @@
   </div>
   <div class="bbn-block bbn-medium" style="float: right">
     <i v-if="source.next !== undefined"
-       class="far fa-clock bbn-p"
+       class="nf nf-fa-clock_o bbn-p"
        :title="info"
     ></i>
-    <i class="far fa-file-alt bbn-p"
+    <i class="nf nf-fa-file_text_o bbn-p"
        :title="_('See log')"
        @click="showLog"
     ></i>
@@ -213,7 +216,7 @@
 </div>`,
         data(){
           return {
-            tab: bbn.vue.closest(this, 'bbns-tab').getComponent()
+            tab: bbn.vue.closest(this, 'bbn-container').getComponent()
           }
         },
         computed: {

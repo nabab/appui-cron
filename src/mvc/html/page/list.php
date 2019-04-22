@@ -11,7 +11,7 @@
            :toolbar="[{
              text: _('New task'),
              command: 'insert',
-             icon: 'fas fa-plus'
+             icon: 'nf nf-fa-plus'
            }]"
 >
   <bbns-column field="id"

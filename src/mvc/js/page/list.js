@@ -117,14 +117,14 @@
       renderButtons(e){
         let buttons = [{
           text: this._('Edit'),
-          icon: 'fas fa-edit',
+          icon: 'nf nf-fa-edit',
           notext: true,
           command: 'edit'
         }];
         if ( this.source.can_delete ){
           buttons.push({
             text: this._('Delete task'),
-            icon: 'fas fa-trash',
+            icon: 'nf nf-fa-trash',
             notext: true,
             command: this.remove
           });
@@ -132,7 +132,7 @@
         if ( this.source.can_run ){
           buttons.push({
             text: this._('Run task'),
-            icon: 'fas fa-play',
+            icon: 'nf nf-fa-play',
             notext: true,
             command: this.run
           });
@@ -176,7 +176,7 @@
         template: '<bbn-switch v-model="source.active" @change="activation" :no-icon="false"></bbn-switch>',
         data(){
           return {
-            cp: bbn.vue.closest(this, 'bbns-tab').getComponent()
+            cp: bbn.vue.closest(this, 'bbn-container').getComponent()
           }
         },
         methods: {
@@ -216,7 +216,7 @@
                           text: 'Delete',
                           command: deleteLog,
                           notext: true,
-                          icon: 'fas fa-trash'
+                          icon: 'nf nf-fa-trash'
                         }]"
                         :tcomponent="$options.components['appui-cron-error-delete']"
                         :width="60"
@@ -226,7 +226,7 @@
         </div>`,
         data(){
           return {
-            cp: bbn.vue.closest(this, 'bbns-tab').getComponent()
+            cp: bbn.vue.closest(this, 'bbn-container').getComponent()
           }
         },
         methods: {
@@ -253,7 +253,7 @@
           'appui-cron-error-delete': {
             name: 'appui-cron-error-delete',
             template: `
-<bbn-button icon="fas fa-trash-alt" 
+<bbn-button icon="nf nf-fa-trash_alt" 
             @click="deleteAll" 
             title="` + bbn._('Delete all logs') + `"
             :disabled="!cp.source.can_delete_all_error"
@@ -261,7 +261,7 @@
 ></bbn-button>`,
             data(){
               return {
-                cp: bbn.vue.closest(this, 'bbns-tab').getComponent(),
+                cp: bbn.vue.closest(this, 'bbn-container').getComponent(),
                 cpError: this.$parent.$parent
               }
             },
@@ -324,7 +324,7 @@
             props: ['source'],
             data(){
               return {
-                cp: bbn.vue.closest(this, 'bbns-tab').getComponent()
+                cp: bbn.vue.closest(this, 'bbn-container').getComponent()
               }
             },
             methods: {

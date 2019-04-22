@@ -1,11 +1,11 @@
 <!-- HTML Document -->
 
 <bbn-tabnav :autoload="true">
-	<bbns-tab :title="_('Home')"
+	<bbns-container :title="_('Home')"
            :loaded="false"
            :load="true"
-           icon="fas fa-home"
+           icon="nf nf-fa-home"
            :pinned="true"
            url="home">
-  </bbns-tab>
+  </bbns-container>
 </bbn-tabnav>

@@ -6,14 +6,14 @@
     <bbn-toolbar>
       <div>
         <bbn-button title="<?=_('Refresh list')?>"
-                    icon="fas fa-sync"
+                    icon="nf nf-fa-refresh"
                     @click="updateTasks"
         ></bbn-button>
       </div>
       <div></div>
       <div>
         <bbn-button title="<?=_('Go to full list')?>"
-                    icon="fas fa-th-list"
+                    icon="nf nf-fa-th_list"
                     :url="source.root + 'page/list'"
         ></bbn-button>
       </div>
@@ -23,7 +23,7 @@
     ></bbn-list>
   </bbn-pane>
   <bbn-pane>
-    <bbn-splitter orientation="vertical" >
+    <bbn-splitter orientation="vertical">
       <bbn-pane :size="150">
         <div class="bbn-full-screen bbn-middle">
           <div class="bbn-hpadded bbn-block bbn-grid-fields bbn-c">
@@ -74,11 +74,11 @@
                  style="display: flex"
             >
               <div>
-                <bbn-button icon="fas fa-angle-left"
+                <bbn-button icon="nf nf-fa-angle_left"
                             title="<?=_('Prev')?>"
                             @click="changeFile('prev')"
                 ></bbn-button>
-                <bbn-button icon="fas fa-angle-right"
+                <bbn-button icon="nf nf-fa-angle_right"
                             title="<?=_('Next')?>"
                             @click="changeFile('next')"
                 ></bbn-button>
@@ -87,11 +87,11 @@
                 <span v-text="currentFile"></span>
               </div>
               <div class="bbn-hmargin">
-                <bbn-button icon="fas fa-trash"
+                <bbn-button icon="nf nf-fa-trash"
                             title="<?=_('Delete log file')?>"
                             @click="deleteLog"
                 ></bbn-button>
-                <bbn-button icon="fas fa-trash-alt"
+                <bbn-button icon="nf nf-fa-trash"
                             title="<?=_('Delete all log files')?>"
                             @click="deleteAllLog"
                             style="color: red"
@@ -100,8 +100,8 @@
               <div>
                 <bbn-switch :value="true"
                             :novalue="false"
-                            on-icon="fas fa-sync-alt"
-                            off-icon="fas fa-sync-alt"
+                            on-icon="nf nf-fa-refresh"
+                            off-icon="nf nf-fa-refresh"
                             :no-icon="false"
                             @change="toggleAutoLog"
                             :checked="!!autoLog"
