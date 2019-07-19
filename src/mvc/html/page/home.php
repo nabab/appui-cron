@@ -3,15 +3,15 @@
               class="appui-cron-main-container"
 >
   <bbn-pane size="35%">
-    <bbn-toolbar>
-      <div>
+    <bbn-toolbar size="60px">
+      <div class="bbn-hspadded">
         <bbn-button title="<?=_('Refresh list')?>"
                     icon="nf nf-fa-refresh"
                     @click="updateTasks"
         ></bbn-button>
       </div>
-      <div></div>
-      <div>
+      <div class="bbn-toolbar-separator"></div>
+      <div class="bbn-hspadded">
         <bbn-button title="<?=_('Go to full list')?>"
                     icon="nf nf-fa-th_list"
                     :url="source.root + 'page/list'"
@@ -25,9 +25,9 @@
   <bbn-pane>
     <bbn-splitter orientation="vertical">
       <bbn-pane :size="150">
-        <div class="bbn-full-screen bbn-middle">
+        <div class="bbn-overlay bbn-middle">
           <div class="bbn-hpadded bbn-block bbn-grid-fields bbn-c">
-            <label class="bbn-xl bbn-b bbn-nowrap"
+            <label class="bbn-xl bbn-light bbn-nowrap"
                    v-text="_('Background processes are') + ' ' + (source.active ? '' : _('not') + ' ') + _('activated')">
             </label>
             <bbn-switch v-model="source.active"
@@ -35,7 +35,7 @@
                         :value="true"
                         style="margin-right: 2em">
             </bbn-switch>
-            <label :class="['bbn-xl', 'bbn-b', 'bbn-nowrap', {
+            <label :class="['bbn-xl', 'bbn-light', 'bbn-nowrap', {
                      'bbn-green': !!source.poll && source.pollid,
                      'bbn-red': !!source.poll && !source.pollid
                    }]"
@@ -48,7 +48,7 @@
                         :disabled="!source.active"
                         style="margin-right: 2em">
             </bbn-switch>
-            <label :class="['bbn-xl', 'bbn-b', {
+            <label :class="['bbn-xl', 'bbn-light', {
                      'bbn-green': !!source.cron && source.cronid,
                      'bbn-red': !!source.cron && !source.cronid
                    }]"
@@ -68,7 +68,7 @@
       <bbn-pane>
         <div class="bbn-flex-height">
           <div v-if="currentLog"
-               class="k-widget k-toolbar bbn-w-100"
+               class="bbn-widget k-toolbar bbn-w-100"
           >
             <div class="bbn-flex-width bbn-hpadded bbn-vmiddle bbn-w-100"
                  style="display: flex"

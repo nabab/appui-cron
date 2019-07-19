@@ -314,7 +314,7 @@
         components: {
           'appui-cron-tree': {
             template: `
-<div class="bbn-spadded bbn-full-screen">
+<div class="bbn-spadded bbn-overlay">
   <bbn-tree class=""
             :source="cp.source.root + 'data/tree'"
             @select="nodeSel"

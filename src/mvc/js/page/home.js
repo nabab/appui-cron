@@ -196,7 +196,7 @@
       tasksItem: {
         props: ['source'],
         template: `
-<div :class="['bbn-w-100', {'k-state-selected': tab.currentLog === source.id, 'node': true}]">
+<div :class="['bbn-w-100', {'bbn-state-selected': tab.currentLog === source.id, 'node': true}]">
   <div class="bbn-block">
     <span class="bbn-medium"
           :title="source.description"
