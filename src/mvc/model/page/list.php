@@ -13,5 +13,13 @@ if ( $grid->check() ){
       }
     }
   }
+  $system = new bbn\file\system($model->data_path());
+  $path =  $model->inc->cron->get_path().'error/tasks/';
+  
+  
+  $d['data'] = array_map(function($a)use($system, $path){
+    $a['num'] = $system->get_num_files($path.$a['id']);
+    return $a;
+  }, $d['data']);
   return $d;
 }

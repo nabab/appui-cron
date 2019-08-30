@@ -98,7 +98,7 @@
         return e.file + ' Yoohoo';
       },
       renderFile(e){
-        return '<span class="bbn-' + ( e.active ? 'green' : 'red' ) + '">' + e.file + '</span>';
+        return '<span class="bbn-' + ( e.active ? 'green' : 'red' ) + '">' + e.file + '</span><br><span>' + e.description + '</span>';
       },
       renderAvgDuration(e){
         let d = parseFloat(e.duration);
@@ -115,11 +115,18 @@
         return 0;
       },
       renderButtons(e){
-        let buttons = [{
-          text: this._('Edit'),
-          icon: 'nf nf-fa-edit',
-          notext: true,
-          command: 'edit'
+        let buttons = [
+          {
+            text: this._('Errors list'),
+            icon: 'nf nf-fa-eye',
+            notext: true,
+            command: this.view, 
+            disabled: e.num < 1
+          },{
+            text: this._('Edit'),
+            icon: 'nf nf-fa-edit',
+            notext: true,
+            command: 'edit'
         }];
         if ( this.source.can_delete ){
           buttons.push({
@@ -150,6 +157,15 @@
             });
           });
         }
+      },
+      view(e){
+        this.getPopup().open({
+          title: bbn._('Details'),
+          component: this.$options.components['appui-cron-error'],
+          source: e,
+          height: 700,
+          width: '95%',
+        })
       },
       run(e){
         this.confirm(bbn._('Are you sure you want to run this task?'), () => {
@@ -195,12 +211,11 @@
         name: 'appui-cron-error',
         props: ['source'],
         template: `
-        <div class="bbn-w-100" style="height: 300px">
-          <bbn-table :source="cp.source.root + '/data/error'"
+        <div class="">
+          <bbn-table :source="cp.source.root + 'data/error'"
                      :data="{id: source.id}"
                      :pageable="true"
                      :serverPaging="true"
-                     :limit="10"
                      ref="table"
           >
             <bbns-column field="moment"
@@ -253,7 +268,7 @@
           'appui-cron-error-delete': {
             name: 'appui-cron-error-delete',
             template: `
-<bbn-button icon="nf nf-fa-trash_alt" 
+<bbn-button icon="nf nf-fa-trash" 
             @click="deleteAll" 
             title="` + bbn._('Delete all logs') + `"
             :disabled="!cp.source.can_delete_all_error"

@@ -1,6 +1,5 @@
 <bbn-table :source="source.root + 'page/list'"
            :url="source.root + 'actions/task/insert_update'"
-           :expander="$options.components['appui-cron-error']"
            :sortable="true"
            :pageable="true"
            editable="popup"
@@ -26,7 +25,7 @@
               cls="bbn-c"
   ></bbns-column>
   <bbns-column field="file"
-              :width="150"
+              
               title="<?=_('Controller')?>"
               :render="renderFile"
               :required="true"
@@ -62,6 +61,7 @@
               title="<?=_('Prev')?>"
               ftitle="<?=_('Date/time of the previous execution')?>"
               type="date"
+              format="DD-MM-YYYY HH:mm"
               :editable="false"
               cls="bbn-c"
   ></bbns-column>
@@ -69,18 +69,19 @@
               :width="90"
               title="<?=_('Next')?>"
               ftitle="<?=_('Date/time planned for the next execution')?>"
-              type="datetime"
+              type="date"
+              format="DD-MM-YYYY HH:mm"
               cls="bbn-c"
               :options="{min: currentDate}"
   ></bbns-column>
-  <bbns-column field="duration"
+  <!--bbns-column field="duration"
               :width="60"
               title="<?=_('Dur.')?>"
               ftitle="<?=_('Average duration of the execution')?>"
               :render="renderAvgDuration"
               :editable="false"
               cls="bbn-c"
-  ></bbns-column>
+  ></bbns-column-->
   <bbns-column field="num"
               :width="70"
               type="number"
@@ -89,16 +90,15 @@
               :editable="false"
               cls="bbn-c"
   ></bbns-column>
-  <bbns-column field="description"
+  <!--bbns-column field="description"
               title="<?=_('Description')?>"
               ftitle="<?=_('Description of the task')?>"
               editor="bbn-rte"
-  ></bbns-column>
+  ></bbns-column-->
   <bbns-column v-if="source.is_dev"
               :width="130"
               ftitle="<?=_('Actions')?>"
               :buttons="renderButtons"
-              fixed="right"
               cls="bbn-c"
   ></bbns-column>
   

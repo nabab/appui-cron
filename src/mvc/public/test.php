@@ -10,8 +10,9 @@
 ;
 $o = [];
 $cmd = 'cron/bg';
-$outputfile = BBN_DATA_PATH.'cron/output.txt';
-$pidfile = BBN_DATA_PATH.'cron/pid.txt';
+/*
+$outputfile = $ctrl->plugin_path('appui-cron').'cron/output.txt';
+$pidfile = $ctrl->data_path().'cron/pid.txt';
 \bbn\x::hdump(
   //exec("php -f router.php cron/bg", $o),
   exec(sprintf("php -f router.php %s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile), $o),

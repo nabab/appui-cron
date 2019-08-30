@@ -24,13 +24,13 @@
           let tasks = this.source.tasks.slice();
           tasks.unshift({
             id: 'cron',
-            description: 'CRON tasks system',
-            file: 'CRON',
+            description: bbn._('CRON tasks system'),
+            file: '<span class="bbn-b">' + bbn._('CRON') + '</sp>',
             cls: 'bbn-b'
           }, {
             id: 'poll',
-            description: 'POLLER process',
-            file: 'POLLER',
+            description: bbn._('POLLER process'),
+            file: '<span class="bbn-b">' + bbn._('POLLER') + '</strong>',
             cls: 'bbn-b'
           });
           return tasks;
@@ -200,7 +200,7 @@
   <div class="bbn-block">
     <span class="bbn-medium"
           :title="source.description"
-          v-text="source.file"
+          v-html="source.file"
     ></span>
   </div>
   <div class="bbn-block bbn-medium" style="float: right">

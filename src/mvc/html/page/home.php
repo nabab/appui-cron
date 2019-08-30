@@ -2,25 +2,28 @@
 <bbn-splitter orientation="horizontal"
               class="appui-cron-main-container"
 >
-  <bbn-pane size="35%">
-    <bbn-toolbar size="60px">
-      <div class="bbn-hspadded">
-        <bbn-button title="<?=_('Refresh list')?>"
-                    icon="nf nf-fa-refresh"
-                    @click="updateTasks"
-        ></bbn-button>
+  <bbn-pane size="35%" class="appui-cron-pane-list bbn-bordered">
+    <div  class="bbn-flex-height">
+      <bbn-toolbar class="bbn-spadded">
+          <bbn-button title="<?=_('Refresh list')?>"
+                      icon="nf nf-fa-refresh"
+                      @click="updateTasks"
+                      class="bbn-button-icon-only"
+          ></bbn-button>
+        <div class="bbn-toolbar-separator"></div>
+          <bbn-button title="<?=_('Go to full list')?>"
+                      icon="nf nf-fa-th_list"
+                      :url="source.root + 'page/list'"
+                      class="bbn-button-icon-only"
+          ></bbn-button>
+      </bbn-toolbar>
+      <div class="bbn-flex-fill">
+        <bbn-list :source="tasksList"
+                  :component="$options.components['tasksItem']"
+                  class="bbn-spadded"
+        ></bbn-list>
       </div>
-      <div class="bbn-toolbar-separator"></div>
-      <div class="bbn-hspadded">
-        <bbn-button title="<?=_('Go to full list')?>"
-                    icon="nf nf-fa-th_list"
-                    :url="source.root + 'page/list'"
-        ></bbn-button>
-      </div>
-    </bbn-toolbar>
-    <bbn-list :source="tasksList"
-              :component="$options.components['tasksItem']"
-    ></bbn-list>
+    </div>
   </bbn-pane>
   <bbn-pane>
     <bbn-splitter orientation="vertical">
@@ -33,8 +36,11 @@
             <bbn-switch v-model="source.active"
                         :novalue="false"
                         :value="true"
-                        style="margin-right: 2em">
-            </bbn-switch>
+                        style="margin-right: 2em"
+                        :no-icon="false"
+                        on-icon="nf nf-iec-power_on"
+                        off-icon="nf nf-iec-power_off"
+            ></bbn-switch>
             <label :class="['bbn-xl', 'bbn-light', 'bbn-nowrap', {
                      'bbn-green': !!source.poll && source.pollid,
                      'bbn-red': !!source.poll && !source.pollid
@@ -46,8 +52,11 @@
                         :novalue="false"
                         :value="true"
                         :disabled="!source.active"
-                        style="margin-right: 2em">
-            </bbn-switch>
+                        style="margin-right: 2em"
+                        :no-icon="false"
+                        on-icon="nf nf-iec-power_on"
+                        off-icon="nf nf-iec-power_off"
+            ></bbn-switch>
             <label :class="['bbn-xl', 'bbn-light', {
                      'bbn-green': !!source.cron && source.cronid,
                      'bbn-red': !!source.cron && !source.cronid
@@ -60,15 +69,17 @@
                         :value="true"
                         :disabled="!source.active"
                         style="margin-right: 2em"
-            >
-            </bbn-switch>
+                        :no-icon="false"
+                        on-icon="nf nf-iec-power_on"
+                        off-icon="nf nf-iec-power_off"
+            ></bbn-switch>
           </div>
         </div>
       </bbn-pane>
       <bbn-pane>
         <div class="bbn-flex-height">
           <div v-if="currentLog"
-               class="bbn-widget k-toolbar bbn-w-100"
+               class="bbn-header bbn-w-100 bbn-spadded"
           >
             <div class="bbn-flex-width bbn-hpadded bbn-vmiddle bbn-w-100"
                  style="display: flex"
@@ -77,10 +88,12 @@
                 <bbn-button icon="nf nf-fa-angle_left"
                             title="<?=_('Prev')?>"
                             @click="changeFile('prev')"
+                            class="bbn-button-icon-only"
                 ></bbn-button>
                 <bbn-button icon="nf nf-fa-angle_right"
                             title="<?=_('Next')?>"
                             @click="changeFile('next')"
+                            class="bbn-button-icon-only"
                 ></bbn-button>
               </div>
               <div class="bbn-flex-fill bbn-c">
@@ -90,25 +103,25 @@
                 <bbn-button icon="nf nf-fa-trash"
                             title="<?=_('Delete log file')?>"
                             @click="deleteLog"
+                            class="bbn-button-icon-only"
                 ></bbn-button>
                 <bbn-button icon="nf nf-fa-trash"
                             title="<?=_('Delete all log files')?>"
                             @click="deleteAllLog"
-                            style="color: red"
+                            class="bbn-button-icon-only bbn-red"
                 ></bbn-button>
               </div>
-              <div>
-                <bbn-switch :value="true"
-                            :novalue="false"
-                            on-icon="nf nf-fa-refresh"
-                            off-icon="nf nf-fa-refresh"
-                            :no-icon="false"
-                            @change="toggleAutoLog"
-                            :checked="!!autoLog"
-                            class="appui-cron-autorefresh"
-                            title="<?=_('Auto-refresh')?>"
-                ></bbn-switch>
-              </div>
+              
+              <bbn-switch :value="true"
+                          :novalue="false"
+                          on-icon="nf nf-fa-refresh"
+                          off-icon="nf nf-fa-refresh"
+                          :no-icon="false"
+                          @change="toggleAutoLog"
+                          :checked="!!autoLog"
+                          class="appui-cron-autorefresh"
+                          title="<?=_('Auto-refresh')?>"
+              ></bbn-switch>
             </div>
           </div>
           <bbn-code ref="code"
