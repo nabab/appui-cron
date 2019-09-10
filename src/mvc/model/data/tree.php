@@ -1,9 +1,9 @@
 <?php
 /* @var $model \bbn\mvc\model */
-if ( !\defined('BBN_APP_PATH') ){
+if ( !\is_dir($model->app_path()) ){
   die('You must define BBN_APP_PATH!');
 }
-$model->data['dir'] = BBN_APP_PATH.'mvc/cli/'.(!empty($model->data['path']) ? $model->data['path'].'/' : '');
+$model->data['dir'] = $model->app_path().'mvc/cli/'.(!empty($model->data['path']) ? $model->data['path'].'/' : '');
 $old_path = getcwd();
 $max_history = 50;
 chdir($model->data['dir']);
