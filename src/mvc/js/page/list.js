@@ -149,7 +149,7 @@
       remove(e){
         if ( e.id ){
           this.confirm(bbn._('Are you sure you want to delete this task?'), () => {
-            bbn.fn.post(this.source.root + 'actions/task/delete', {id: e.id}, d => {
+            this.post(this.source.root + 'actions/task/delete', {id: e.id}, d => {
               if ( d.success ){
                 this.$refs.table.updateData();
                 appui.success('Deleted.');
@@ -170,7 +170,7 @@
       run(e){
         this.confirm(bbn._('Are you sure you want to run this task?'), () => {
           e.isRunning = true;
-          bbn.fn.post(this.source.root + 'run', {id: e.id}, (d) => {
+          this.post(this.source.root + 'run', {id: e.id}, (d) => {
             e.isRunning = false;
             if ( d && d.file ){
               this.getTab().popup(
@@ -198,7 +198,7 @@
         methods: {
           activation(){
             let url = this.cp.source.root + 'actions/task/' + (this.source.active ? 'activate' : 'deactivate');
-            bbn.fn.post(url, {id: this.source.id}, (d) => {
+            this.post(url, {id: this.source.id}, (d) => {
               if ( !d.success ){
                 this.$set(this.source, 'active', !this.source.active);
                 this.$forceUpdate();
@@ -248,7 +248,7 @@
           deleteLog(row){
             if ( this.cp.source.can_delete_error && this.source.id && row.filename ){
               this.confirm(bbn._('Are you sure you want to delete this error log?'), () => {
-                bbn.fn.post(this.cp.source.root + 'actions/log/delete_error', {
+                this.post(this.cp.source.root + 'actions/log/delete_error', {
                   id: this.source.id,
                   filename: row.filename
                 }, d => {
@@ -284,7 +284,7 @@
               deleteAll(){
                 if ( this.cp.source.can_delete_all_error && this.cpError.source.id ){
                   this.confirm(bbn._('Are you sure you want to delete all error logs of this task?'), () => {
-                    bbn.fn.post(this.cp.source.root + 'actions/log/delete_all_error', {id: this.cpError.source.id}, d => {
+                    this.post(this.cp.source.root + 'actions/log/delete_all_error', {id: this.cpError.source.id}, d => {
                       if ( d.success ){
                         this.cpError.$refs.table.updateData();
                         appui.success(bbn._('All logs deleted'));

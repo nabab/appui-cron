@@ -40,7 +40,7 @@
     },
     methods: {
       updateFileSystem(file, newVal){
-        bbn.fn.post(this.source.root + 'actions/filesystem', {file: file, value: newVal}, (d) => {
+        this.post(this.source.root + 'actions/filesystem', {file: file, value: newVal}, (d) => {
           //bbn.fn.log(this.getTab());
           if ( !d.success ){
             this.$set(this.source, file, !newVal);
@@ -57,7 +57,7 @@
         this.currentLog = false;
         this.currentCode = '';
 				this.autoLog = false;
-        bbn.fn.post(this.source.root + 'data/tasks', d => {
+        this.post(this.source.root + 'data/tasks', d => {
           if ( d.success && (d.tasks !== undefined) ){
             this.source.tasks = d.tasks;
           }
@@ -70,7 +70,7 @@
         if ( this.currentLog ){
           clearTimeout(this.logTimeout);
 					this.autoLog = true;
-          bbn.fn.post(this.source.root + 'data/log', {id: this.currentLog}, (d) => {
+          this.post(this.source.root + 'data/log', {id: this.currentLog}, (d) => {
             if ( d.success && this.autoLog ){
               this.currentCode = d.log;
               this.currentFile = d.filename;
@@ -98,7 +98,7 @@
       },
       refresh(){
         this.interval = setTimeout(() => {
-          bbn.fn.post(this.source.root + 'data/files', (d) => {
+          this.post(this.source.root + 'data/files', (d) => {
             //bbn.fn.log(d);
             for ( let n in d ){
               if ( d[n] !== this.source[n] ){
@@ -115,7 +115,7 @@
       changeFile(act){
         if ( this.currentLog ){
           this.stopLog();
-          bbn.fn.post(this.source.root + 'data/log', {
+          this.post(this.source.root + 'data/log', {
             id: this.currentLog,
             filename: this.currentFile,
             action: act
@@ -132,7 +132,7 @@
           let id = this.currentLog,
               file = this.currentFile;
           this.confirm(bbn._('Are you sure you want to delete this log file?'), () => {
-            bbn.fn.post(this.source.root + 'actions/log/delete', {
+            this.post(this.source.root + 'actions/log/delete', {
               id: id,
               filename: file
             }, d => {
@@ -146,7 +146,7 @@
       deleteAllLog(){
         if ( this.currentLog ){
           this.confirm(bbn._('Are you sure you want to delete all log files of this task?'), () => {
-            bbn.fn.post(this.source.root + 'actions/log/delete_all', {id: this.currentLog}, d => {
+            this.post(this.source.root + 'actions/log/delete_all', {id: this.currentLog}, d => {
               if ( d.success ){
                 appui.success(bbn._('Deleted'));
               }
