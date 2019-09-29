@@ -17,7 +17,7 @@ $pidfile = $ctrl->data_path().'cron/pid.txt';
   //exec("php -f router.php cron/bg", $o),
   exec(sprintf("php -f router.php %s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile), $o),
 	$o,
-  'say_plugin() : '.$ctrl->say_plugin(),
+  'say_plugin() : '.$ctrl->get_plugin(),
   'plugin_url() : '.$ctrl->plugin_url('appui-cron'),
   'plugin_path() : '.$ctrl->plugin_path('appui-cron'),
   'get_plugin_model() : '.$ctrl->get_plugin_model('buzz', ['var' => 'woo'])
@@ -42,4 +42,4 @@ function isRunning($pid){
 //echo $ctrl->get_plugin_view('buzz', ['var' => 'woo']);
 
 //$t = new \boo\test();
-//$t->say_name();
+//$t->get_name();

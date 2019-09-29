@@ -2,7 +2,7 @@
 /** @var $ctrl \bbn\mvc\controller */
 if ( $ctrl->is_cli() ){
 
-  \bbn\x::dump("We are in the controller ".$ctrl->say_controller());
+  \bbn\x::dump("We are in the controller ".$ctrl->get_controller());
 
   // Looking for the cron class
   if ( $ctrl->db && class_exists ("\\bbn\\appui\\cron") ){
