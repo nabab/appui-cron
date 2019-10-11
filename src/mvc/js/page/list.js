@@ -120,20 +120,20 @@
             text: this._('Errors list'),
             icon: 'nf nf-fa-eye',
             notext: true,
-            command: this.view, 
+            action: this.view, 
             disabled: e.num < 1
           },{
             text: this._('Edit'),
             icon: 'nf nf-fa-edit',
             notext: true,
-            command: 'edit'
+            action: 'edit'
         }];
         if ( this.source.can_delete ){
           buttons.push({
             text: this._('Delete task'),
             icon: 'nf nf-fa-trash',
             notext: true,
-            command: this.remove
+            action: this.remove
           });
         }
         if ( this.source.can_run ){
@@ -141,7 +141,7 @@
             text: this._('Run task'),
             icon: 'nf nf-fa-play',
             notext: true,
-            command: this.run
+            action: this.run
           });
         }
         return buttons;
@@ -165,6 +165,7 @@
           source: e,
           height: 700,
           width: '95%',
+          scrollable: false
         })
       },
       run(e){
@@ -211,7 +212,7 @@
         name: 'appui-cron-error',
         props: ['source'],
         template: `
-        <div class="">
+        <div class="bbn-overlay">
           <bbn-table :source="cp.source.root + 'data/error'"
                      :data="{id: source.id}"
                      :pageable="true"
@@ -229,7 +230,7 @@
             ></bbns-column>
             <bbns-column :buttons="[{
                           text: 'Delete',
-                          command: deleteLog,
+                          action: deleteLog,
                           notext: true,
                           icon: 'nf nf-fa-trash'
                         }]"
@@ -292,7 +293,7 @@
                       else {
                         appui.error(bbn._('Error'));
                       }
-                    });
+          ccccc          });
                   });
                 }
               }
@@ -308,7 +309,7 @@
              maxlength="100"
              class="bbn-flex-fill"
   ></bbn-input>
-  <bbn-button @click="browseCli">{{_('Browse CLI')}}</bbn-button>
+  <bbn-button class="bbn-hsmargin" @click="browseCli">{{_('Browse CLI')}}</bbn-button>
 </div>
         `,
         data(){
@@ -321,8 +322,10 @@
             this.getPopup().open({
               title: bbn._('Browse CLI'),
               width: 350,
+              height: 600,
               component: this.$options.components['appui-cron-tree'],
-              source: this.form.source
+              source: this.form.source, 
+              scrollable: false
             });
           }
         },

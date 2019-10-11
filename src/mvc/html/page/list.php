@@ -9,7 +9,7 @@
            ref="table"
            :toolbar="[{
              text: _('New task'),
-             command: 'insert',
+             action: 'insert',
              icon: 'nf nf-fa-plus'
            }]"
 >
@@ -90,13 +90,14 @@
               :editable="false"
               cls="bbn-c"
   ></bbns-column>
-  <!--bbns-column field="description"
+  <bbns-column field="description"
               title="<?=_('Description')?>"
               ftitle="<?=_('Description of the task')?>"
               editor="bbn-rte"
-  ></bbns-column-->
+              :hidden="true"
+  ></bbns-column>
   <bbns-column v-if="source.is_dev"
-              :width="130"
+              :width="150"
               ftitle="<?=_('Actions')?>"
               :buttons="renderButtons"
               cls="bbn-c"
