@@ -14,7 +14,7 @@ if ( !empty($model->data['id']) ){
   if ( strlen($model->data['id']) === 32 ){
     $cfg['id'] = $model->data['id'];
   }
-  $dir = dirname($model->inc->cron->get_log_path($cfg));
+  $dir = dirname($model->inc->cron->log_path($cfg));
   if ( is_dir($dir) && \bbn\file\dir::delete($dir, false) ){
     $ret['success'] = true;
   }

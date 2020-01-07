@@ -2,7 +2,7 @@
 /*
  * Describe what it does!
  *
- **/
-
-/** @var $this \bbn\mvc\controller */
+ * @var $ctrl \bbn\mvc\controller 
+ *
+ */
 $ctrl->action();

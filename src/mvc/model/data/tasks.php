@@ -5,10 +5,10 @@
  **/
 
 /** @var $this \bbn\mvc\model*/
-$r = ['success' => false];
-if ( isset($model->data['ctrl']) ){
-  $cron = new \bbn\appui\cron($model->data['ctrl']);
+$r = ['success' => false, 'check' => $model->inc->cron->check()];
+
+if ($model->inc->cron->check()) {
   $r['success'] = true;
-  $r['tasks'] = $cron->get_next_rows(100, 3600);
+  $r['tasks'] = $model->inc->cron->get_manager()->get_next_rows(100, 3600);
 }
 return $r;

@@ -9,8 +9,7 @@ if ( isset($model->data['file']) && \bbn\str::check_name($model->data['file']) )
   if ( empty($model->data['value']) ){
     unlink($f);
   }
-  else{
-    file_put_contents($f, (string)date('Y-m-d H:i:s'));
+  else if (file_put_contents($f, (string)date('Y-m-d H:i:s'))) {
     if ( $model->data['file'] === 'poll' ){
       $model->inc->cron->launch_poll();
     }

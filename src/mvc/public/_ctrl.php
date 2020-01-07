@@ -8,5 +8,5 @@ $ctrl->add_data([
   'root' => APPUI_CRON_ROOT,
   'data_path' => $ctrl->plugin_data_path()
 ]);
-$ctrl->add_inc('cron', (new \bbn\appui\cron($ctrl)));
+$ctrl->add_inc('cron', (new \bbn\cron($ctrl->db, $ctrl)));
 return true;

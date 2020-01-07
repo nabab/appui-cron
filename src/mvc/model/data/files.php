@@ -14,15 +14,42 @@ if ( isset($model->data['data_path']) ){
   $cronid = false;
   $polltime = false;
   $pollid = false;
-  if ( $has_cron &&is_file($model->inc->cron->get_pid_path(['type' => 'cron'])) ){
-    $tmp = explode('|', file_get_contents($model->inc->cron->get_pid_path(['type' => 'cron'])));
-    [$cronid, $crontime] = $tmp;
+  if (
+    $has_cron
+    && ($cronfile = $model->inc->cron->get_pid_path(['type' => 'cron']))
+    && is_file($cronfile)
+  ) {
+    [$cronid, $crontime] = explode('|', file_get_contents($cronfile));
+    if (!file_exists('/proc/'.$cronid)) {
+      unlink($cronfile);
+      $crontime = false;
+      $cronid = false;
+    }
   }
-  if ( $has_poll && is_file($model->inc->cron->get_pid_path(['type' => 'poll'])) ){
-    $tmp = explode('|', file_get_contents($model->inc->cron->get_pid_path(['type' => 'poll'])));
-    [$pollid, $polltime] = $tmp;
+  if (
+    $has_poll
+    && ($pollfile = $model->inc->cron->get_pid_path(['type' => 'poll']))
+    && is_file($pollfile)
+  ){
+    [$pollid, $polltime] = explode('|', file_get_contents($pollfile));
+    if (!file_exists('/proc/'.$pollid)) {
+      unlink($pollfile);
+      $polltime = false;
+      $pollid = false;
+    }
+  }
+  $fs = new \bbn\file\system();
+  $fs->cd(dirname($model->inc->cron->get_pid_path(['type' => 'cron'])));
+  $current = [];
+  $files  = $fs->get_files('./', null, true);
+  foreach ($files as $f){
+    if ($tmp = $model->inc->cron->get_manager()->get_cron(substr($f, 1))) {
+      $current[] = $tmp;
+    }
   }
   return [
+    'files' => $files,
+    'current' => $current,
     'active' => $has_active,
     'cron' => $has_cron,
     'poll' => $has_poll,
