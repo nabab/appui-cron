@@ -72,21 +72,41 @@
     <div class="bbn-flex-fill">
       <bbn-splitter orientation="horizontal"
                     class="appui-cron-main-container"
+                    :resizable="true"
+                    :collapsible="true"
       >
         <bbn-pane :size="250" class="appui-cron-pane-list bbn-bordered">
+          <h3 v-text="_('Running tasks')" class="bbn-left-space"></h3>
           <bbn-list :source="tasksList"
+                    :component="$options.components['activeTasksItem']"
+                    @select="select1"
+                    ref="list1"
+                    source-value="id"
+                    uid="file"
+                    ></bbn-list>
+          <h3 v-text="_('Coming tasks')" class="bbn-left-space"></h3>
+          <bbn-list :source="source.tasks"
                     :component="$options.components['tasksItem']"
-                    @select="select"
+                    @select="select2"
+                    ref="list2"
+                    source-value="id"
+                    uid="file"
                     ></bbn-list>
         </bbn-pane>
-        <bbn-pane :size="250" class="bbn-bordered">
-          <bbn-tree v-if="currentTree"
-                    :map="treeMapper"
-                    @select="selectTree"
-                    :source="currentTree"
-                    :min-expand-level="4">
-          </bbn-tree>
-          <h3 class="bbn-c" v-else v-text="_('Select a task')"></h3>
+        <bbn-pane :size="280" class="bbn-bordered">
+          <div class="bbn-flex-height">
+            <div class="bbn-c">
+              <bbn-dropdown :source="source.quicklist" v-model="currentID" :placeholder="_('Pick a task')"></bbn-dropdown>
+            </div>
+            <div class="bbn-flex-fill">
+              <bbn-tree v-if="treeVisible"
+                        :map="treeMapper"
+                        @select="selectTree"
+                        :source="source.root + 'actions/task/history/' + currentID">
+              </bbn-tree>
+              <h3 class="bbn-c" v-else v-text="_('Select a task')"></h3>
+            </div>
+          </div>
         </bbn-pane>
         <bbn-pane>
           <div class="bbn-flex-height">

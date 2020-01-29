@@ -1,5 +1,4 @@
 <?php
-\bbn\x::log("We execute from plugin/mvc/cli/run", 'cron2');
 /**
  * @var \bbn\mvc\controller $ctrl
  */
@@ -9,7 +8,7 @@ if ( isset($ctrl->post['type']) ){
   }
   $cron = new \bbn\cron($ctrl->db, $ctrl);
   $runner = $cron->get_runner($ctrl->post);
-  var_dump("Hello from RUN");
-  \bbn\x::log("Type is ok: ".$ctrl->post['type'], 'cron2');
+  $runner->output(_('Executing from'), __FILE__);
+  $runner->output(_('Starting at'), date('Y-m-d H:i:s'));
   $runner->run();
 }

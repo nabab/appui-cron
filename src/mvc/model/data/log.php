@@ -5,9 +5,18 @@
  **/
 $r = ['success' => false];
 /** @var $this \bbn\mvc\model*/
-if (\bbn\x::has_props($model->data, ['file', 'id'], true) && ($path = $model->inc->cron->get_log_path(['type' => 'cron', 'id' => $model->data['id']], false, true))) {
-  $f = $path.$model->data['file'];
-  if (is_file($f)) {
+if (\bbn\x::has_props($model->data, ['file', 'id'], true)) {
+  if ($model->data['id'] === 'cron') {
+    $cfg = ['type' => 'cron'];
+  }
+  else if ($model->data['id'] === 'poll') {
+    $cfg = ['type' => 'poll'];
+  }
+  else {
+    $cfg = ['type' => 'cron', 'id' => $model->data['id']];
+  }
+  if (($path = $model->inc->cron->get_log_path($cfg, false, true)) && is_file($path.$model->data['file'])) {
+	  $f = $path.$model->data['file'];
     $r['log'] = file_get_contents($f);
     $r['filename'] = basename($f);
     $r['success'] = true;

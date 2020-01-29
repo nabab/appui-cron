@@ -10,6 +10,7 @@
         currentTree: false,
         currentCode: '',
         currentID: false,
+        treeVisible: false,
         logTimeout: 0,
 				autoLog: false,
         isSelected: false,
@@ -26,7 +27,7 @@
       },
       tasksList(){
         if ( this.source.tasks ){
-          let tasks = this.source.tasks.slice();
+          let tasks = [];
           tasks.unshift({
             id: 'cron',
             current: !!this.source.cronid,
@@ -41,6 +42,10 @@
             cls: 'bbn-b' + (this.source.pollid ? ' bbn-red' : '')
           });
           bbn.fn.each(this.source.current, (a) => {
+            let idx = bbn.fn.search(tasks, {id: a.id});
+            if (idx > -1) {
+              tasks.splice(idx, 1);
+            }
             tasks.unshift(bbn.fn.extend({cls: 'bbn-red', current: true}, a));
           });
           return tasks;
@@ -57,14 +62,25 @@
           text: a.name,
           id: a.name,
           type: a.dir ? 'dir' : 'file',
-          hasChildren: !!a.dir
+          numChildren: a.num
         }, a);
       },
+      realSelect(id){
+        this.currentID = id;
+        this.currentLog = id;
+      },
       select(cron){
-        this.post(this.source.root + 'actions/task/history', cron, (d) => {
-          this.currentID = cron.id;
-          this.currentTree = d.tree || false;
-        });
+        if (cron.id) {
+          this,this.realSelect(cron.id);
+        }
+      },
+      select1(cron){
+        this.getRef('list2').unselect();
+        return this.select(cron);
+      },
+      select2(cron){
+        this.getRef('list1').unselect();
+        return this.select(cron);
       },
       updateFileSystem(file, newVal){
         this.post(this.source.root + 'actions/control', {file: file, value: newVal}, (d) => {
@@ -235,6 +251,12 @@
       clearTimeout(this.logTimeout);
     },
     watch: {
+      currentID(){
+        this.treeVisible = false;
+        setTimeout(() => {
+          this.treeVisible = true;
+        }, 100)
+      },
       currentLog(newVal){
         if ( newVal ){
           this.showLog();
@@ -268,18 +290,13 @@
       tasksItem: {
         props: ['source'],
         template: `
-<div :class="['bbn-w-100', 'bbn-hspadded', 'bbn-vxspadded', {'bbn-state-selected': tab.currentLog === source.id, 'node': true}, source.cls || '']">
+<div :class="['bbn-w-100', 'bbn-hspadded', 'bbn-vxspadded', 'node']">
   <div class="bbn-flex-width">
 		<div class="bbn-flex-fill"
 				 style="white-space: nowrap">
-      <i class="nf nf-fa-file_text_o bbn-p"
-         :title="_('See log')"
-         @click.stop="showLog"
-      ></i>
-      <bbn-countdown :title="info" :target="source.next" precision="second" scale="minute" :style="{visibility: source.current ? 'hidden' : 'visible'}">
+      <bbn-countdown :title="info" :target="source.next" precision="second" scale="minute">
         <i v-if="source.next !== undefined"
            class="nf nf-fa-clock_o bbn-p"
-           :title="info"
         ></i>
 			</bbn-countdown> &nbsp; 
       <span class="bbn-medium bbn-iblock"
@@ -317,12 +334,50 @@
             }
             return st;
           }
+        }
+      },
+      activeTasksItem: {
+        props: ['source'],
+        template: `
+<div class="bbn-w-100 bbn-hspadded bbn-vxspadded node">
+  <div class="bbn-flex-width">
+		<div class="bbn-flex-fill"
+				 style="white-space: nowrap">
+      <span class="bbn-medium bbn-iblock"
+            :title="source.description"
+            style="text-overflow: ellipsis"
+            v-html="source.file"
+      ></span>
+    </div>
+  </div>
+</div>`,
+        data(){
+          return {
+            tab: bbn.vue.closest(this, 'bbn-container').getComponent()
+          }
         },
-				methods: {
-					showLog(){
-						this.tab.currentLog = this.source.id;
-						this.tab.autoLog = true;
-					}
+        computed: {
+          info(){
+            let d = bbn.fn.date(this.source.next);
+            let m = new moment(d);
+            let st = bbn._('Next execution') + ': ';
+            if (m.isValid()) {
+              st += m.calendar() + ' (' + m.fromNow() + ')'
+            }
+            else {
+              st += bbn._('Unknown');
+            }
+            st += "\n" + bbn._('Previous execution') + ': ';
+            d = bbn.fn.date(this.source.prev);
+            m = new moment(d);
+            if (m.isValid()) {
+              st += m.calendar() + ' (' + m.fromNow() + ')'
+            }
+            else {
+              st += bbn._('Unknown');
+            }
+            return st;
+          }
 				}
       }
     }
