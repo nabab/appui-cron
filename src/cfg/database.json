@@ -1,0 +1,168 @@
+{
+    "bbn_cron": {
+        "keys": {
+            "PRIMARY": {
+                "columns": [
+                    "id"
+                ],
+                "ref_db": "apst_app",
+                "ref_table": "bbn_history_uids",
+                "ref_column": "bbn_uid",
+                "constraint": "bbn_cron_ibfk_3",
+                "update": "CASCADE",
+                "delete": "CASCADE",
+                "unique": 1
+            },
+            "file": {
+                "columns": [
+                    "file"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 1
+            },
+            "project": {
+                "columns": [
+                    "project"
+                ],
+                "ref_db": "apst_app",
+                "ref_table": "bbn_projects",
+                "ref_column": "id",
+                "constraint": "bbn_cron_ibfk_2",
+                "update": "CASCADE",
+                "delete": "CASCADE",
+                "unique": 0
+            }
+        },
+        "cols": {
+            "id": [
+                "PRIMARY"
+            ],
+            "file": [
+                "file"
+            ],
+            "project": [
+                "project"
+            ]
+        },
+        "fields": {
+            "id": {
+                "position": 1,
+                "type": "binary",
+                "null": 0,
+                "key": "PRI",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 16
+            },
+            "project": {
+                "position": 2,
+                "type": "binary",
+                "null": 1,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 16
+            },
+            "priority": {
+                "position": 3,
+                "type": "tinyint",
+                "null": 0,
+                "key": null,
+                "extra": "",
+                "signed": false,
+                "virtual": false,
+                "generation": "",
+                "default": 5,
+                "maxlength": 1
+            },
+            "file": {
+                "position": 4,
+                "type": "varchar",
+                "null": 0,
+                "key": "UNI",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 100
+            },
+            "prev": {
+                "position": 5,
+                "type": "datetime",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL"
+            },
+            "next": {
+                "position": 6,
+                "type": "datetime",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL"
+            },
+            "description": {
+                "position": 7,
+                "type": "text",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL"
+            },
+            "pid": {
+                "position": 8,
+                "type": "int",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": false,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 6
+            },
+            "cfg": {
+                "position": 9,
+                "type": "json",
+                "null": 0,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": ""
+            },
+            "active": {
+                "position": 10,
+                "type": "tinyint",
+                "null": 0,
+                "key": null,
+                "extra": "",
+                "signed": false,
+                "virtual": false,
+                "generation": "",
+                "default": 0,
+                "maxlength": 1
+            }
+        }
+    }
+}
