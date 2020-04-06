@@ -1,6 +1,8 @@
 <!-- HTML Document -->
 
-<bbn-tabnav :autoload="true">
+<bbn-router :autoload="true"
+            :nav="true"
+>
 	<bbns-container :title="_('Home')"
            :loaded="false"
            :load="true"
@@ -8,4 +10,4 @@
            :pinned="true"
            url="home">
   </bbns-container>
-</bbn-tabnav>
+</bbn-router>

@@ -82,6 +82,14 @@
               :editable="false"
               cls="bbn-c"
   ></bbns-column-->
+  <bbns-column field="pid"
+              :width="70"
+              type="number"
+              title="<?=_('PID')?>"
+              ftitle="<?=_('Process ID')?>"
+              :editable="false"
+              cls="bbn-c"
+  ></bbns-column>
   <bbns-column field="num"
               :width="70"
               type="number"
@@ -98,10 +106,10 @@
               :hidden="true"
   ></bbns-column>
   <bbns-column v-if="source.is_dev"
-              :width="150"
+              :width="170"
               ftitle="<?=_('Actions')?>"
               :buttons="renderButtons"
-              cls="bbn-c"
+              cls="bbn-r"
   ></bbns-column>
   
 </bbn-table>

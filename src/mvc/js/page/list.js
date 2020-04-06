@@ -117,20 +117,28 @@
       renderButtons(e){
         let buttons = [
           {
-            text: this._('Errors list'),
+            text: bbn._('Errors list'),
             icon: 'nf nf-fa-eye',
             notext: true,
-            action: this.view, 
+            action: this.view,
             disabled: e.num < 1
           },{
-            text: this._('Edit'),
+            text: bbn._('Edit'),
             icon: 'nf nf-fa-edit',
             notext: true,
             action: 'edit'
         }];
+        if (e.pid) {
+          buttons.push({
+            text: bbn._('Reset task'),
+            icon: 'nf nf-mdi-refresh',
+            notext: true,
+            action: this.reset
+          });
+        }
         if ( this.source.can_delete ){
           buttons.push({
-            text: this._('Delete task'),
+            text: bbn._('Delete task'),
             icon: 'nf nf-fa-trash',
             notext: true,
             action: this.remove
@@ -138,7 +146,7 @@
         }
         if ( this.source.can_run ){
           buttons.push({
-            text: this._('Run task'),
+            text: bbn._('Run task'),
             icon: 'nf nf-fa-play',
             notext: true,
             action: this.run
@@ -146,13 +154,25 @@
         }
         return buttons;
       },
+      reset(e){
+        if ( e.id ){
+          this.confirm(bbn._('Are you sure you want to reset this task? If the task is running you might crash the app'), () => {
+            this.post(this.source.root + 'actions/task/reset', {id: e.id}, d => {
+              if ( d.success ){
+                this.$refs.table.updateData();
+                appui.success(bbn._('Reset successful.'));
+              }
+            });
+          });
+        }
+      },
       remove(e){
         if ( e.id ){
           this.confirm(bbn._('Are you sure you want to delete this task?'), () => {
             this.post(this.source.root + 'actions/task/delete', {id: e.id}, d => {
               if ( d.success ){
                 this.$refs.table.updateData();
-                appui.success('Deleted.');
+                appui.success(bbn._('Deleted.'));
               }
             });
           });
