@@ -102,8 +102,9 @@
               <bbn-tree v-if="treeVisible"
                         :map="treeMapper"
                         @select="selectTree"
-                        :source="source.root + 'actions/task/history/' + currentID">
-              </bbn-tree>
+                        :source="source.root + 'actions/task/history/' + currentID"
+                        :hybrid="true"
+              ></bbn-tree>
               <h3 class="bbn-c" v-else v-text="_('Select a task')"></h3>
             </div>
           </div>

@@ -14,6 +14,7 @@ $dirs = array_map(function($a) use($model){
     'path' => str_replace("./", "", str_replace($model->data['dir'], '', $a)),
     'text' => basename($a),
     'num' => \count($fs),
+    'numChildren' => \count($fs),
     'icon' => "nf nf-fa-folder",
     'folder' => true
   ];
