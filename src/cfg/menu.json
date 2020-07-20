@@ -1,0 +1,9 @@
+{
+  "text": "CRON",
+  "icon": "nf nf-mdi-timetable",
+  "items": [{
+    "text": "Automated tasks",
+    "icon": "nf nf-mdi-timetable",
+    "link": "page"
+  }]
+}

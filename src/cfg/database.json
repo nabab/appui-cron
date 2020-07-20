@@ -5,7 +5,7 @@
                 "columns": [
                     "id"
                 ],
-                "ref_db": "apst_app",
+                "ref_db": null,
                 "ref_table": "bbn_history_uids",
                 "ref_column": "bbn_uid",
                 "constraint": "bbn_cron_ibfk_3",
@@ -29,7 +29,7 @@
                 "columns": [
                     "project"
                 ],
-                "ref_db": "apst_app",
+                "ref_db": null,
                 "ref_table": "bbn_projects",
                 "ref_column": "id",
                 "constraint": "bbn_cron_ibfk_2",
