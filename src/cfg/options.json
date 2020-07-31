@@ -1,0 +1,8 @@
+[{
+  "text": "CRON",
+  "code": "cron",
+  "id_parent": ["default","dashboard","appui"],
+  "id_alias": ["cron","appui-dashboard","plugins","|*appui-cron*|/","page","permissions","appui"],
+  "value": "{\"limit\":0,\"observe\":false,\"options\":[],\"closable\":true,\"component\":\"appui-cron-widget-cron\",\"buttonsLeft\":[],\"buttonsRight\":[]}",
+  "after": 1
+}]

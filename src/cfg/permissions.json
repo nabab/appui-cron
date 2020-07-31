@@ -1,0 +1,13 @@
+[{
+  "text": "Plugins",
+  "code": "plugins",
+  "id_parent": ["|*appui-cron*|/","page","permissions","appui"],
+  "items": [{
+    "text": "appui-dashboard",
+    "code": "appui-dashboard",
+    "items": [{
+      "text": "CRON",
+      "code": "cron"
+    }]
+  }]
+}]
