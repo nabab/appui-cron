@@ -6,8 +6,10 @@
       return {
         interval: 0,
         currentFile: '',
+        currentFilePath: '',
         currentLog: false,
         currentTree: false,
+        currentTreePath: [],
         currentCode: '',
         currentID: false,
         treeVisible: false,
@@ -59,10 +61,9 @@
       },
       treeMapper(a){
         return bbn.fn.extend({
-          text: a.name,
+          text: a.file ? a.name.substr(0, a.name.lastIndexOf('.')).substr(11).replace(/\-/g, ':') : a.name,
           id: a.name,
-          type: a.dir ? 'dir' : 'file',
-          numChildren: a.num
+          type: a.dir ? 'dir' : 'file'
         }, a);
       },
       realSelect(id){
@@ -71,15 +72,22 @@
       },
       select(cron){
         if (cron.id) {
-          this,this.realSelect(cron.id);
+          this.realSelect(cron.id);
         }
       },
       select1(cron){
         this.getRef('list2').unselect();
+        this.getRef('list3').unselect();
         return this.select(cron);
       },
       select2(cron){
         this.getRef('list1').unselect();
+        this.getRef('list3').unselect();
+        return this.select(cron);
+      },
+      select3(cron){
+        this.getRef('list1').unselect();
+        this.getRef('list2').unselect();
         return this.select(cron);
       },
       updateFileSystem(file, newVal){
@@ -104,6 +112,8 @@
             this.currentLog = this.currentID;
             this.currentCode = d.log;
             this.currentFile = d.filename;
+            this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
+            this.currentTreePath = [d.fpath];
           }
         })
       },
@@ -115,9 +125,11 @@
             if ( d.success && this.autoLog ){
               this.currentCode = d.log;
               this.currentFile = d.filename;
+              this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
+              this.currentTreePath = [d.fpath];
               this.logTimeout = setTimeout(() => {
                 this.showLog();
-              }, this.getTab().selected ? 2000 : 200000)
+              }, appui.getRef('nav').activeRealContainer === this.getTab() ? 2000 : 200000)
             }
           })
         }
@@ -171,11 +183,15 @@
           this.post(this.source.root + 'data/log', {
             id: this.currentLog,
             filename: this.currentFile,
+            fpath: this.currentFilePath,
             action: act
           }, d => {
             if ( d.log !== undefined ){
               this.currentCode = d.log;
               this.currentFile = d.filename;
+              this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
+              this.currentTreePath.splice(0);
+              this.currentTreePath.push(d.fpath);
             }
           });
         }
@@ -335,6 +351,20 @@
             return st;
           }
         }
+      },
+      failedItem: {
+        props: ['source'],
+        template: `
+<div :class="['bbn-w-100', 'bbn-hspadded', 'bbn-vxspadded']">
+  <div class="bbn-flex-width bbn-vmiddle">
+    <i class="nf nf-fa-warning bbn-right-sspace bbn-red"></i>
+    <span class="bbn-medium bbn-flex-fill"
+          :title="source.description"
+          style="text-overflow: ellipsis"
+          v-html="source.file"
+    ></span>
+  </div>
+</div>`
       },
       activeTasksItem: {
         props: ['source'],

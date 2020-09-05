@@ -21,9 +21,9 @@
       <div class="bbn-nowrap bbn-p" @click="toggleActive" @mouseenter="mouseOver" @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
-                     'bbn-color-blue': source.active,
+                     'bbn-bg-blue': source.active,
                      'bbn-on': source.active,
-                     'bbn-color-red': !source.active,
+                     'bbn-bg-red': !source.active,
                      }" style="width: 24px; height: 24px"></div>
         <div class="bbn-b bbn-large bbn-iblock bbn-hxspadded" v-text="source.active ? _('ON') : _('OFF')"></div>
       </div>
@@ -33,10 +33,10 @@
       <div class="bbn-nowrap bbn-p" @click="togglePoll" @mouseenter="mouseOver" @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
-                     'bbn-color-green': source.active && source.poll,
+                     'bbn-bg-green': source.active && source.poll,
                      'bbn-on': source.active,
-                     'bbn-color-orange': !source.active && source.poll,
-                     'bbn-color-red': !source.poll,
+                     'bbn-bg-orange': !source.active && source.poll,
+                     'bbn-bg-red': !source.poll,
                      }"></div>
         <div class="bbn-iblock bbn-hxspadded">
           <span v-text="_('Poller')" ></span><br>
@@ -53,10 +53,10 @@
       <div class="bbn-nowrap bbn-p" @click="toggleCron" @mouseenter="mouseOver" @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
-                     'bbn-color-green': source.active && source.cron,
+                     'bbn-bg-green': source.active && source.cron,
                      'bbn-on': source.active,
-                     'bbn-color-orange': !source.active && source.cron,
-                     'bbn-color-red': !source.cron,
+                     'bbn-bg-orange': !source.active && source.cron,
+                     'bbn-bg-red': !source.cron,
                      }"></div>
         <div class="bbn-iblock bbn-hxspadded">
           <span class="bbn-iblock" v-text="_('Tasks')"></span><br>
@@ -83,7 +83,16 @@
                     ref="list1"
                     source-value="id"
                     uid="file"
-                    ></bbn-list>
+          ></bbn-list>
+          <h3 v-text="_('Failed tasks')" class="bbn-left-space"></h3>
+          <bbn-list :source="source.failed"
+                    :component="$options.components['failedItem']"
+                    ref="list3"
+                    source-value="id"
+                    source-text="file"
+                    uid="file"
+                    @select="select3"
+          ></bbn-list>
           <h3 v-text="_('Coming tasks')" class="bbn-left-space"></h3>
           <bbn-list :source="source.tasks"
                     :component="$options.components['tasksItem']"
@@ -91,19 +100,23 @@
                     ref="list2"
                     source-value="id"
                     uid="file"
-                    ></bbn-list>
+          ></bbn-list>
         </bbn-pane>
         <bbn-pane :size="280" class="bbn-bordered">
           <div class="bbn-flex-height">
             <div class="bbn-c">
-              <bbn-dropdown :source="source.quicklist" v-model="currentID" :placeholder="_('Pick a task')"></bbn-dropdown>
+              <bbn-dropdown :source="source.quicklist"
+                            v-model="currentID"
+                            :placeholder="_('Pick a task')"
+              ></bbn-dropdown>
             </div>
             <div class="bbn-flex-fill">
               <bbn-tree v-if="treeVisible"
                         :map="treeMapper"
                         @select="selectTree"
                         :source="source.root + 'actions/task/history/' + currentID"
-                        :hybrid="true"
+                        uid="fpath"
+                        :path="currentTreePath"
               ></bbn-tree>
               <h3 class="bbn-c" v-else v-text="_('Select a task')"></h3>
             </div>

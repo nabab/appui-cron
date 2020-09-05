@@ -15,16 +15,30 @@ if (\bbn\x::has_props($model->data, ['file', 'id'], true)) {
   else {
     $cfg = ['type' => 'cron', 'id' => $model->data['id']];
   }
-  if (($path = $model->inc->cron->get_log_path($cfg, false, true)) && is_file($path.$model->data['file'])) {
+  if (
+    ($path = $model->inc->cron->get_log_path($cfg, false, true)) &&
+    is_file($path.$model->data['file'])
+  ) {
 	  $f = $path.$model->data['file'];
-    $r['log'] = file_get_contents($f);
-    $r['filename'] = basename($f);
+    $r['success'] = true;
+  }
+}
+else if ( \bbn\x::has_props($model->data, ['filename', 'id', 'action'], true) ){
+  if ( $f = $model->inc->cron->get_log_prev_next($model->data) ){
     $r['success'] = true;
   }
 }
 else if (isset($model->data['id']) && ($f = $model->inc->cron->get_last_log($model->data))) {
+  $r['success'] = true;
+}
+if ( !empty($r['success']) && !empty($f) ){
   $r['log'] = file_get_contents($f);
   $r['filename'] = basename($f);
-  $r['success'] = true;
+  $fpath = [];
+  $apath = explode('/', substr(dirname($f), strpos(dirname($f), $model->data['id']) + strlen($model->data['id']) + 1) . '/' . $r['filename']);
+  foreach ( $apath as $i => $p ){
+    $fpath[] = implode('/', array_slice($apath, 0, $i+1));
+  }
+  $r['fpath'] = $fpath;
 }
 return $r;

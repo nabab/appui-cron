@@ -51,6 +51,7 @@ if ( isset($model->data['data_path']) ){
     'files' => $files,
     'current' => $current,
     'active' => $has_active,
+    'failed' => $model->inc->cron->get_manager()->get_failed(),
     'cron' => $has_cron,
     'poll' => $has_poll,
     'cronid' => $cronid,
