@@ -141,12 +141,7 @@
       },
       toggleAutoLog(){
         if ( this.currentLog ){
-          if ( this.logTimeout ){
-            this.stopLog();
-          }
-          else {
-            this.showLog();
-          }
+          this.logTimeout ? this.stopLog() : this.showLog();
         }
       },
       refresh(){
@@ -253,7 +248,7 @@
         if (e.target.childNodes[0].classList.contains('bbn-hover')) {
           e.target.childNodes[0].classList.remove('bbn-hover');
         }
-      },
+      }
     },
     mounted(){
       this.ready = true;

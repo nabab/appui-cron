@@ -4,7 +4,8 @@ if ( !empty($ctrl->arguments) ){
   $ctrl->post['id_cron'] = $ctrl->arguments[0];
 }
 if ( empty($ctrl->post) ){
-  $ctrl->combo(_("Tasks' list"), [
+  $ctrl->set_icon('nf nf-oct-tasklist')
+       ->combo(_("Tasks' list"), [
     'is_dev' => $ctrl->inc->user->is_dev(),
     'root' => APPUI_CRON_ROOT,
     'can_run' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'run'),

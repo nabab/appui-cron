@@ -117,11 +117,10 @@
       renderButtons(e){
         let buttons = [
           {
-            text: bbn._('Errors list'),
+            text: bbn._('Task page'),
             icon: 'nf nf-fa-eye',
             notext: true,
-            action: this.view,
-            disabled: e.num < 1
+            action: this.view
           },{
             text: bbn._('Edit'),
             icon: 'nf nf-fa-edit',
@@ -179,14 +178,7 @@
         }
       },
       view(e){
-        this.getPopup().open({
-          title: bbn._('Details'),
-          component: this.$options.components['appui-cron-error'],
-          source: e,
-          height: 700,
-          width: '95%',
-          scrollable: false
-        })
+        bbn.fn.link(this.source.root + 'page/task/' + e.id);
       },
       run(e){
         this.confirm(bbn._('Are you sure you want to run this task?'), () => {

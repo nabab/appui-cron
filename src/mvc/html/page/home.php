@@ -7,17 +7,17 @@
                   @click="refreshTasks"
                   class="bbn-button-icon-only"
                   ></bbn-button>
-      
+
       <div class="bbn-toolbar-separator"></div>
-      
+
       <bbn-button title="<?=_('Go to full list')?>"
                   icon="nf nf-fa-th_list"
                   :url="source.root + 'page/list'"
                   class="bbn-button-icon-only"
                   ></bbn-button>
-      
+
       <div class="bbn-toolbar-separator"></div>
-      
+
       <div class="bbn-nowrap bbn-p" @click="toggleActive" @mouseenter="mouseOver" @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
@@ -27,9 +27,9 @@
                      }" style="width: 24px; height: 24px"></div>
         <div class="bbn-b bbn-large bbn-iblock bbn-hxspadded" v-text="source.active ? _('ON') : _('OFF')"></div>
       </div>
-      
+
       <div class="bbn-toolbar-separator"></div>
-      
+
       <div class="bbn-nowrap bbn-p" @click="togglePoll" @mouseenter="mouseOver" @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
@@ -41,7 +41,7 @@
         <div class="bbn-iblock bbn-hxspadded">
           <span v-text="_('Poller')" ></span><br>
           <span v-if="source.pollid" class="bbn-iblock">
-            <span v-text="_('PID')"></span> 
+            <span v-text="_('PID')"></span>
             <span class="bbn-purple bbn-b" v-text="source.pollid"></span>
           </span>
           <span v-else class="bbn-b" v-text="_('No process')"></span>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="bbn-toolbar-separator"></div>
-      
+
       <div class="bbn-nowrap bbn-p" @click="toggleCron" @mouseenter="mouseOver" @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
@@ -61,12 +61,12 @@
         <div class="bbn-iblock bbn-hxspadded">
           <span class="bbn-iblock" v-text="_('Tasks')"></span><br>
           <span v-if="source.cronid" class="bbn-iblock">
-            <span v-text="_('PID')"></span> 
+            <span v-text="_('PID')"></span>
             <span class="bbn-purple bbn-b" v-text="source.cronid"></span>
           </span>
           <span v-else class="bbn-b" v-text="_('No process')"></span>
         </div>
-        
+
       </div>
     </bbn-toolbar>
     <div class="bbn-flex-fill">
@@ -108,6 +108,7 @@
               <bbn-dropdown :source="source.quicklist"
                             v-model="currentID"
                             :placeholder="_('Pick a task')"
+                            @change="id => currentLog = id"
               ></bbn-dropdown>
             </div>
             <div class="bbn-flex-fill">
