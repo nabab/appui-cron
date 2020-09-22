@@ -75,108 +75,72 @@
                     :resizable="true"
                     :collapsible="true"
       >
-        <bbn-pane :size="250" class="appui-cron-pane-list bbn-bordered">
-          <h3 v-text="_('Running tasks')" class="bbn-left-space"></h3>
-          <bbn-list :source="tasksList"
-                    :component="$options.components['activeTasksItem']"
-                    @select="select1"
-                    ref="list1"
-                    source-value="id"
-                    uid="file"
-          ></bbn-list>
-          <h3 v-text="_('Failed tasks')" class="bbn-left-space"></h3>
-          <bbn-list :source="source.failed"
-                    :component="$options.components['failedItem']"
-                    ref="list3"
-                    source-value="id"
-                    source-text="file"
-                    uid="file"
-                    @select="select3"
-          ></bbn-list>
-          <h3 v-text="_('Coming tasks')" class="bbn-left-space"></h3>
-          <bbn-list :source="source.tasks"
-                    :component="$options.components['tasksItem']"
-                    @select="select2"
-                    ref="list2"
-                    source-value="id"
-                    uid="file"
-          ></bbn-list>
-        </bbn-pane>
-        <bbn-pane :size="280" class="bbn-bordered">
-          <div class="bbn-flex-height">
-            <div class="bbn-c">
+        <bbn-pane :size="250"
+                  class="appui-cron-pane-list"
+                  :scrollable="true"
+        >
+          <div class="bbn-w-100 bbn-bottom-space">
+            <div v-text="_('Current task')"
+                 class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-top bbn-no-border-right"
+            ></div>
+            <div class="bbn-w-100 bbn-c bbn-spadded">
               <bbn-dropdown :source="source.quicklist"
-                            v-model="currentID"
+                            v-model="currentTask"
                             :placeholder="_('Pick a task')"
-                            @change="id => currentLog = id"
+                            @change="selectByDD"
+                            class="bbn-w-100"
               ></bbn-dropdown>
             </div>
-            <div class="bbn-flex-fill">
-              <bbn-tree v-if="treeVisible"
-                        :map="treeMapper"
-                        @select="selectTree"
-                        :source="source.root + 'actions/task/history/' + currentID"
-                        uid="fpath"
-                        :path="currentTreePath"
-              ></bbn-tree>
-              <h3 class="bbn-c" v-else v-text="_('Select a task')"></h3>
-            </div>
+          </div>
+          <div class="bbn-w-100">
+            <div v-text="_('Running tasks')"
+                 class="bbn-b bbn-c bbn-header bbn-large bbn-no-border-right"
+            ></div>
+            <bbn-list :source="tasksList"
+                      :component="$options.components['activeTasksItem']"
+                      @select="select1"
+                      ref="list1"
+                      source-value="id"
+                      uid="file"
+                      class="bbn-vmargin"
+            ></bbn-list>
+          </div>
+          <div class="bbn-w-100">
+            <div v-text="_('Failed tasks')"
+                 class="bbn-b bbn-large bbn-c bbn-header bbn-no-border-right"
+            ></div>
+            <bbn-list :source="source.failed"
+                      :component="$options.components['failedItem']"
+                      ref="list3"
+                      source-value="id"
+                      source-text="file"
+                      uid="file"
+                      @select="select3"
+                      class="bbn-vmargin"
+            ></bbn-list>
+          </div>
+          <div class="bbn-w-100">
+            <div v-text="_('Coming tasks')"
+                 class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-right"
+            ></div>
+            <bbn-list :source="source.tasks"
+                      :component="$options.components['tasksItem']"
+                      @select="select2"
+                      ref="list2"
+                      source-value="id"
+                      uid="file"
+                      class="bbn-vmargin"
+            ></bbn-list>
           </div>
         </bbn-pane>
         <bbn-pane>
-          <div class="bbn-flex-height">
-            <div v-if="currentLog"
-                 class="bbn-header bbn-w-100 bbn-spadded"
-                 >
-              <div class="bbn-flex-width bbn-hpadded bbn-vmiddle bbn-w-100"
-                   style="display: flex"
-                   >
-                <div>
-                  <bbn-button icon="nf nf-fa-angle_left"
-                              title="<?=_('Prev')?>"
-                              @click="changeFile('prev')"
-                              class="bbn-button-icon-only"
-                              ></bbn-button>
-                  <bbn-button icon="nf nf-fa-angle_right"
-                              title="<?=_('Next')?>"
-                              @click="changeFile('next')"
-                              class="bbn-button-icon-only"
-                              ></bbn-button>
-                </div>
-                <div class="bbn-flex-fill bbn-c">
-                  <span v-text="currentFile"></span>
-                </div>
-                <div class="bbn-hmargin">
-                  <bbn-button icon="nf nf-fa-trash"
-                              title="<?=_('Delete log file')?>"
-                              @click="deleteLog"
-                              class="bbn-button-icon-only"
-                              ></bbn-button>
-                  <bbn-button icon="nf nf-fa-trash"
-                              title="<?=_('Delete all log files')?>"
-                              @click="deleteAllLog"
-                              class="bbn-button-icon-only bbn-red"
-                              ></bbn-button>
-                </div>
-
-                <bbn-switch :value="true"
-                            :novalue="false"
-                            on-icon="nf nf-fa-refresh"
-                            off-icon="nf nf-fa-refresh"
-                            :no-icon="false"
-                            @change="toggleAutoLog"
-                            :checked="!!autoLog"
-                            class="appui-cron-autorefresh"
-                            title="<?=_('Auto-refresh')?>"
-                            ></bbn-switch>
-              </div>
-            </div>
-            <bbn-code ref="code"
-                      :value="currentCode"
-                      :readonly="true"
-                      mode="clike"
-                      class="bbn-flex-fill"
-                      ></bbn-code>
+          <appui-cron-task v-if="currentTask && showTask"
+                           :source="taskSource"
+          ></appui-cron-task>
+          <div v-else
+               class="bbn-overlay bbn-middle"
+          >
+            <span class="bbn-xl bbn-b"><i class="nf nf-fa-arrow_left bbn-right-space"></i><?=_('Select a task')?></span>
           </div>
         </bbn-pane>
       </bbn-splitter>

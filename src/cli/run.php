@@ -8,7 +8,7 @@ if ( isset($ctrl->post['type']) ){
   }
   $cron = new \bbn\cron($ctrl->db, $ctrl);
   $runner = $cron->get_runner($ctrl->post);
-  $runner->output(_('Executing from'), __FILE__);
-  $runner->output(_('Starting at'), date('Y-m-d H:i:s'));
+  //$runner->output(_('Executing from'), __FILE__);
+  //$runner->output(_('Starting at'), date('Y-m-d H:i:s'));
   $runner->run();
 }

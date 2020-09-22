@@ -1,21 +1,12 @@
 // Javascript Document
 (() => {
   return {
-    //mixins: [bbn.vue.basicComponent],
     data(){
       return {
         interval: 0,
-        currentFile: '',
-        currentFilePath: '',
-        currentLog: false,
-        currentTree: false,
-        currentTreePath: [],
-        currentCode: '',
-        currentID: false,
-        treeVisible: false,
-        logTimeout: 0,
-				autoLog: false,
-        isSelected: false,
+        showTask: false,
+        currentTask: false,
+        taskSource: {},
         ready: false,
         taskInterval: 0
       }
@@ -56,39 +47,38 @@
       }
     },
     methods: {
-      selectTree(node){
-        this.showFromPath(node.getFullPath('/', 'name'));
+      selectByDD(id){
+        this.getRef('list1').unselect();
+        this.getRef('list2').unselect();
+        this.getRef('list3').unselect();
+        this.select(id);
       },
-      treeMapper(a){
-        return bbn.fn.extend({
-          text: a.file ? a.name.substr(0, a.name.lastIndexOf('.')).substr(11).replace(/\-/g, ':') : a.name,
-          id: a.name,
-          type: a.dir ? 'dir' : 'file'
-        }, a);
-      },
-      realSelect(id){
-        this.currentID = id;
-        this.currentLog = id;
-      },
-      select(cron){
-        if (cron.id) {
-          this.realSelect(cron.id);
+      select(id){
+        if (id) {
+          this.showTask = false;
+          this.post(this.source.root + 'data/task/info', {id: id}, d => {
+            if ( d.success ){
+              this.taskSource = d.task;
+              this.currentTask = id
+              this.showTask = true;
+            }
+          });
         }
       },
       select1(cron){
         this.getRef('list2').unselect();
         this.getRef('list3').unselect();
-        return this.select(cron);
+        return this.select(cron.id);
       },
       select2(cron){
         this.getRef('list1').unselect();
         this.getRef('list3').unselect();
-        return this.select(cron);
+        return this.select(cron.id);
       },
       select3(cron){
         this.getRef('list1').unselect();
         this.getRef('list2').unselect();
-        return this.select(cron);
+        return this.select(cron.id);
       },
       updateFileSystem(file, newVal){
         this.post(this.source.root + 'actions/control', {file: file, value: newVal}, (d) => {
@@ -104,45 +94,6 @@
       },
       fdate(d){
         return bbn.fn.fdate(d);
-      },
-      showFromPath(path){
-        clearTimeout(this.logTimeout);
-        this.post(this.source.root + 'data/log', {file: path, id: this.currentID}, (d) => {
-          if ( d.success ){
-            this.currentLog = this.currentID;
-            this.currentCode = d.log;
-            this.currentFile = d.filename;
-            this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
-            this.currentTreePath = [d.fpath];
-          }
-        })
-      },
-      showLog(){
-        if ( this.currentLog ){
-          clearTimeout(this.logTimeout);
-					this.autoLog = true;
-          this.post(this.source.root + 'data/log', {id: this.currentLog}, (d) => {
-            if ( d.success && this.autoLog ){
-              this.currentCode = d.log;
-              this.currentFile = d.filename;
-              this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
-              this.currentTreePath = [d.fpath];
-              this.logTimeout = setTimeout(() => {
-                this.showLog();
-              }, appui.getRef('nav').activeRealContainer === this.getTab() ? 2000 : 200000)
-            }
-          })
-        }
-      },
-      stopLog(){
-        clearTimeout(this.logTimeout);
-        this.logTimeout = false;
-				this.autoLog = false;
-      },
-      toggleAutoLog(){
-        if ( this.currentLog ){
-          this.logTimeout ? this.stopLog() : this.showLog();
-        }
       },
       refresh(){
         clearTimeout(this.interval);
@@ -171,52 +122,6 @@
             }, 30000);
           }
         });
-      },
-      changeFile(act){
-        if ( this.currentLog ){
-          this.stopLog();
-          this.post(this.source.root + 'data/log', {
-            id: this.currentLog,
-            filename: this.currentFile,
-            fpath: this.currentFilePath,
-            action: act
-          }, d => {
-            if ( d.log !== undefined ){
-              this.currentCode = d.log;
-              this.currentFile = d.filename;
-              this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
-              this.currentTreePath.splice(0);
-              this.currentTreePath.push(d.fpath);
-            }
-          });
-        }
-      },
-      deleteLog(){
-        if ( this.currentLog && this.currentFile ){
-          let id = this.currentLog,
-              file = this.currentFile;
-          this.confirm(bbn._('Are you sure you want to delete this log file?'), () => {
-            this.post(this.source.root + 'actions/log/delete', {
-              id: id,
-              filename: file
-            }, d => {
-              if ( d.success ){
-                appui.success(bbn._('Deleted'));
-              }
-            });
-          });
-        }
-      },
-      deleteAllLog(){
-        if ( this.currentLog ){
-          this.confirm(bbn._('Are you sure you want to delete all log files of this task?'), () => {
-            this.post(this.source.root + 'actions/log/delete_all', {id: this.currentLog}, d => {
-              if ( d.success ){
-                appui.success(bbn._('Deleted'));
-              }
-            });
-          });
-        }
       },
       toggleActive(){
         this.confirm(bbn._('Are you sure you want to') + ' ' + 
@@ -259,31 +164,8 @@
       this.ready = false;
       clearTimeout(this.interval);
       clearTimeout(this.taskInterval);
-      clearTimeout(this.logTimeout);
     },
     watch: {
-      currentID(){
-        this.treeVisible = false;
-        setTimeout(() => {
-          this.treeVisible = true;
-        }, 100)
-      },
-      currentLog(newVal){
-        if ( newVal ){
-          this.showLog();
-        }
-        else{
-          this.currentCode = '';
-        }
-      },
-      currentCode(){
-        this.$nextTick(() => {
-          let cm = this.getRef('code').widget;
-          cm.focus();
-          // Set the cursor at the end of existing content
-          cm.setCursor(cm.lineCount(), 0);
-        })
-      },
       'source.active': function(newVal, oldVal){
         this.updateFileSystem('active', newVal)
       },

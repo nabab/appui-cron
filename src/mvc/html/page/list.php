@@ -3,6 +3,7 @@
            :sortable="true"
            :pageable="true"
            editable="popup"
+           editor="appui-cron-form-task"
            :map="addRunning"
            :trClass="(data) => {if ( data.isRunning ){ return 'bbn-bg-red';}}"
            uid="id"
@@ -25,11 +26,9 @@
               cls="bbn-c"
   ></bbns-column>
   <bbns-column field="file"
-              
               title="<?=_('Controller')?>"
               :render="renderFile"
               :required="true"
-              :editor="$options.components['appui-cron-controller']"
   ></bbns-column>
   <bbns-column field="priority"
               :width="50"
@@ -38,7 +37,6 @@
               type="number"
               :required="true"
               :default="5"
-              :options="{min: 1, max: 5}"
               cls="bbn-c"
   ></bbns-column>
   <bbns-column field="frequency"
@@ -54,14 +52,12 @@
               ftitle="<?=_('Timeout in seconds')?>"
               :required="true"
               type="number"
-              :options="{min: 0, max: 86400}"
   ></bbns-column>
   <bbns-column field="prev"
               :width="90"
               title="<?=_('Prev')?>"
               ftitle="<?=_('Date/time of the previous execution')?>"
               type="datetime"
-              format="DD-MM-YYYY HH:mm"
               :editable="false"
               cls="bbn-c"
   ></bbns-column>
@@ -70,9 +66,7 @@
               title="<?=_('Next')?>"
               ftitle="<?=_('Date/time planned for the next execution')?>"
               type="datetime"
-              format="DD-MM-YYYY HH:mm"
               cls="bbn-c"
-              :options="{min: currentDate}"
   ></bbns-column>
   <!--bbns-column field="duration"
               :width="60"
@@ -101,8 +95,6 @@
   <bbns-column field="description"
               title="<?=_('Description')?>"
               ftitle="<?=_('Description of the task')?>"
-              editor="bbn-rte"
-              :options="{height: 450}"
               :hidden="true"
   ></bbns-column>
   <bbns-column v-if="source.is_dev"
@@ -111,5 +103,5 @@
               :buttons="renderButtons"
               cls="bbn-r"
   ></bbns-column>
-  
+
 </bbn-table>

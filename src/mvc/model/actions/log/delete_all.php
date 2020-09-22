@@ -9,9 +9,9 @@
 $ret = ['success' => false];
 if ( !empty($model->data['id']) ){
   $cfg = [
-    'type' => strlen($model->data['id']) === 32 ? 'cron' : $model->data['id']
+    'type' => \bbn\str::is_uid($model->data['id']) ? 'cron' : $model->data['id']
   ];
-  if ( strlen($model->data['id']) === 32 ){
+  if ( \bbn\str::is_uid($model->data['id']) ){
     $cfg['id'] = $model->data['id'];
   }
   $dir = dirname($model->inc->cron->log_path($cfg));

@@ -1,5 +1,5 @@
-<div class="bbn-padded">
-  <div class="bbn-w-100">
+<div class="bbn-w-100 bbn-padded">
+  <div class="bbn-w-100 bbn-rel">
     <bbn-table :source="source.cron ? source.cron.data : []"
               :scrollable="false"
     >

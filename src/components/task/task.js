@@ -1,18 +1,20 @@
 (() => {
   return {
     data(){
+      let today = moment().format('YYYY-MM-DD');
       return {
-        currentFile: '',
-        currentFilePath: '',
+        today: today,
+        currentDay: today,
         currentLog: false,
-        currentTree: false,
-        currentTreePath: [],
-        currentCode: '',
-        currentID: false,
+        currentLogIdx: null,
+        currentContent: false,
+        currentOutput: '',
+        currentID: this.source.id,
         root: appui.plugins['appui-cron'] + '/',
         logTimeout: 0,
-        autoLog: false,
-        treeVisible: false,
+        refreshTimeout: 0,
+        autoProcess: false,
+        liveOutput: false,
         frequencies: [{
           value: 'i1',
           text: bbn._('Every minute')
@@ -85,41 +87,83 @@
         }, {
           value: 'y1',
           text: bbn._('Every year')
-        }]
+        }],
+        listFilters: [{
+          value: 'content',
+          text: bbn._('With content')
+        }, {
+          value: 'error',
+          text: bbn._('With error')
+        }],
+        currentListFilter: null
       }
     },
     computed: {
-      currentFrequency(){
-        return this.source && this.source.cfg && this.source.cfg.frequency ? (bbn.fn.getField(this.frequencies, 'text', {value: this.source.cfg.frequency}) || '') : ''
+      currentObj(){
+        if ( bbn.fn.isNumber(this.currentLogIdx) ){
+          let list = this.getRef('list'),
+              item = list ? list.filteredData[this.currentLogIdx] : false;
+          if ( item && item.data ){
+            let data = bbn.fn.extend(true, {}, item.data);
+            data.startFormatted = moment(data.start).format('DD/MM/YYYY HH:mm:ss');
+            data.endFormatted = data.duration === undefined ? '' : moment(data.end).format('DD/MM/YYYY HH:mm:ss');
+            return data;
+          }
+        }
+        return {}
+      },
+      currentTaskObj(){
+        if ( this.source ){
+          let data = bbn.fn.extend(true, {}, this.source);
+          if ( data.next && moment(data.next).isValid() ){
+            data.nextFormatted = moment(data.next).format('DD/MM/YYYY HH:mm:ss');
+          }
+          if ( data.prev && moment(data.prev).isValid() ){
+            data.prevFormatted = moment(data.prev).format('DD/MM/YYYY HH:mm:ss');
+          }
+          data.frequencyFormatted = data.frequency ? bbn.fn.getField(this.frequencies, 'text', {value: data.frequency}) : '';
+          data.failed = data.pid && moment(data.prev).add(data.timeout, 's').isBefore();
+          return data;
+        }
+        return {}
+      },
+      prevButtonDisabled(){
+        let list = this.getRef('list');
+        return bbn.fn.isNull(this.currentLogIdx) ||
+          !list ||
+          !list.filteredData.length ||
+          (this.currentLogIdx === list.filteredData.length - 1)
+      }
+      ,
+      nextButtonDisabled(){
+        let list = this.getRef('list');
+        return bbn.fn.isNull(this.currentLogIdx) || !list || !list.filteredData.length;
       }
     },
     methods: {
-      changeFile(act){
-        if ( this.currentLog ){
-          this.stopLog();
-          this.post(this.root + 'data/log', {
-            id: this.currentLog,
-            filename: this.currentFile,
-            fpath: this.currentFilePath,
-            action: act
-          }, d => {
-            if ( d.log !== undefined ){
-              this.currentCode = d.log;
-              this.currentFile = d.filename;
-              this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
-              this.currentTreePath.splice(0);
-              this.currentTreePath.push(d.fpath);
-            }
-          });
+      _changeLog(idx){
+        if ( !bbn.fn.isNull(this.currentLogIdx) ){
+          let list = this.getRef('list');
+          this.stopLive();
+          if ( list.filteredData[idx] ){
+            list.select(idx);
+          }
+          else if ( idx < 0 ){
+            list.$once('dataloaded', () => {
+              list.unselect();
+              list.select(0);
+            });
+            list.updateData();
+          }
         }
       },
       showLog(){
         if ( this.currentLog ){
           clearTimeout(this.logTimeout);
-					this.autoLog = true;
+					this.liveOutput = true;
           this.post(this.root + 'data/log', {id: this.currentLog}, (d) => {
-            if ( d.success && this.autoLog ){
-              this.currentCode = d.log;
+            if ( d.success && this.liveOutput ){
+              this.currentOutput = d.log;
               this.currentFile = d.filename;
               this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
               this.currentTreePath = [d.fpath];
@@ -130,95 +174,234 @@
           })
         }
       },
-      stopLog(){
+      startLive(){
+        return;
+        if ( this.currentID ){
+          clearTimeout(this.logTimeout);
+					this.liveOutput = true;
+          this.post(this.root + 'data/log', {id: this.currentID}, d => {
+            if ( d.success && this.liveOutput ){
+              this.currentLog = d.start;
+              this.currentOutput = d.log;
+              this.currentContent = d.content;
+              this.logTimeout = setTimeout(() => {
+                this.startLive();
+              }, appui.getRef('nav').activeRealContainer === this.closest('bbn-container') ? 2000 : 200000)
+            }
+          })
+        }
+        else {
+          this.stopLive();
+        }
+      },
+      stopLive(){
         clearTimeout(this.logTimeout);
         this.logTimeout = false;
-				this.autoLog = false;
-      },
-      deleteLog(){
-        if ( this.currentLog && this.currentFile ){
-          let id = this.currentLog,
-              file = this.currentFile;
-          this.confirm(bbn._('Are you sure you want to delete this log file?'), () => {
-            this.post(this.root + 'actions/log/delete', {
-              id: id,
-              filename: file
-            }, d => {
-              if ( d.success ){
-                appui.success(bbn._('Deleted'));
-              }
-            });
-          });
-        }
+				this.liveOutput = false;
       },
       deleteAllLog(){
         if ( this.currentLog ){
           this.confirm(bbn._('Are you sure you want to delete all log files of this task?'), () => {
-            this.post(this.root + 'actions/log/delete_all', {id: this.currentLog}, d => {
+            this.post(this.root + 'actions/log/delete_all', {id: this.currentID}, d => {
               if ( d.success ){
                 appui.success(bbn._('Deleted'));
+                this.currentDay = '';
+                this.reset();
+                this.getRef('calendar').reload();
               }
             });
           });
         }
       },
-      toggleAutoLog(){
-        if ( this.currentLog ){
-          this.logTimeout ? this.stopLog() : this.showLog();
+      toggleLive(){
+        return;
+        if ( this.currentID ){
+          this.logTimeout ? this.stopLive() : this.startLive();
+        }
+        else if ( this.logTimeout ){
+          this.stopLive();
         }
       },
-      selectTree(node){
-        this.showFromPath(node.getFullPath('/', 'name'));
-      },
-      treeMapper(a){
-        return bbn.fn.extend({
-          text: a.file ? a.name.substr(0, a.name.lastIndexOf('.')).substr(11).replace(/\-/g, ':') : a.name,
-          id: a.name,
-          type: a.dir ? 'dir' : 'file'
-        }, a);
-      },
-      showFromPath(path){
+      selectLog(row, idx){
         clearTimeout(this.logTimeout);
-        this.post(this.root + 'data/log', {file: path, id: this.currentID}, (d) => {
-          if ( d.success ){
-            this.currentLog = this.currentID;
-            this.currentCode = d.log;
-            this.currentFile = d.filename;
-            this.currentFilePath = d.fpath[d.fpath.length-2] + '/';
-            this.currentTreePath = [d.fpath];
+        this.liveOutput = false;
+        this.currentLog = row.start;
+        this.currentLogIdx = idx;
+        this.currentContent = row.content;
+      },
+      listMounted(){
+        let list = this.getRef('list');
+        list.$once('dataloaded', () => {
+          this.$nextTick(() => {
+            list.select(0);
+            if ( list.filteredData.length ){
+              list.select(0);
+            }
+          })
+        });
+        list.updateData();
+      },
+      reset(){
+        let list = this.getRef('list');
+        if ( list.selected.length ){
+          list.unselect();
+        }
+        this.currentListFilter = null;
+        this.currentLog = false;
+        this.currentLogIdx = null;
+        this.currentContent = false;
+        this.currentOutput = false;
+      },
+      nextLog(){
+        if ( !bbn.fn.isNull(this.currentLogIdx) ){
+          this._changeLog(this.currentLogIdx - 1)
+        }
+      },
+      prevLog(){
+        if ( !bbn.fn.isNull(this.currentLogIdx) ){
+          this._changeLog(this.currentLogIdx + 1)
+        }
+      },
+      refresh(){
+        this.post(this.root + 'data/task/info', {id: this.currentID}, d => {
+          if ( d.success && d.task ){
+            bbn.fn.iterate(d.task, (v, i) => {
+              this.$set(this.source, i, v);
+            });
           }
         })
+      },
+      edit(){
+        this.getPopup().open({
+          title: bbn._('Edit'),
+          width: 700,
+          component: 'appui-cron-form-task',
+          source: {
+            row: this.source
+          }
+        });
+      },
+      onListDataReceived(d){
+        if ( d.task ){
+          clearTimeout(this.refreshTimeout);
+          if (
+            (this.currentDay === moment().format('YYYY-MM-DD')) &&
+            d.task.next &&
+            moment(d.task.next).isValid() &&
+            moment(d.task.next).isAfter()
+          ){
+            this.refreshTimeout = setTimeout(() => {
+              this.getRef('list').updateData();
+              this.refresh();
+            }, moment(d.task.next).diff() + 10000)
+          }
+        }
+      },
+      onListDataloaded(){
+        this.$nextTick(() => {
+          let list = this.getRef('list');
+          if ( this.autoProcess ){
+            list.select();
+            list.select(0);
+          }
+          else {
+            let idx = bbn.fn.search(list.filteredData, {'data.start': this.currentLog});
+            this.currentLogIdx = bbn.fn.isNumber(idx) ? idx : 0;
+          }
+        })
+      },
+      toggleAutoProcess(){
+        this.autoProcess = !this.autoProcess;
+      },
+      resetTask(){
+        if ( this.currentID ){
+          this.confirm(bbn._('Are you sure you want to reset this task? If the task is running you might crash the app'), () => {
+            this.post(this.root + 'actions/task/reset', {id: this.currentID}, d => {
+              if ( d.success ){
+                this.refresh();
+                appui.success(bbn._('Reset successful.'));
+              }
+            });
+          });
+        }
+      },
+      runTask(){
+
+      },
+      stopTask(){
+
       }
     },
-    mounted(){
-      this.currentID = this.source.id;
-      this.currentLog = this.source.id;
+    beforeDestroy(){
+      clearTimeout(this.logTimeout);
+      clearTimeout(this.refreshTimeout);
     },
     watch: {
       currentID(){
-        this.treeVisible = false;
-        setTimeout(() => {
-          this.treeVisible = true;
-        }, 100)
+        this.currentDay = this.today;
       },
-      currentLog(newVal){
+      currentContent(newVal){
         if ( newVal ){
-          this.showLog();
+          this.post(this.root + 'data/log', {file: newVal, id: this.currentID}, d => {
+            this.currentOutput = d.success ? d.log : false;
+          })
         }
-        else{
-          this.currentCode = '';
+        else {
+          this.currentOutput = '';
         }
       },
-      currentCode(){
+      currentOutput(newVal){
         this.$nextTick(() => {
-          let cm = this.getRef('code').widget;
-          if ( cm ){
-            cm.focus();
-            // Set the cursor at the end of existing content
-            cm.setCursor(cm.lineCount(), 0);
+          if ( newVal ){
+            let cm = this.getRef('code').widget;
+            if ( cm ){
+              cm.focus();
+              // Set the cursor at the end of existing content
+              cm.setCursor(cm.lineCount(), 0);
+            }
           }
         })
       },
+      currentDay(){
+        this.reset();
+        this.$nextTick(() => {
+          this.getRef('list').updateData();
+        })
+      },
+      currentListFilter(newVal){
+        let list = this.getRef('list');
+        list.currentFilters.conditions.splice(0);
+        if ( newVal ){
+          list.currentFilters.conditions.push({
+            field: newVal,
+            operator: '!=',
+            value: false
+          }, {
+            field: newVal,
+            operator: '!=',
+            value: undefined
+          })
+        }
+      }
+    },
+    components: {
+      listItem: {
+        template: `
+          <div :class="['bbn-c', 'bbn-xspadded', 'bbn-bordered-bottom', {'bbn-green': !!source.content, 'bbn-red': !!source.error}]"
+               v-text="time"
+          ></div>
+        `,
+        props: {
+          source: {
+            type: Object
+          }
+        },
+        computed: {
+          time(){
+            return moment(this.source.start).format('HH:mm:ss');
+          }
+        }
+      }
     }
   }
 })();

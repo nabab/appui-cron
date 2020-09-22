@@ -33,12 +33,5 @@ else if (isset($model->data['id']) && ($f = $model->inc->cron->get_last_log($mod
 }
 if ( !empty($r['success']) && !empty($f) ){
   $r['log'] = file_get_contents($f);
-  $r['filename'] = basename($f);
-  $fpath = [];
-  $apath = explode('/', substr(dirname($f), strpos(dirname($f), $model->data['id']) + strlen($model->data['id']) + 1) . '/' . $r['filename']);
-  foreach ( $apath as $i => $p ){
-    $fpath[] = implode('/', array_slice($apath, 0, $i+1));
-  }
-  $r['fpath'] = $fpath;
 }
 return $r;

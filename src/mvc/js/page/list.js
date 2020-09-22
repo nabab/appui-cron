@@ -8,7 +8,6 @@
     },
     data(){
       return {
-        currentDate: moment().format('YYYY-MM-DD HH:mm:ss'),
         frequencies: [{
           value: 'i1',
           text: bbn._('Every minute')

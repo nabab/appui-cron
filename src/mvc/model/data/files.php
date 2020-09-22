@@ -38,12 +38,16 @@ if ( isset($model->data['data_path']) ){
       $pollid = false;
     }
   }
+  $failed = $model->inc->cron->get_manager()->get_failed();
   $fs = new \bbn\file\system();
   $fs->cd(dirname($model->inc->cron->get_pid_path(['type' => 'cron'])));
   $current = [];
   $files  = $fs->get_files('./', null, true);
   foreach ($files as $f){
-    if ($tmp = $model->inc->cron->get_manager()->get_cron(substr($f, 1))) {
+    if (
+      ($tmp = $model->inc->cron->get_manager()->get_cron(substr($f, 1))) &&
+      (\bbn\x::find($failed, ['id' => $tmp['id']]) === false)
+    ){
       $current[] = $tmp;
     }
   }
@@ -51,7 +55,7 @@ if ( isset($model->data['data_path']) ){
     'files' => $files,
     'current' => $current,
     'active' => $has_active,
-    'failed' => $model->inc->cron->get_manager()->get_failed(),
+    'failed' => $failed,
     'cron' => $has_cron,
     'poll' => $has_poll,
     'cronid' => $cronid,
