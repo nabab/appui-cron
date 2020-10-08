@@ -11,7 +11,7 @@ if ($model->inc->cron->check()) {
   $tasks = $model->inc->cron->get_manager()->get_next_rows(100, 3600);
   $failed = $model->inc->cron->get_manager()->get_failed();
   $tasks = array_filter($tasks, function($t) use($failed){
-    return \bbn\x::find($failed, ['id' => $t['id']]) === false;
+    return \bbn\x::find($failed, ['id' => $t['id']]) === null;
   });
   $r['success'] = true;
   $r['tasks'] = $model->inc->cron->get_manager()->get_next_rows(100, 3600);
