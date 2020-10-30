@@ -8,5 +8,6 @@
            component="appui-cron-task"
            :source="source"
            :notext="true"
+           :static="true"
   ></bbns-container>
 </bbn-router>

@@ -1,9 +1,13 @@
 {
-  "text": "CRON",
-  "icon": "nf nf-mdi-timetable",
-  "items": [{
-    "text": "Automated tasks",
-    "icon": "nf nf-mdi-timetable",
-    "link": "page"
-  }]
+  "text": "Cron",
+  "num": 9,
+  "icon": "nf nf-fa-cog",
+  "items": [
+    {
+      "text": "Automated tasks",
+      "num": 1,
+      "icon": "nf nf-mdi-clock",
+      "link": "page"
+    }
+  ]
 }
