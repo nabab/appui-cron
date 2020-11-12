@@ -52,6 +52,7 @@
                           :server-filtering="false"
                           @dataReceived="onListDataReceived"
                           @dataloaded="onListDataloaded"
+                          :alternate-background="true"
                 ></bbn-list>
               </bbn-scroll>
             </div>
