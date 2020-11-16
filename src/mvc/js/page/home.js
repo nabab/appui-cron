@@ -3,12 +3,10 @@
   return {
     data(){
       return {
-        interval: 0,
         showTask: false,
         currentTask: false,
         taskSource: {},
-        ready: false,
-        taskInterval: 0
+        ready: false
       }
     },
     computed: {
@@ -95,50 +93,30 @@
       fdate(d){
         return bbn.fn.fdate(d);
       },
-      refresh(){
-        clearTimeout(this.interval);
-        this.post(this.source.root + 'data/files', (d) => {
-          for ( let n in d ){
-            if ( d[n] !== this.source[n] ){
-              this.$set(this.source, n, d[n]);
-            }
-          }
-          clearTimeout(this.interval);
-          this.$forceUpdate();
-          this.interval = setTimeout(() => {
-            this.refresh();
-          }, 5000);
-        });
-      },
       refreshTasks(){
-        clearTimeout(this.taskInterval);
         this.post(this.source.root + 'data/tasks', (d) => {
-          clearTimeout(this.taskInterval);
           if (this.ready) {
             this.source.tasks = d.tasks || [];
             this.$forceUpdate();
-            this.taskInterval = setTimeout(() => {
-              this.refreshTasks();
-            }, 30000);
           }
         });
       },
       toggleActive(){
-        this.confirm(bbn._('Are you sure you want to') + ' ' + 
+        this.confirm(bbn._('Are you sure you want to') + ' ' +
                      (this.source.active ? bbn._('turn off') : bbn._('turn on')) + ' ' +
                      bbn._('all background activity?'), () => {
           this.source.active = !this.source.active;
         })
       },
       togglePoll(){
-        this.confirm(bbn._('Are you sure you want to') + ' ' + 
+        this.confirm(bbn._('Are you sure you want to') + ' ' +
                      (this.source.poll ? bbn._('turn off') : bbn._('turn on')) + ' ' +
                      bbn._('the polling system?'), () => {
           this.source.poll = !this.source.poll;
         })
       },
       toggleCron(){
-        this.confirm(bbn._('Are you sure you want to') + ' ' + 
+        this.confirm(bbn._('Are you sure you want to') + ' ' +
                      (this.source.cron ? bbn._('turn off') : bbn._('turn on')) + ' ' +
                      bbn._('the task system?'), () => {
           this.source.cron = !this.source.cron;
@@ -153,17 +131,38 @@
         if (e.target.childNodes[0].classList.contains('bbn-hover')) {
           e.target.childNodes[0].classList.remove('bbn-hover');
         }
+      },
+      receive(d){
+        if ('tasks' in d) {
+          this.source.tasks = d.tasks.tasks || [];
+          this.$forceUpdate();
+        }
+        if ('files' in d) {
+          bbn.fn.iterate(d.files, (v, p) => {
+            if ( v !== this.source[p] ){
+              this.$set(this.source, p, v);
+            }
+          })
+          this.$forceUpdate();
+        }
       }
+    },
+    created(){
+      appui.register('appui-cron', this);
     },
     mounted(){
       this.ready = true;
-      this.interval = setTimeout(this.refresh, 5000);
-      this.taskInterval = setTimeout(this.refreshTasks, 30000);
+      this.$set(appui.pollerObject, 'appui-cron', {
+        tasksHash: false,
+        filesHash: false
+      });
+      appui.poll();
     },
     beforeDestroy(){
       this.ready = false;
-      clearTimeout(this.interval);
-      clearTimeout(this.taskInterval);
+      this.$delete(appui.pollerObject, 'appui-cron');
+      appui.poll();
+      appui.unregister('appui-cron');
     },
     watch: {
       'source.active': function(newVal, oldVal){
@@ -185,18 +184,20 @@
         template: `
 <div :class="['bbn-w-100', 'bbn-hspadded', 'bbn-vxspadded', 'node']">
   <div class="bbn-flex-width">
-		<div class="bbn-flex-fill"
-				 style="white-space: nowrap">
-      <bbn-countdown :title="info" :target="source.next" precision="second" scale="minute">
-        <i v-if="source.next !== undefined"
-           class="nf nf-fa-clock_o bbn-p"
-        ></i>
-			</bbn-countdown> &nbsp; 
-      <span class="bbn-medium bbn-iblock"
+    <bbn-countdown :title="info"
+                   :target="source.next"
+                   precision="second"
+                   scale="minute"
+    >
+      <i v-if="source.next !== undefined"
+         class="nf nf-fa-clock_o bbn-p"
+      ></i>
+    </bbn-countdown>
+    <div class="bbn-flex-fill bbn-left-sspace">
+      <div class="bbn-medium bbn-ellipsis"
             :title="source.description"
-            style="text-overflow: ellipsis"
             v-html="source.file"
-      ></span>
+      ></div>
     </div>
   </div>
 </div>`,
