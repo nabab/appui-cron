@@ -15,9 +15,8 @@ if (\bbn\x::has_props($model->data, ['file', 'id'], true)) {
   else {
     $cfg = ['type' => 'cron', 'id' => $model->data['id']];
   }
-  if (
-    ($path = $model->inc->cron->get_log_path($cfg, false, true)) &&
-    is_file($path.$model->data['file'])
+  if (($path = $model->inc->cron->get_log_path($cfg, false, true))
+    && is_file($path.$model->data['file'])
   ) {
 	  $f = $path.$model->data['file'];
     $r['success'] = true;

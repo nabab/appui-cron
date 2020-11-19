@@ -290,10 +290,11 @@
             moment(d.task.next).isValid() &&
             moment(d.task.next).isAfter()
           ){
+            let t = moment(d.task.next).diff() + 10000;
             this.refreshTimeout = setTimeout(() => {
               this.getRef('list').updateData();
               this.refresh();
-            }, moment(d.task.next).diff() + 10000)
+            }, t < 2147483647 ? t : 2147483647)
           }
         }
       },

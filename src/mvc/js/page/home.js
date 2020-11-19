@@ -80,13 +80,13 @@
       },
       updateFileSystem(file, newVal){
         this.post(this.source.root + 'actions/control', {file: file, value: newVal}, (d) => {
-          //bbn.fn.log(this.getTab());
-          if ( !d.success ){
-            this.$set(this.source, file, !newVal);
-            appui.error(bbn._('Impossible to ' + (newVal ? 'create' : 'delete') + ' the file...'));
+          if ( d.success ){
+            this.$set(this.source, file, newVal);
+            appui.success(bbn._('File ' + file + ' ' + (newVal ? 'created' : 'deleted') + ' successfully'));
           }
           else{
-            appui.success(bbn._('File ' + file + ' ' + (newVal ? 'created' : 'deleted') + ' successfully'));
+            this.$set(this.source, file, !newVal);
+            appui.error(bbn._('Impossible to ' + (newVal ? 'create' : 'delete') + ' the file...'));
           }
         })
       },
@@ -102,24 +102,21 @@
         });
       },
       toggleActive(){
-        this.confirm(bbn._('Are you sure you want to') + ' ' +
-                     (this.source.active ? bbn._('turn off') : bbn._('turn on')) + ' ' +
-                     bbn._('all background activity?'), () => {
-          this.source.active = !this.source.active;
+        let turn = ' ' + (this.source.active ? bbn._('turn off') : bbn._('turn on')) + ' ';
+        this.confirm(bbn._('Are you sure you want to') + turn + bbn._('all background activity?'), () => {
+          this.updateFileSystem('active', !this.source.active)
         })
       },
       togglePoll(){
-        this.confirm(bbn._('Are you sure you want to') + ' ' +
-                     (this.source.poll ? bbn._('turn off') : bbn._('turn on')) + ' ' +
-                     bbn._('the polling system?'), () => {
-          this.source.poll = !this.source.poll;
+        let turn = ' ' + (this.source.poll ? bbn._('turn off') : bbn._('turn on')) + ' ';
+        this.confirm(bbn._('Are you sure you want to') + turn + bbn._('the polling system?'), () => {
+          this.updateFileSystem('poll', !this.source.poll)
         })
       },
       toggleCron(){
-        this.confirm(bbn._('Are you sure you want to') + ' ' +
-                     (this.source.cron ? bbn._('turn off') : bbn._('turn on')) + ' ' +
-                     bbn._('the task system?'), () => {
-          this.source.cron = !this.source.cron;
+        let turn = ' ' + (this.source.cron ? bbn._('turn off') : bbn._('turn on')) + ' ';
+        this.confirm(bbn._('Are you sure you want to') + turn + bbn._('the task system?'), () => {
+          this.updateFileSystem('cron', !this.source.cron)
         })
       },
       mouseOver(e) {
@@ -164,20 +161,6 @@
       appui.poll();
       appui.unregister('appui-cron');
     },
-    watch: {
-      'source.active': function(newVal, oldVal){
-        this.updateFileSystem('active', newVal)
-      },
-      'source.poll': function(newVal, oldVal){
-        this.updateFileSystem('poll', newVal)
-      },
-      'source.cron': function(newVal, oldVal){
-        this.updateFileSystem('cron', newVal)
-      },
-      generalActivity(newVal, oldVal){
-        bbn.fn.log("CHANGING", newVal, oldVal);
-      }
-    },
     components: {
       tasksItem: {
         props: ['source'],
@@ -208,9 +191,8 @@
         },
         computed: {
           info(){
-            let d = bbn.fn.date(this.source.next);
-            let m = new moment(d);
-            let st = bbn._('Next execution') + ': ';
+            let m = new moment(this.source.next),
+                st = bbn._('Next execution') + ': ';
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
@@ -218,8 +200,7 @@
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            d = bbn.fn.date(this.source.prev);
-            m = new moment(d);
+            m = moment(this.source.prev);
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
@@ -266,9 +247,8 @@
         },
         computed: {
           info(){
-            let d = bbn.fn.date(this.source.next);
-            let m = new moment(d);
-            let st = bbn._('Next execution') + ': ';
+            let m = moment(this.source.next),
+                st = bbn._('Next execution') + ': ';
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
@@ -276,8 +256,7 @@
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            d = bbn.fn.date(this.source.prev);
-            m = new moment(d);
+            m = moment(this.source.prev);
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
