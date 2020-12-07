@@ -16,16 +16,24 @@ if ($model->has_var('id', true) && $model->inc->cron->check()) {
       unset($model->data['id']);
     }
   }
+
   $data = $model->inc->cron->get_day_logs($model->data);
   $task = [];
-  if ( !empty($model->data['id']) ){
+  if (!empty($model->data['id'])) {
     $task = $model->inc->cron->get_manager()->get_cron($model->data['id']);
-    if ( is_array($task['cfg']) ){
+    if (is_array($task['cfg'])) {
       $task = array_merge($task, $task['cfg']);
       unset($task['cfg']);
     }
-    $task['next'] = $model->inc->cron->get_manager()->get_next_date($task['frequency'], strtotime($task['next'] ?: $task['prev']));
+
+    if (!empty($task['frequency'])) {
+      $task['next'] = $model->inc->cron->get_manager()->get_next_date(
+        $task['frequency'],
+        strtotime($task['next'] ?: $task['prev'])
+      );
+    }
   }
+
   return [
     'data' => $data,
     'total' => count($data),
@@ -34,6 +42,7 @@ if ($model->has_var('id', true) && $model->inc->cron->check()) {
     'success' => true
   ];
 }
+
 return [
   'success' => false
 ];
