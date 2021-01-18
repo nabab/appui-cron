@@ -97,7 +97,7 @@
         return e.file + ' Yoohoo';
       },
       renderFile(e){
-        return '<span class="bbn-' + ( e.active ? 'green' : 'red' ) + '">' + e.file + '</span><br><span>' + e.description + '</span>';
+        return '<span class="bbn-b">' + e.file + '</span><br><span>' + e.description + '</span>';
       },
       renderAvgDuration(e){
         let d = parseFloat(e.duration);

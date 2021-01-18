@@ -169,7 +169,7 @@
               this.currentTreePath = [d.fpath];
               this.logTimeout = setTimeout(() => {
                 this.showLog();
-              }, appui.getRef('nav').activeRealContainer === this.closest('bbn-container') ? 2000 : 200000)
+              }, appui.getRef('router').activeRealContainer === this.closest('bbn-container') ? 2000 : 200000)
             }
           })
         }
@@ -186,7 +186,7 @@
               this.currentContent = d.content;
               this.logTimeout = setTimeout(() => {
                 this.startLive();
-              }, appui.getRef('nav').activeRealContainer === this.closest('bbn-container') ? 2000 : 200000)
+              }, appui.getRef('router').activeRealContainer === this.closest('bbn-container') ? 2000 : 200000)
             }
           })
         }
