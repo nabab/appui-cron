@@ -4,22 +4,22 @@
  *
  **/
 
-/** @var $this \bbn\mvc\model*/
+/** @var $this \bbn\Mvc\Model*/
 if ( isset($model->data['data_path']) ){
   clearstatcache();
-  $has_active = is_file($model->inc->cron->get_status_path('active'));
-  $has_cron = is_file($model->inc->cron->get_status_path('cron'));
-  $has_poll = is_file($model->inc->cron->get_status_path('poll'));
+  $has_active = is_file($model->inc->cron->getStatusPath('active'));
+  $has_cron = is_file($model->inc->cron->getStatusPath('cron'));
+  $has_poll = is_file($model->inc->cron->getStatusPath('poll'));
   $crontime = false;
   $cronid = false;
   $polltime = false;
   $pollid = false;
   if (
     $has_cron
-    && ($cronfile = $model->inc->cron->get_pid_path(['type' => 'cron']))
+    && ($cronfile = $model->inc->cron->getPidPath(['type' => 'cron']))
     && is_file($cronfile)
   ) {
-    [$cronid, $crontime] = explode('|', file_get_contents($cronfile));
+    [$cronid, $crontime] = explode('|', File_get_contents($cronfile));
     if (!file_exists('/proc/'.$cronid)) {
       unlink($cronfile);
       $crontime = false;
@@ -28,25 +28,25 @@ if ( isset($model->data['data_path']) ){
   }
   if (
     $has_poll
-    && ($pollfile = $model->inc->cron->get_pid_path(['type' => 'poll']))
+    && ($pollfile = $model->inc->cron->getPidPath(['type' => 'poll']))
     && is_file($pollfile)
   ){
-    [$pollid, $polltime] = explode('|', file_get_contents($pollfile));
+    [$pollid, $polltime] = explode('|', File_get_contents($pollfile));
     if (!file_exists('/proc/'.$pollid)) {
       unlink($pollfile);
       $polltime = false;
       $pollid = false;
     }
   }
-  $failed = $model->inc->cron->get_manager()->get_failed();
-  $fs = new \bbn\file\system();
-  $fs->cd(dirname($model->inc->cron->get_pid_path(['type' => 'cron'])));
+  $failed = $model->inc->cron->getManager()->getFailed();
+  $fs = new \bbn\File\System();
+  $fs->cd(dirname($model->inc->cron->getPidPath(['type' => 'cron'])));
   $current = [];
-  $files  = $fs->get_files('./', null, true);
+  $files  = $fs->getFiles('./', null, true);
   foreach ($files as $f){
     if (
-      ($tmp = $model->inc->cron->get_manager()->get_cron(substr($f, 1))) &&
-      (\bbn\x::find($failed, ['id' => $tmp['id']]) === null)
+      ($tmp = $model->inc->cron->getManager()->getCron(substr($f, 1))) &&
+      (\bbn\X::find($failed, ['id' => $tmp['id']]) === null)
     ){
       $current[] = $tmp;
     }

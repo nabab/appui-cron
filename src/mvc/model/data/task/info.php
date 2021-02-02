@@ -1,7 +1,7 @@
 <?php
-if ($model->has_data('id', true)
-    && \bbn\str::is_uid($model->data['id'])
-    && ($task = $model->inc->cron->get_manager()->get_cron($model->data['id']))
+if ($model->hasData('id', true)
+    && \bbn\Str::isUid($model->data['id'])
+    && ($task = $model->inc->cron->getManager()->getCron($model->data['id']))
 ) {
   if (is_array($task['cfg'])) {
     $task = array_merge($task, $task['cfg']);
@@ -9,7 +9,7 @@ if ($model->has_data('id', true)
   }
 
   if (!empty($task['frequency'])) {
-    $task['next'] = $model->inc->cron->get_manager()->get_next_date(
+    $task['next'] = $model->inc->cron->getManager()->getNextDate(
       $task['frequency'],
       strtotime($task['next'] ?: $task['prev'])
     );

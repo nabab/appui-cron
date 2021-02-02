@@ -1,12 +1,12 @@
 <?php
-/** @var $ctrl \bbn\mvc\controller */
+/** @var $ctrl \bbn\Mvc\Controller */
 
 if ( !\defined('APPUI_CRON_ROOT') ){
-  define('APPUI_CRON_ROOT', $ctrl->plugin_url('appui-cron').'/');
+  define('APPUI_CRON_ROOT', $ctrl->pluginUrl('appui-cron').'/');
 }
-$ctrl->add_data([
+$ctrl->addData([
   'root'=> APPUI_CRON_ROOT,
-  'data_path' => $ctrl->plugin_data_path()
+  'data_path' => $ctrl->pluginDataPath()
 ]);
-$ctrl->add_inc('cron', (new \bbn\cron($ctrl->db, $ctrl)));
+$ctrl->addInc('cron', (new \bbn\Cron($ctrl->db, $ctrl)));
 return true;

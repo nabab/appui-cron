@@ -1,11 +1,11 @@
 <?php
 /*
- * @var $model \bbn\mvc\model
+ * @var $model \bbn\Mvc\Model
  *
  **/
 $r = ['success' => false];
-/** @var $this \bbn\mvc\model*/
-if (\bbn\x::has_props($model->data, ['file', 'id'], true)) {
+/** @var $this \bbn\Mvc\Model*/
+if (\bbn\X::hasProps($model->data, ['file', 'id'], true)) {
   if ($model->data['id'] === 'cron') {
     $cfg = ['type' => 'cron'];
   }
@@ -15,19 +15,19 @@ if (\bbn\x::has_props($model->data, ['file', 'id'], true)) {
   else {
     $cfg = ['type' => 'cron', 'id' => $model->data['id']];
   }
-  if (($path = $model->inc->cron->get_log_path($cfg, false, true))
+  if (($path = $model->inc->cron->getLogPath($cfg, false, true))
     && is_file($path.$model->data['file'])
   ) {
 	  $f = $path.$model->data['file'];
     $r['success'] = true;
   }
 }
-else if ( \bbn\x::has_props($model->data, ['filename', 'id', 'action'], true) ){
-  if ( $f = $model->inc->cron->get_log_prev_next($model->data) ){
+else if ( \bbn\X::hasProps($model->data, ['filename', 'id', 'action'], true) ){
+  if ( $f = $model->inc->cron->getLogPrevNext($model->data) ){
     $r['success'] = true;
   }
 }
-else if (isset($model->data['id']) && ($f = $model->inc->cron->get_last_log($model->data))) {
+else if (isset($model->data['id']) && ($f = $model->inc->cron->getLastLog($model->data))) {
   $r['success'] = true;
 }
 if ( !empty($r['success']) && !empty($f) ){

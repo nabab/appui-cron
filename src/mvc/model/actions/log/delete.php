@@ -17,8 +17,8 @@ if (
   if ( strlen($model->data['id']) === 32 ){
     $cfg['id'] = $model->data['id'];
   }
-  $file = dirname($model->inc->cron->log_path($cfg)).'/'.$model->data['filename'];
-  if ( is_file($file) && \bbn\file\dir::delete($file) ){
+  $file = dirname($model->inc->cron->logPath($cfg)).'/'.$model->data['filename'];
+  if ( is_file($file) && \bbn\File\Dir::delete($file) ){
     $ret['success'] = true;
   }
 }

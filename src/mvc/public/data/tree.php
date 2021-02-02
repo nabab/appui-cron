@@ -1,5 +1,5 @@
 <?php
-/* @var $ctrl \bbn\mvc\controller */
+/* @var $ctrl \bbn\Mvc\Controller */
 
 $ctrl->data = $ctrl->post['data'] ?? $ctrl->post;
-$ctrl->obj->data = $ctrl->get_model();
+$ctrl->obj->data = $ctrl->getModel();

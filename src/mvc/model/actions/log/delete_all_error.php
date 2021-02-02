@@ -5,15 +5,15 @@
  * Date: 14/06/2018
  * Time: 17:01
  *
- * @var $model \bbn\mvc\model
+ * @var $model \bbn\Mvc\Model
  */
 
 if (
   !empty($model->data['id']) &&
   !empty($model->inc->cron) &&
-  ($path = $model->inc->cron->get_path()) &&
+  ($path = $model->inc->cron->getPath()) &&
   is_dir($path.'error/tasks/'.$model->data['id']) &&
-  \bbn\file\dir::delete($path.'error/tasks/'.$model->data['id'])
+  \bbn\File\Dir::delete($path.'error/tasks/'.$model->data['id'])
 ){
   return ['success' => true];
 }

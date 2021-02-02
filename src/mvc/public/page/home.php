@@ -4,11 +4,11 @@
  *
  **/
 
-/** @var $this \bbn\mvc\controller */
-$ctrl->add_data(['data_path' => $ctrl->plugin_data_path()])
-  ->set_icon('nf nf-fa-home')
-  ->set_color('brown', '#FFF')
-  ->add_data($ctrl->get_model($ctrl->data['root'].'data/tasks'))
-  ->add_data($ctrl->get_model($ctrl->data['root'].'data/files'))
-  ->add_data($ctrl->get_model($ctrl->data['root'].'data/quicklist'))
+/** @var $this \bbn\Mvc\Controller */
+$ctrl->addData(['data_path' => $ctrl->pluginDataPath()])
+  ->setIcon('nf nf-fa-home')
+  ->setColor('brown', '#FFF')
+  ->addData($ctrl->getModel($ctrl->data['root'].'data/tasks'))
+  ->addData($ctrl->getModel($ctrl->data['root'].'data/files'))
+  ->addData($ctrl->getModel($ctrl->data['root'].'data/quicklist'))
   ->combo(_('Home'), true);

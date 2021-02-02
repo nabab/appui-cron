@@ -5,22 +5,22 @@
  * Date: 24/01/2017
  * Time: 05:00
  */
-/** @var \bbn\mvc\controller $ctrl */
+/** @var \bbn\Mvc\Controller $ctrl */
 
 ;
 $o = [];
 $cmd = 'cron/bg';
 /*
-$outputfile = $ctrl->plugin_path('appui-cron').'cron/output.txt';
-$pidfile = $ctrl->data_path().'cron/pid.txt';
-\bbn\x::hdump(
+$outputfile = $ctrl->pluginPath('appui-cron').'cron/output.txt';
+$pidfile = $ctrl->dataPath().'cron/pid.txt';
+\bbn\X::hdump(
   //exec("php -f router.php cron/bg", $o),
   exec(sprintf("php -f router.php %s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile), $o),
 	$o,
-  'say_plugin() : '.$ctrl->get_plugin(),
-  'plugin_url() : '.$ctrl->plugin_url('appui-cron'),
-  'plugin_path() : '.$ctrl->plugin_path('appui-cron'),
-  'get_plugin_model() : '.$ctrl->get_plugin_model('buzz', ['var' => 'woo'])
+  'say_plugin() : '.$ctrl->getPlugin(),
+  'plugin_url() : '.$ctrl->pluginUrl('appui-cron'),
+  'plugin_path() : '.$ctrl->pluginPath('appui-cron'),
+  'get_plugin_model() : '.$ctrl->getPluginModel('buzz', ['var' => 'woo'])
 );
 
 //exec(sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile));
@@ -39,7 +39,7 @@ function isRunning($pid){
     return false;
 }
 */
-//echo $ctrl->get_plugin_view('buzz', ['var' => 'woo']);
+//echo $ctrl->getPluginView('buzz', ['var' => 'woo']);
 
 //$t = new \boo\test();
-//$t->get_name();
+//$t->getName();

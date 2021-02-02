@@ -1,12 +1,12 @@
 <?php
 //return [];
 if (!isset($model->inc->cron)) {
-  $mvc = \bbn\mvc::get_instance();
-  $ctrl = new \bbn\mvc\controller($mvc, []);
-  $model->add_inc('cron', (new \bbn\cron($model->db, $ctrl)));
+  $mvc = \bbn\Mvc::getInstance();
+  $ctrl = new \bbn\Mvc\Controller($mvc, []);
+  $model->addInc('cron', (new \bbn\Cron($model->db, $ctrl)));
 }
-$plugin_data = $model->plugin_data_path('appui-cron');
-$plugin_url = $model->plugin_url('appui-cron');
+$plugin_data = $model->pluginDataPath('appui-cron');
+$plugin_url = $model->pluginUrl('appui-cron');
 return [[
   'id' => 'appui-cron-0',
   'frequency' => 5,
@@ -16,7 +16,7 @@ return [[
       'data' => []
     ];
     if (isset($data['data']['filesHash'])
-      && ($mod = $model->get_model($plugin_url . '/data/files', ['data_path' => $plugin_data]))
+      && ($mod = $model->getModel($plugin_url . '/data/files', ['data_path' => $plugin_data]))
       && ($hash = md5(json_encode($mod)))
       && ($hash !== $data['data']['filesHash'])
     ) {
@@ -34,7 +34,7 @@ return [[
       'data' => []
     ];
     if (isset($data['data']['tasksHash'])
-      && ($mod = $model->get_model($plugin_url . '/data/tasks'))
+      && ($mod = $model->getModel($plugin_url . '/data/tasks'))
       && !empty($mod['success'])
       && ($hash = md5(json_encode($mod)))
       && ($hash !== $data['data']['tasksHash'])

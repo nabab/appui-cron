@@ -7,10 +7,10 @@
  */
 if ($model->inc->cron->check() && !empty($model->data)) {
   if (empty($model->data['id'])) {
-    $res = $model->inc->cron->get_manager()->add($model->data);
+    $res = $model->inc->cron->getManager()->add($model->data);
   }
   else{
-    $res = $model->inc->cron->get_manager()->edit($model->data['id'], $model->data);
+    $res = $model->inc->cron->getManager()->edit($model->data['id'], $model->data);
   }
   return [
     'success' => $res ? true : false,

@@ -4,29 +4,29 @@ if ( isset($model->data['data']) ){
 }
 $data = [];
 if (
-  $model->has_vars(['id', 'start'], true) &&
+  $model->hasVars(['id', 'start'], true) &&
   $model->inc->cron->check() &&
-  ($y = date('Y/', strtotime($model->data['start']))) &&
-  ($file = date('Y-m', strtotime($model->data['start'])) . '.json')
+  ($y = date('Y/', Strtotime($model->data['start']))) &&
+  ($file = date('Y-m', Strtotime($model->data['start'])) . '.json')
 ){
   if ($model->data['id'] === 'poll') {
-    $model->add_data(['type' => 'poll']);
+    $model->addData(['type' => 'poll']);
     unset($model->data['id']);
   }
   else {
-    $model->add_data(['type' => 'cron']);
+    $model->addData(['type' => 'cron']);
     if ($model->data['id'] === 'cron') {
       unset($model->data['id']);
     }
   }
   if (
-    ($path = $model->inc->cron->get_log_path($model->data, false, true)) &&
+    ($path = $model->inc->cron->getLogPath($model->data, false, true)) &&
     is_file($path . $y . $file) &&
     ($f = json_decode(file_get_contents($path . $y . $file), true)) &&
     !empty($f['dates'])
   ){
     foreach ( $f['dates'] as $d ){
-      $tmp = date('Y-m-', strtotime($model->data['start'])) . $d;
+      $tmp = date('Y-m-', Strtotime($model->data['start'])) . $d;
       $data[] = [
         'start' => $tmp,
         'end' => $tmp

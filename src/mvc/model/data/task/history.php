@@ -4,30 +4,30 @@
  *
  **/
 
-/** @var $this \bbn\mvc\model*/
-if ($model->has_var('id', true) && $model->inc->cron->check()) {
+/** @var $this \bbn\Mvc\Model*/
+if ($model->hasVar('id', true) && $model->inc->cron->check()) {
   if ($model->data['id'] === 'poll') {
-    $model->add_data(['type' => 'poll']);
+    $model->addData(['type' => 'poll']);
     unset($model->data['id']);
   }
   else {
-    $model->add_data(['type' => 'cron']);
+    $model->addData(['type' => 'cron']);
     if ($model->data['id'] === 'cron') {
       unset($model->data['id']);
     }
   }
 
-  $data = $model->inc->cron->get_day_logs($model->data);
+  $data = $model->inc->cron->getDayLogs($model->data);
   $task = [];
   if (!empty($model->data['id'])) {
-    $task = $model->inc->cron->get_manager()->get_cron($model->data['id']);
+    $task = $model->inc->cron->getManager()->getCron($model->data['id']);
     if (is_array($task['cfg'])) {
       $task = array_merge($task, $task['cfg']);
       unset($task['cfg']);
     }
 
     if (!empty($task['frequency'])) {
-      $task['next'] = $model->inc->cron->get_manager()->get_next_date(
+      $task['next'] = $model->inc->cron->getManager()->getNextDate(
         $task['frequency'],
         strtotime($task['next'] ?: $task['prev'])
       );

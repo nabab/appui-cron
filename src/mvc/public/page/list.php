@@ -1,12 +1,12 @@
 <?php
-/* @var $ctrl \bbn\mvc\controller */
+/* @var $ctrl \bbn\Mvc\Controller */
 if ( !empty($ctrl->arguments) ){
   $ctrl->post['id_cron'] = $ctrl->arguments[0];
 }
 if ( empty($ctrl->post) ){
-  $ctrl->set_icon('nf nf-oct-tasklist')
+  $ctrl->setIcon('nf nf-oct-tasklist')
        ->combo(_("Tasks' list"), [
-    'is_dev' => $ctrl->inc->user->is_dev(),
+    'is_dev' => $ctrl->inc->user->isDev(),
     'root' => APPUI_CRON_ROOT,
     'can_run' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'run'),
     'can_delete' => $ctrl->inc->perm->has(APPUI_CRON_ROOT.'actions/task/delete'),
@@ -15,5 +15,5 @@ if ( empty($ctrl->post) ){
   ]);
 }
 else{
-  $ctrl->obj = $ctrl->get_object_model($ctrl->post);
+  $ctrl->obj = $ctrl->getObjectModel($ctrl->post);
 }

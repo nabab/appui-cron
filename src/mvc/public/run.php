@@ -1,16 +1,16 @@
 <?php
-/** @var $ctrl \bbn\mvc\controller */
-if ( $ctrl->is_cli() ){
-  \bbn\x::log("We execute from mvc/public/run", 'cron1');
+/** @var $ctrl \bbn\Mvc\Controller */
+if ( $ctrl->isCli() ){
+  \bbn\X::log("We execute from mvc/public/run", 'cron1');
 
-  \bbn\x::dump("We are in the controller ".$ctrl->get_controller());
+  \bbn\X::dump("We are in the controller ".$ctrl->getController());
 
   // Looking for the cron class
-  if ( $ctrl->db && class_exists("\\bbn\\appui\\cron") ){
-    $cron = new \bbn\appui\cron($ctrl);
-    $cron->run_all();
+  if ( $ctrl->db && class_exists("\\bbn\\Appui\\cron") ){
+    $cron = new \bbn\Appui\cron($ctrl);
+    $cron->runAll();
   }
 }
 else {
-  $ctrl->obj = $ctrl->get_object_model($ctrl->post);  
+  $ctrl->obj = $ctrl->getObjectModel($ctrl->post);  
 }
