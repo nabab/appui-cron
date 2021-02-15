@@ -1,0 +1,466 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: info@bbn.so\n"
+"last-Translator: BBN Solutions <support@bbn.solutions>\n"
+"Language-Team: EN <EN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-02-15 01:09+0100\n"
+"POT-Revision-Date: 2021-02-15 01:09+0100\n"
+"Language: en\n"
+"X-Domain: appui-cron\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every minute"
+msgstr "Every minute"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 minutes"
+msgstr "Every 2 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 5 minutes"
+msgstr "Every 5 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 10 minutes"
+msgstr "Every 10 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 15 minutes"
+msgstr "Every 15 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 20 minutes"
+msgstr "Every 20 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 30 minutes"
+msgstr "Every 30 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 45 minutes"
+msgstr "Every 45 minutes"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every hour"
+msgstr "Every hour"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 hours"
+msgstr "Every 2 hours"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 4 hours"
+msgstr "Every 4 hours"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 8 hours"
+msgstr "Every 8 hours"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 12 hours"
+msgstr "Every 12 hours"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every day"
+msgstr "Every day"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 days"
+msgstr "Every 2 days"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 3 days"
+msgstr "Every 3 days"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every week"
+msgstr "Every week"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 weeks"
+msgstr "Every 2 weeks"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 3 weeks"
+msgstr "Every 3 weeks"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every month"
+msgstr "Every month"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 2 month"
+msgstr "Every 2 month"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 3 month"
+msgstr "Every 3 month"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every 6 month"
+msgstr "Every 6 month"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Every year"
+msgstr "Every year"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Browse CLI"
+msgstr "Browse CLI"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Controller"
+msgstr "Controller"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Priority"
+msgstr "Priority"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Frequency"
+msgstr "Frequency"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Timeout"
+msgstr "Timeout"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Date/time planned for the next execution"
+msgstr "Date/time planned for the next execution"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Description of the task"
+msgstr "Description of the task"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.js
+msgid "With content"
+msgstr "With content"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.js
+msgid "With error"
+msgstr "With error"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.js
+msgid "Are you sure you want to delete all log files of this task?"
+msgstr "Are you sure you want to delete all log files of this task?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Deleted"
+msgstr "Deleted"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Edit"
+msgstr "Edit"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid ""
+"Are you sure you want to reset this task? If the task is running you might crash "
+"the app"
+msgstr ""
+"Are you sure you want to reset this task? If the task is running you might crash "
+"the app"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Reset successful."
+msgstr "Reset successful."
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "PROCESSES"
+msgstr "PROCESSES"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Filter by..."
+msgstr "Filter by..."
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "SELECTED PROCESS"
+msgstr "SELECTED PROCESS"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Prev"
+msgstr "Prev"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Next"
+msgstr "Next"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Live output"
+msgstr "Live output"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Process ID"
+msgstr "Process ID"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Start"
+msgstr "Start"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "End"
+msgstr "End"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Duration"
+msgstr "Duration"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "TASK INFO"
+msgstr "TASK INFO"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Refresh"
+msgstr "Refresh"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Run"
+msgstr "Run"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Reset"
+msgstr "Reset"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Stop"
+msgstr "Stop"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Delete all log files"
+msgstr "Delete all log files"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Auto select the last process"
+msgstr "Auto select the last process"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "File"
+msgstr "File"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Description"
+msgstr "Description"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Failed"
+msgstr "Failed"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "OUTPUT"
+msgstr "OUTPUT"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "No Output"
+msgstr "No output"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/task/task.php
+msgid "Select a process"
+msgstr "Select a process"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/components/widget/cron/cron.js
+msgid "Running"
+msgstr "Running"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Refresh list"
+msgstr "Refresh list"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Go to full list"
+msgstr "Go to full list"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/home.php
+msgid "Select a task"
+msgstr "Select a task"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Active"
+msgstr "Active"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Prio."
+msgstr "Prio."
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "The time to wait between each execution"
+msgstr "The time to wait between each execution"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Timeout in seconds"
+msgstr "Timeout in seconds"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Date/time of the previous execution"
+msgstr "Date/time of the previous execution"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Dur."
+msgstr "Dur."
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Average duration of the execution"
+msgstr "Average duration of the execution"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "PID"
+msgstr "PID"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Num"
+msgstr "Num"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Total number of executions"
+msgstr "Total number of executions"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/html/page/list.php
+msgid "Actions"
+msgstr "Actions"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "CRON tasks system"
+msgstr "CRON tasks system"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "CRON"
+msgstr "CRON"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "POLLER process"
+msgstr "POLLER process"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "POLLER"
+msgstr "POLLER"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "deleted"
+msgstr "Deleted"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "delete"
+msgstr "Delete"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "turn off"
+msgstr "turn off"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "turn on"
+msgstr "turn on"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Are you sure you want to"
+msgstr "Are you sure you want to"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "all background activity?"
+msgstr "all background activity?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "the polling system?"
+msgstr "the polling system?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "the task system?"
+msgstr "the task system?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Next execution"
+msgstr "Next execution"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Unknown"
+msgstr "Unknown"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/home.js
+msgid "Previous execution"
+msgstr "Previous execution"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Task page"
+msgstr "Task page"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Reset task"
+msgstr "Reset task"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Delete task"
+msgstr "Delete task"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Run task"
+msgstr "Run task"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to delete this task?"
+msgstr "Are you sure you want to delete this task?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Deleted."
+msgstr "Deleted."
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to run this task?"
+msgstr "Are you sure you want to run this task?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "No output"
+msgstr "No output"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "executed in"
+msgstr "executed in"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "seconds"
+msgstr "seconds"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "An error occured..."
+msgstr "An error occured..."
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Date"
+msgstr "Date"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Content"
+msgstr "Content"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to delete this error log?"
+msgstr "Are you sure you want to delete this error log?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Error"
+msgstr "Error"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Delete all logs"
+msgstr "Delete all logs"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "Are you sure you want to delete all error logs of this task?"
+msgstr "Are you sure you want to delete all error logs of this task?"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/js/page/list.js
+msgid "All logs deleted"
+msgstr "All logs deleted"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/public/page.php
+msgid "Automatized tasks"
+msgstr "Automatized tasks"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/public/page/home.php
+msgid "Home"
+msgstr "Home"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-cron/src/mvc/public/page/list.php
+msgid "Tasks' list"
+msgstr "Tasks' list"

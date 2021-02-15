@@ -11,7 +11,7 @@ chdir($model->data['dir']);
 $dirs = array_map(function($a) use($model){
   $fs = \bbn\File\Dir::getFiles($a, 1);
   return [
-    'dirpath' => str_replace("./", "", Str_replace($model->data['dir'], '', $a)),
+    'dirpath' => str_replace("./", "", str_replace($model->data['dir'], '', $a)),
     'text' => basename($a),
     'numChildren' => \count($fs),
     'icon' => "nf nf-fa-folder",

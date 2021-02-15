@@ -6,8 +6,8 @@ $data = [];
 if (
   $model->hasVars(['id', 'start'], true) &&
   $model->inc->cron->check() &&
-  ($y = date('Y/', Strtotime($model->data['start']))) &&
-  ($file = date('Y-m', Strtotime($model->data['start'])) . '.json')
+  ($y = date('Y/', strtotime($model->data['start']))) &&
+  ($file = date('Y-m', strtotime($model->data['start'])) . '.json')
 ){
   if ($model->data['id'] === 'poll') {
     $model->addData(['type' => 'poll']);
@@ -26,7 +26,7 @@ if (
     !empty($f['dates'])
   ){
     foreach ( $f['dates'] as $d ){
-      $tmp = date('Y-m-', Strtotime($model->data['start'])) . $d;
+      $tmp = date('Y-m-', strtotime($model->data['start'])) . $d;
       $data[] = [
         'start' => $tmp,
         'end' => $tmp
