@@ -1,4 +1,64 @@
 {
+    "components\/form\/task": {
+        "Every minute": "",
+        "Every 2 minutes": "",
+        "Every 5 minutes": "",
+        "Every 10 minutes": "",
+        "Every 15 minutes": "",
+        "Every 20 minutes": "",
+        "Every 30 minutes": "",
+        "Every 45 minutes": "",
+        "Every hour": "",
+        "Every 2 hours": "",
+        "Every 4 hours": "",
+        "Every 8 hours": "",
+        "Every 12 hours": "",
+        "Every day": "",
+        "Every 2 days": "",
+        "Every 3 days": "",
+        "Every week": "",
+        "Every 2 weeks": "",
+        "Every 3 weeks": "",
+        "Every month": "",
+        "Every 2 month": "",
+        "Every 3 month": "",
+        "Every 6 month": "",
+        "Every year": "",
+        "Browse CLI": ""
+    },
+    "components\/task": {
+        "Every minute": "",
+        "Every 2 minutes": "",
+        "Every 5 minutes": "",
+        "Every 10 minutes": "",
+        "Every 15 minutes": "",
+        "Every 20 minutes": "",
+        "Every 30 minutes": "",
+        "Every 45 minutes": "",
+        "Every hour": "",
+        "Every 2 hours": "",
+        "Every 4 hours": "",
+        "Every 8 hours": "",
+        "Every 12 hours": "",
+        "Every day": "",
+        "Every 2 days": "",
+        "Every 3 days": "",
+        "Every week": "",
+        "Every 2 weeks": "",
+        "Every 3 weeks": "",
+        "Every month": "",
+        "Every 2 month": "",
+        "Every 3 month": "",
+        "Every 6 month": "",
+        "Every year": "",
+        "With content": "",
+        "With error": "",
+        "Are you sure you want to delete all log files of this task?": "",
+        "Deleted": "",
+        "Edit": "",
+        "Are you sure you want to reset this task? If the task is running you might crash the app": "",
+        "Reset successful.": ""
+    },
     "mvc\/page\/list": {
         "Every minute": "",
         "Every 2 minutes": "",
@@ -48,12 +108,7 @@
         "Are you sure you want to delete all error logs of this task?": "",
         "All logs deleted": ""
     },
-    "components\/task\/task": {
-        "With content": "",
-        "With error": "",
-        "Are you sure you want to delete all log files of this task?": ""
-    },
-    "components\/widget\/cron\/cron": {
+    "components\/widget\/cron": {
         "Running": ""
     },
     "mvc\/page\/home": {

@@ -1,4 +1,64 @@
 {
+    "components\/form\/task": {
+        "Every minute": "Chaque minute",
+        "Every 2 minutes": "Toutes les 2 minutes",
+        "Every 5 minutes": "Toutes les 5 minutes",
+        "Every 10 minutes": "Toutes les 10 minutes",
+        "Every 15 minutes": "Tous les quart d'heure",
+        "Every 20 minutes": "Toutes les 20 minutes",
+        "Every 30 minutes": "Toutes les demi-heure",
+        "Every 45 minutes": "Toutes les 45 minutes",
+        "Every hour": "Toutes les heures",
+        "Every 2 hours": "Toutes les 2 heures",
+        "Every 4 hours": "Toutes les 4 heures",
+        "Every 8 hours": "Toutes les 8 heures",
+        "Every 12 hours": "Toutes les 12 heures",
+        "Every day": "Tous les jours",
+        "Every 2 days": "Tous les 2 jours",
+        "Every 3 days": "Tous les 3 jours",
+        "Every week": "Toutes les semaines",
+        "Every 2 weeks": "Toutes les 2 semaines",
+        "Every 3 weeks": "Toutes les 3 semaines",
+        "Every month": "Tous les mois",
+        "Every 2 month": "Tous les 2 mois",
+        "Every 3 month": "Tous les 3 mois",
+        "Every 6 month": "Tous les 6 mois",
+        "Every year": "Chaque ann\u00e9e",
+        "Browse CLI": "Parcourir les t\u00e2ches"
+    },
+    "components\/task": {
+        "Every minute": "Chaque minute",
+        "Every 2 minutes": "Toutes les 2 minutes",
+        "Every 5 minutes": "Toutes les 5 minutes",
+        "Every 10 minutes": "Toutes les 10 minutes",
+        "Every 15 minutes": "Tous les quart d'heure",
+        "Every 20 minutes": "Toutes les 20 minutes",
+        "Every 30 minutes": "Toutes les demi-heure",
+        "Every 45 minutes": "Toutes les 45 minutes",
+        "Every hour": "Toutes les heures",
+        "Every 2 hours": "Toutes les 2 heures",
+        "Every 4 hours": "Toutes les 4 heures",
+        "Every 8 hours": "Toutes les 8 heures",
+        "Every 12 hours": "Toutes les 12 heures",
+        "Every day": "Tous les jours",
+        "Every 2 days": "Tous les 2 jours",
+        "Every 3 days": "Tous les 3 jours",
+        "Every week": "Toutes les semaines",
+        "Every 2 weeks": "Toutes les 2 semaines",
+        "Every 3 weeks": "Toutes les 3 semaines",
+        "Every month": "Tous les mois",
+        "Every 2 month": "Tous les 2 mois",
+        "Every 3 month": "Tous les 3 mois",
+        "Every 6 month": "Tous les 6 mois",
+        "Every year": "Chaque ann\u00e9e",
+        "With content": "",
+        "With error": "",
+        "Are you sure you want to delete all log files of this task?": "\u00cates-vous s\u00fbr de vouloir supprimer tous les journaux de cette t\u00e2che?",
+        "Deleted": "Supprim\u00e9",
+        "Edit": "Modifier",
+        "Are you sure you want to reset this task? If the task is running you might crash the app": "",
+        "Reset successful.": ""
+    },
     "mvc\/page\/list": {
         "Every minute": "Chaque minute",
         "Every 2 minutes": "Toutes les 2 minutes",
@@ -48,12 +108,7 @@
         "Are you sure you want to delete all error logs of this task?": "\u00cates-vous s\u00fbr de vouloir supprimer le journal d'erreur de cette t\u00e2che?",
         "All logs deleted": "Tous les journaux ont \u00e9t\u00e9 supprim\u00e9s"
     },
-    "components\/task\/task": {
-        "With content": "",
-        "With error": "",
-        "Are you sure you want to delete all log files of this task?": "\u00cates-vous s\u00fbr de vouloir supprimer tous les journaux de cette t\u00e2che?"
-    },
-    "components\/widget\/cron\/cron": {
+    "components\/widget\/cron": {
         "Running": ""
     },
     "mvc\/page\/home": {
