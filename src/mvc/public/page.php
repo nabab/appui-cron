@@ -9,5 +9,5 @@ if ( strpos($ctrl->baseURL, $ctrl->data['root'] . 'page/') !== 0 ){
   $ctrl->obj->url = $ctrl->data['root'].'page';
   $ctrl->setIcon('nf nf-fa-tasks')
        ->setColor('brown', '#FFF')
-       ->combo(_('Automatized tasks', $ctrl->data));
+       ->combo(_('Automatized tasks'), $ctrl->data);
 }
