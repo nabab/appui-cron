@@ -34,14 +34,14 @@
         data(){
           return {
             nextInterval: false,
-            currentTime: moment(this.source.next),
+            currentTime: dayjs(this.source.next),
             showedTime: 0
           }
         },
         methods: {
           refresh(){
-            let dur = moment.duration(this.currentTime.diff(moment()));
-              if ( moment().isSame(this.currentTime, 'month') ){
+            let dur = dayjs.duration(this.currentTime.diff(dayjs()));
+              if ( dayjs().isSame(this.currentTime, 'month') ){
                 let h = dur.hours(),
                     m = dur.minutes(),
                     s = dur.seconds();

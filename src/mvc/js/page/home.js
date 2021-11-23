@@ -191,7 +191,7 @@
         },
         computed: {
           info(){
-            let m = new moment(this.source.next),
+            let m = new dayjs(this.source.next),
                 st = bbn._('Next execution') + ': ';
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
@@ -200,7 +200,7 @@
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            m = moment(this.source.prev);
+            m = dayjs(this.source.prev);
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
@@ -247,7 +247,7 @@
         },
         computed: {
           info(){
-            let m = moment(this.source.next),
+            let m = dayjs(this.source.next),
                 st = bbn._('Next execution') + ': ';
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
@@ -256,7 +256,7 @@
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            m = moment(this.source.prev);
+            m = dayjs(this.source.prev);
             if (m.isValid()) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }

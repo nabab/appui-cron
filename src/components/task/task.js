@@ -1,7 +1,7 @@
 (() => {
   return {
     data(){
-      let today = moment().format('YYYY-MM-DD');
+      let today = dayjs().format('YYYY-MM-DD');
       return {
         today: today,
         currentDay: today,
@@ -105,8 +105,8 @@
               item = list ? list.filteredData[this.currentLogIdx] : false;
           if ( item && item.data ){
             let data = bbn.fn.extend(true, {}, item.data);
-            data.startFormatted = moment(data.start).format('DD/MM/YYYY HH:mm:ss');
-            data.endFormatted = data.duration === undefined ? '' : moment(data.end).format('DD/MM/YYYY HH:mm:ss');
+            data.startFormatted = dayjs(data.start).format('DD/MM/YYYY HH:mm:ss');
+            data.endFormatted = data.duration === undefined ? '' : dayjs(data.end).format('DD/MM/YYYY HH:mm:ss');
             return data;
           }
         }
@@ -115,14 +115,14 @@
       currentTaskObj(){
         if ( this.source ){
           let data = bbn.fn.extend(true, {}, this.source);
-          if ( data.next && moment(data.next).isValid() ){
-            data.nextFormatted = moment(data.next).format('DD/MM/YYYY HH:mm:ss');
+          if ( data.next && dayjs(data.next).isValid() ){
+            data.nextFormatted = dayjs(data.next).format('DD/MM/YYYY HH:mm:ss');
           }
-          if ( data.prev && moment(data.prev).isValid() ){
-            data.prevFormatted = moment(data.prev).format('DD/MM/YYYY HH:mm:ss');
+          if ( data.prev && dayjs(data.prev).isValid() ){
+            data.prevFormatted = dayjs(data.prev).format('DD/MM/YYYY HH:mm:ss');
           }
           data.frequencyFormatted = data.frequency ? bbn.fn.getField(this.frequencies, 'text', {value: data.frequency}) : '';
-          data.failed = data.pid && moment(data.prev).add(data.timeout, 's').isBefore();
+          data.failed = data.pid && dayjs(data.prev).add(data.timeout, 's').isBefore();
           return data;
         }
         return {}
@@ -285,12 +285,12 @@
         if ( d.task ){
           clearTimeout(this.refreshTimeout);
           if (
-            (this.currentDay === moment().format('YYYY-MM-DD')) &&
+            (this.currentDay === dayjs().format('YYYY-MM-DD')) &&
             d.task.next &&
-            moment(d.task.next).isValid() &&
-            moment(d.task.next).isAfter()
+            dayjs(d.task.next).isValid() &&
+            dayjs(d.task.next).isAfter()
           ){
-            let t = moment(d.task.next).diff() + 10000;
+            let t = dayjs(d.task.next).diff() + 10000;
             this.refreshTimeout = setTimeout(() => {
               this.getRef('list').updateData();
               this.refresh();
@@ -399,7 +399,7 @@
         },
         computed: {
           time(){
-            return moment(this.source.start).format('HH:mm:ss');
+            return dayjs(this.source.start).format('HH:mm:ss');
           }
         }
       }
