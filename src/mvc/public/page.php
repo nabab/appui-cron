@@ -1,8 +1,4 @@
 <?php
-/*
- * Describe what it does!
- *
- **/
 
 /** @var $this \bbn\Mvc\Controller */
 if ( strpos($ctrl->baseURL, $ctrl->data['root'] . 'page/') !== 0 ){

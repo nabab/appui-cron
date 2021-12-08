@@ -1,8 +1,4 @@
 <?php
-/*
- * Describe what it does!
- *
- **/
 
 /** @var $this \bbn\Mvc\Controller */
 $ctrl->addData(['data_path' => $ctrl->pluginDataPath()])
