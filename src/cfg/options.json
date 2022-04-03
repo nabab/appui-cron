@@ -1,34 +1,31 @@
 {
-  "text": "CRON",
-  "code": "cron",
-  "id_parent": "appui",
-  "icon": "nf nf-mdi-clock",
   "cfg": {
     "show_code": 1,
-    "allow_children": 1
+    "show_icon": 1,
+    "allow_children": 1,
+    "i18n": "en"
   },
+  "id_parent": ["appui"],
+  "text": "CRON",
+  "code": "cron",
+  "id_alias": ["plugin", "list", "templates", "option", "appui"],
+  "icon": "nf nf-mdi-clock_start",
+  "plugin": true,
   "items": [
     {
-      "text": "Permissions",
-      "code": "permissions",
-      "cfg": {
-        "allow_children": 1
-      },
+      "text": "Plugins",
+      "code": "plugins",
       "items": [
         {
-          "text": "Access",
-          "code": "access"
-        }, {
-          "text": "Options",
-          "code": "options"
-        }, {
-          "text": "Plugins",
-          "code": "plugins",
+          "text": "Dashboard",
+          "code": "appui-dashboard",
+          "id_alias": ["dashboard", "appui"],
           "items": [
             {
-              "text": "Dashboard",
-              "code": "appui-dashboard",
-              "id_alias": ["list", "dashboard", "appui"],
+              "text": "Widgets",
+              "code": "widgets",
+              "id_alias": ["widgets", "dashboard", "appui"],
+              "icon": "nf nf-mdi-widgets",
               "items": [
                 {
                   "text": "CRON",
