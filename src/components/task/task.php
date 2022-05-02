@@ -50,7 +50,7 @@
                           @hook:mounted="listMounted"
                           :filterable="true"
                           :server-filtering="false"
-                          @dataReceived="onListDataReceived"
+                          @datareceived="onListDataReceived"
                           @dataloaded="onListDataloaded"
                           :alternate-background="true"
                 ></bbn-list>
