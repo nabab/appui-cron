@@ -61,7 +61,6 @@
       "priority": {
         "type": "tinyint",
         "null": 0,
-        "key": null,
         "default": 5,
         "maxlength": 1
       },
@@ -75,28 +74,27 @@
       "prev": {
         "type": "datetime",
         "null": 1,
-        "key": null,
         "signed": true,
-        "default": "NULL"
+        "default": "NULL",
+        "defaultExpression": 1
       },
       "next": {
         "type": "datetime",
         "null": 1,
-        "key": null,
         "signed": true,
-        "default": "NULL"
+        "default": "NULL",
+        "defaultExpression": 1
       },
       "description": {
         "type": "text",
         "null": 1,
-        "key": null,
         "signed": true,
-        "default": "NULL"
+        "default": "NULL",
+        "defaultExpression": 1
       },
       "pid": {
         "type": "int",
         "null": 1,
-        "key": null,
         "default": "NULL",
         "defaultExpression": 1,
         "maxlength": 6
@@ -104,7 +102,6 @@
       "cfg": {
         "type": "json",
         "null": 0,
-        "key": null,
         "signed": true,
         "generation": ""
       },
@@ -112,7 +109,6 @@
         "position": 10,
         "type": "tinyint",
         "null": 0,
-        "key": null,
         "default": 0,
         "maxlength": 1
       }
