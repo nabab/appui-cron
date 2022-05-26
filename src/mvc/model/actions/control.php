@@ -11,7 +11,9 @@ if ( isset($model->data['file']) && \bbn\Str::checkName($model->data['file']) ){
       unlink($f);
     }
   }
-  else if (file_put_contents($f, (string)date('Y-m-d H:i:s'))) {
+  else if (\bbn\File\Dir::createPath(dirname($f))
+    && file_put_contents($f, (string)date('Y-m-d H:i:s'))
+  ) {
     if ( $model->data['file'] === 'poll' ){
       $model->inc->cron->launchPoll();
     }
