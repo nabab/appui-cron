@@ -46,14 +46,12 @@
         "type": "binary",
         "null": 0,
         "key": "PRI",
-        "signed": true,
         "maxlength": 16
       },
       "project": {
         "type": "binary",
         "null": 1,
         "key": "MUL",
-        "signed": true,
         "default": "NULL",
         "defaultExpression": 1,
         "maxlength": 16
@@ -68,27 +66,23 @@
         "type": "varchar",
         "null": 0,
         "key": "UNI",
-        "signed": true,
         "maxlength": 100
       },
       "prev": {
         "type": "datetime",
         "null": 1,
-        "signed": true,
         "default": "NULL",
         "defaultExpression": 1
       },
       "next": {
         "type": "datetime",
         "null": 1,
-        "signed": true,
         "default": "NULL",
         "defaultExpression": 1
       },
       "description": {
         "type": "text",
         "null": 1,
-        "signed": true,
         "default": "NULL",
         "defaultExpression": 1
       },
@@ -102,11 +96,9 @@
       "cfg": {
         "type": "json",
         "null": 0,
-        "signed": true,
         "generation": ""
       },
       "active": {
-        "position": 10,
         "type": "tinyint",
         "null": 0,
         "default": 0,
