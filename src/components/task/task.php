@@ -94,6 +94,8 @@
             <div class="bbn-padded bbn-grid-fields">
               <label><?=_('Process ID')?></label>
               <div v-text="currentObj.pid"></div>
+              <label><?=_('CRON ID')?></label>
+              <div v-text="currentID"></div>
               <label><?=_('Start')?></label>
               <div v-text="currentObj.startFormatted || ''"></div>
               <label><?=_('End')?></label>
