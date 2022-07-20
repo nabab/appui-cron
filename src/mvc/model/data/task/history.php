@@ -19,7 +19,7 @@ if ($model->hasVar('id', true) && $model->inc->cron->check()) {
 
   $data = $model->inc->cron->getDayLogs($model->data);
   $task = [];
-  if (!empty($model->data['id'])) {
+  if (!empty($model->data['id']) ) {
     $task = $model->inc->cron->getManager()->getCron($model->data['id']);
     if (is_array($task['cfg'])) {
       $task = array_merge($task, $task['cfg']);
@@ -35,8 +35,8 @@ if ($model->hasVar('id', true) && $model->inc->cron->check()) {
   }
 
   return [
-    'data' => $data,
-    'total' => count($data),
+    'data' => $data ?: [],
+    'total' => is_array($data) ? count($data) : 0,
     'task' => $task,
     'test' => $model->data,
     'success' => true
