@@ -1,6 +1,6 @@
 <?php
 if (
-  (strpos($ctrl->baseURL, APPUI_CRON_ROOT . 'page/task/') !== 0) &&
+  (strpos(BBN_BASEURL, APPUI_CRON_ROOT . 'page/task/') !== 0) &&
   ($id = $ctrl->arguments[0]) &&
   \bbn\Str::isUid($id) &&
   ($task = $ctrl->inc->cron->getManager()->getCron($id))
