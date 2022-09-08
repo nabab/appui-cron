@@ -1,5 +1,6 @@
 <?php
 if (
+  defined('BBN_BASEURL') &&
   (strpos(BBN_BASEURL, APPUI_CRON_ROOT . 'page/task/') !== 0) &&
   ($id = $ctrl->arguments[0]) &&
   \bbn\Str::isUid($id) &&
