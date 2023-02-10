@@ -3,221 +3,221 @@ msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: info@bbn.so\n"
 "last-Translator: BBN Solutions <support@bbn.solutions>\n"
-"Language-Team: DE <DE@li.org>\n"
+"Language-Team: FR <FR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-10 16:19+0100\n"
-"POT-Revision-Date: 2023-02-10 16:19+0100\n"
-"Language: de\n"
-"X-Domain: appui-cron56\n"
+"POT-Creation-Date: 2023-02-10 18:39+0100\n"
+"POT-Revision-Date: 2023-02-10 18:39+0100\n"
+"Language: fr\n"
+"X-Domain: appui-cron62\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every minute"
-msgstr ""
+msgstr "Chaque minute"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 2 minutes"
-msgstr ""
+msgstr "Toutes les 2 minutes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 5 minutes"
-msgstr ""
+msgstr "Toutes les 5 minutes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 10 minutes"
-msgstr ""
+msgstr "Toutes les 10 minutes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 15 minutes"
-msgstr ""
+msgstr "Tous les quart d'heure"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 20 minutes"
-msgstr ""
+msgstr "Toutes les 20 minutes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 30 minutes"
-msgstr ""
+msgstr "Toutes les demi-heure"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 45 minutes"
-msgstr ""
+msgstr "Toutes les 45 minutes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every hour"
-msgstr ""
+msgstr "Toutes les heures"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 2 hours"
-msgstr ""
+msgstr "Toutes les 2 heures"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 4 hours"
-msgstr ""
+msgstr "Toutes les 4 heures"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 8 hours"
-msgstr ""
+msgstr "Toutes les 8 heures"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 12 hours"
-msgstr ""
+msgstr "Toutes les 12 heures"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every day"
-msgstr ""
+msgstr "Tous les jours"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 2 days"
-msgstr ""
+msgstr "Tous les 2 jours"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 3 days"
-msgstr ""
+msgstr "Tous les 3 jours"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every week"
-msgstr ""
+msgstr "Toutes les semaines"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 2 weeks"
-msgstr ""
+msgstr "Toutes les 2 semaines"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 3 weeks"
-msgstr ""
+msgstr "Toutes les 3 semaines"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every month"
-msgstr ""
+msgstr "Tous les mois"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 2 month"
-msgstr ""
+msgstr "Tous les 2 mois"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 3 month"
-msgstr ""
+msgstr "Tous les 3 mois"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every 6 month"
-msgstr ""
+msgstr "Tous les 6 mois"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Every year"
-msgstr ""
+msgstr "Chaque année"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Browse CLI"
-msgstr ""
+msgstr "Parcourir les tâches"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Controller"
-msgstr ""
+msgstr "Contrôleur"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Priority"
-msgstr ""
+msgstr "Priorité"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Frequency"
-msgstr ""
+msgstr "Fréquence"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Timeout"
-msgstr ""
+msgstr "Expiration"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Date/time planned for the next execution"
-msgstr ""
+msgstr "Date/heure de la prochaine exécution"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/form/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Description of the task"
-msgstr ""
+msgstr "Description de la tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 msgid "With content"
-msgstr ""
+msgstr "Avec contenu"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 msgid "With error"
-msgstr ""
+msgstr "Avec erreur"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 msgid "Are you sure you want to delete all log files of this task?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer tous les journaux de cette tâche?"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Deleted"
-msgstr ""
+msgstr "Supprimé"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
@@ -225,43 +225,45 @@ msgid ""
 "Are you sure you want to reset this task? If the task is running you might crash "
 "the app"
 msgstr ""
+"Êtes-vous sûr de vouloir réinitialiser cette tâche? Si elle est en cours "
+"d'exécution elle pourrait planter l'application"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.js
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Reset successful."
-msgstr ""
+msgstr "Réinitialisation effectuée"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "PROCESSES"
-msgstr ""
+msgstr "PROCESSUS"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Filter by..."
-msgstr ""
+msgstr "Filtrer par..."
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "SELECTED PROCESS"
-msgstr ""
+msgstr "PROCESSUS SÉLECTIONNÉ"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Prev"
-msgstr ""
+msgstr "Précédent"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/widget/cron/cron.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Live output"
-msgstr ""
+msgstr "Sortie en direct"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Process ID"
-msgstr ""
+msgstr "ID du processus"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "CRON ID"
@@ -269,95 +271,95 @@ msgstr ""
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Start"
-msgstr ""
+msgstr "Début"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "TASK INFO"
-msgstr ""
+msgstr "INFO TÂCHE"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Refresh"
-msgstr ""
+msgstr "Rafraîchir"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Run"
-msgstr ""
+msgstr "Exécuter"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Reset"
-msgstr ""
+msgstr "Réinitialiser"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Stop"
-msgstr ""
+msgstr "Arrêter"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Delete all log files"
-msgstr ""
+msgstr "Supprimer tous les fichiers journaux"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Auto select the last process"
-msgstr ""
+msgstr "Sélectionner automatiquement le dernier processus"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/widget/cron/cron.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Failed"
-msgstr ""
+msgstr "Échec"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "OUTPUT"
-msgstr ""
+msgstr "SORTIE"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "No Output"
-msgstr ""
+msgstr "Pas de résultat"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/task/task.php
 msgid "Select a process"
-msgstr ""
+msgstr "Sélectionner un processus"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/components/widget/cron/cron.js
 msgid "Running"
-msgstr ""
+msgstr "En cours d'exécution"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/task.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/public/page/home.php
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "Refresh list"
-msgstr ""
+msgstr "Actualiser la liste"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "Go to full list"
-msgstr ""
+msgstr "Aller à la liste complète"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "Select a task"
-msgstr ""
+msgstr "Sélectionner une tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "ON"
-msgstr ""
+msgstr "Le/À"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "OFF"
@@ -365,12 +367,12 @@ msgstr ""
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "Poller"
-msgstr ""
+msgstr "SONDEUR"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "No process"
@@ -378,7 +380,7 @@ msgstr ""
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "Tasks"
-msgstr ""
+msgstr "Tâches"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/home.php
 msgid "Current task"
@@ -402,184 +404,184 @@ msgstr ""
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Prio."
-msgstr ""
+msgstr "Prio."
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "The time to wait between each execution"
-msgstr ""
+msgstr "Le temps passé entre chaque exécution"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Timeout in seconds"
-msgstr ""
+msgstr "Temps d'expiration en secondes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Date/time of the previous execution"
-msgstr ""
+msgstr "Date/heure de l'exécution précédente"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Dur."
-msgstr ""
+msgstr "Dur."
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Average duration of the execution"
-msgstr ""
+msgstr "Durée moyenne d'exécution"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Num"
-msgstr ""
+msgstr "Nb"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Total number of executions"
-msgstr ""
+msgstr "Nombre total d'exécutions"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/html/page/list.php
 msgid "New task"
-msgstr ""
+msgstr "Nouvelle tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "CRON tasks system"
-msgstr ""
+msgstr "Système de tâches automatisées"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "CRON"
-msgstr ""
+msgstr "CRON"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "POLLER process"
-msgstr ""
+msgstr "Processus du sondeur"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "POLLER"
-msgstr ""
+msgstr "SONDEUR"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "deleted"
-msgstr ""
+msgstr "Supprimé"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "turn off"
-msgstr ""
+msgstr "désactiver"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "turn on"
-msgstr ""
+msgstr "activer"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "Are you sure you want to"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "all background activity?"
-msgstr ""
+msgstr "toute l'acitivité d'arrière-plan"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "the polling system?"
-msgstr ""
+msgstr "le système de sonde"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "the task system?"
-msgstr ""
+msgstr "le systéme de tâches automatisées"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "Next execution"
-msgstr ""
+msgstr "Prochaine exécution"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "Previous execution"
-msgstr ""
+msgstr "Dernière exécution"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Task page"
-msgstr ""
+msgstr "Page de la tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Reset task"
-msgstr ""
+msgstr "Réinitialiser la tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Delete task"
-msgstr ""
+msgstr "Supprimer la tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Run task"
-msgstr ""
+msgstr "Lancer l'exécution de la tâche"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Are you sure you want to delete this task?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer cette tâche?"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Deleted."
-msgstr ""
+msgstr "Supprimé"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Are you sure you want to run this task?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir exécuter cette tâche?"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "No output"
-msgstr ""
+msgstr "Pas de résultat"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "executed in"
-msgstr ""
+msgstr "exécuté en"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "seconds"
-msgstr ""
+msgstr "secondes"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "An error occured..."
-msgstr ""
+msgstr "Une erreur est survenue..."
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Are you sure you want to delete this error log?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer ce journal d'erreur?"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Error"
-msgstr ""
+msgstr "Erreur"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Delete all logs"
-msgstr ""
+msgstr "Supprimer tous les journaux"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "Are you sure you want to delete all error logs of this task?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le journal d'erreur de cette tâche?"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/list.js
 msgid "All logs deleted"
-msgstr ""
+msgstr "Tous les journaux ont été supprimés"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/public/page.php
 msgid "Automatized tasks"
-msgstr ""
+msgstr "Tâches automatisées"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/public/page/list.php
 msgid "Tasks' list"
-msgstr ""
+msgstr "Liste des tâches"
