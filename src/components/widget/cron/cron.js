@@ -40,6 +40,7 @@
         },
         methods: {
           refresh(){
+            /*
             let dur = dayjs.duration(this.currentTime.diff(dayjs()));
               if ( dayjs().isSame(this.currentTime, 'month') ){
                 let h = dur.hours(),
@@ -55,9 +56,11 @@
               else {
                 this.showedTime = this.currentTime.calendar();
               }
+              */
           }
         },
         mounted(){
+          /*
           if ( this.nextInterval ){
             clearTimeout(this.nextInterval);
           }
@@ -70,6 +73,7 @@
               this.refresh();
             }, 1000);
           }
+          */
         },
         beforeDestroy(){
           if ( this.nextInterval ){

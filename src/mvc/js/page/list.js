@@ -204,7 +204,7 @@
         template: '<bbn-switch v-model="source.active" @change="activation" :no-icon="false"></bbn-switch>',
         data(){
           return {
-            cp: bbn.vue.closest(this, 'bbn-container').getComponent()
+            cp: this.closest('bbn-container').getComponent()
           }
         },
         methods: {
@@ -253,7 +253,7 @@
         </div>`,
         data(){
           return {
-            cp: bbn.vue.closest(this, 'bbn-container').getComponent()
+            cp: this.closest('bbn-container').getComponent()
           }
         },
         methods: {
@@ -288,7 +288,7 @@
 ></bbn-button>`,
             data(){
               return {
-                cp: bbn.vue.closest(this, 'bbn-container').getComponent(),
+                cp: this.closest('bbn-container').getComponent(),
                 cpError: this.$parent.$parent
               }
             },
@@ -325,7 +325,7 @@
         `,
         data(){
           return {
-            form: bbn.vue.closest(this, 'bbn-form')
+            form: this.closest('bbn-form')
           }
         },
         methods: {
@@ -353,7 +353,7 @@
             props: ['source'],
             data(){
               return {
-                cp: bbn.vue.closest(this, 'bbn-container').getComponent()
+                cp: this.closest('bbn-container').getComponent()
               }
             },
             methods: {

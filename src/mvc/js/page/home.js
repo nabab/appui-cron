@@ -186,7 +186,7 @@
 </div>`,
         data(){
           return {
-            tab: bbn.vue.closest(this, 'bbn-container').getComponent()
+            tab: this.closest('bbn-container').getComponent()
           }
         },
         computed: {
@@ -242,7 +242,7 @@
 </div>`,
         data(){
           return {
-            tab: bbn.vue.closest(this, 'bbn-container').getComponent()
+            tab: this.closest('bbn-container').getComponent()
           }
         },
         computed: {

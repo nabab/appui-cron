@@ -1,6 +1,7 @@
 <div class="bbn-w-100 bbn-padded">
   <div class="bbn-w-100 bbn-rel">
-    <bbn-table :source="source.cron ? source.cron.data : []"
+    <bbn-table v-if="source.cron"
+    :source="source.cron ? source.cron.data : []"
               :scrollable="false"
     >
       <bbns-column title="<?=_('Description')?>"
