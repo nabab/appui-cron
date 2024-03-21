@@ -2,7 +2,7 @@
 <div class="bbn-overlay appui-cron-main-container">
   <div class="bbn-flex-height">
     <bbn-toolbar>
-      <bbn-button title="<?=_('Refresh list')?>"
+      <bbn-button title="<?= _('Refresh list') ?>"
                   icon="nf nf-fa-refresh"
                   @click="refreshTasks"
                   class="bbn-button-icon-only"
@@ -10,7 +10,7 @@
 
       <div class="bbn-toolbar-separator"></div>
 
-      <bbn-button title="<?=_('Go to full list')?>"
+      <bbn-button title="<?= _('Go to full list') ?>"
                   icon="nf nf-fa-th_list"
                   :url="source.root + 'page/list'"
                   class="bbn-button-icon-only"
@@ -141,7 +141,7 @@
             <div v-else
                 class="bbn-overlay bbn-middle"
             >
-              <span class="bbn-xl bbn-b"><i class="nf nf-fa-arrow_left bbn-right-space"></i><?=_('Select a task')?></span>
+              <span class="bbn-xl bbn-b"><i class="nf nf-fa-arrow_left bbn-right-space"></i><?= _('Select a task') ?></span>
             </div>
           </bbn-pane>
         </bbn-splitter>
