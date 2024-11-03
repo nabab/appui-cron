@@ -2,8 +2,7 @@
 //return [];
 if (!isset($model->inc->cron)) {
   $mvc = \bbn\Mvc::getInstance();
-  $ctrl = new \bbn\Mvc\Controller($mvc, []);
-  $model->addInc('cron', (new \bbn\Cron($model->db, $ctrl)));
+  $model->addInc('cron', (new \bbn\Cron($model->db, $model->getController())));
 }
 $plugin_data = $model->pluginDataPath('appui-cron');
 $plugin_url = $model->pluginUrl('appui-cron');
