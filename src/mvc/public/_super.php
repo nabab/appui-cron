@@ -1,5 +1,5 @@
 <?php
-/** @var $ctrl \bbn\Mvc\Controller */
+/** @var bbn\Mvc\Controller $ctrl */
 
 if ( !\defined('APPUI_CRON_ROOT') ){
   define('APPUI_CRON_ROOT', $ctrl->pluginUrl('appui-cron').'/');

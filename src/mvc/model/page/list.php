@@ -1,5 +1,5 @@
 <?php
-/** @var $model \bbn\Mvc\Model */
+/** @var bbn\Mvc\Model $model */
 $grid = new \bbn\Appui\Grid($model->db, $model->data, [
   'table' => 'bbn_cron'
 ]);

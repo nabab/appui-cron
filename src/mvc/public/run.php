@@ -1,5 +1,5 @@
 <?php
-/** @var $ctrl \bbn\Mvc\Controller */
+/** @var bbn\Mvc\Controller $ctrl */
 if ( $ctrl->isCli() ){
   \bbn\X::log("We execute from mvc/public/run", 'cron1');
 
