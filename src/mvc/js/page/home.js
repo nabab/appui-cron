@@ -157,7 +157,7 @@
     },
     beforeDestroy(){
       this.ready = false;
-      this.$delete(appui.pollerObject, 'appui-cron');
+      delete appui.pollerObject['appui-cron'];
       appui.poll();
       appui.unregister('appui-cron');
     },
