@@ -1,4 +1,4 @@
-<div class="bbn-w-100 bbn-padded">
+<div class="bbn-w-100 bbn-padding">
   <div class="bbn-w-100 bbn-rel">
     <bbn-table v-if="source.cron"
     :source="source.cron ? source.cron.data : []"

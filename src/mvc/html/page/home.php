@@ -25,7 +25,7 @@
                      'bbn-on': source.active,
                      'bbn-bg-red': !source.active,
                      }" style="width: 24px; height: 24px"></div>
-        <div class="bbn-b bbn-large bbn-iblock bbn-hxspadded" v-text="source.active ? _('ON') : _('OFF')"></div>
+        <div class="bbn-b bbn-large bbn-iblock bbn-hxspadding" v-text="source.active ? _('ON') : _('OFF')"></div>
       </div>
 
       <div class="bbn-toolbar-separator"></div>
@@ -38,7 +38,7 @@
                      'bbn-bg-orange': !source.active && source.poll,
                      'bbn-bg-red': !source.poll,
                      }"></div>
-        <div class="bbn-iblock bbn-hxspadded">
+        <div class="bbn-iblock bbn-hxspadding">
           <span v-text="_('Poller')" ></span><br>
           <span v-if="source.pollid" class="bbn-iblock">
             <span v-text="_('PID')"></span>
@@ -58,7 +58,7 @@
                      'bbn-bg-orange': !source.active && source.cron,
                      'bbn-bg-red': !source.cron,
                      }"></div>
-        <div class="bbn-iblock bbn-hxspadded">
+        <div class="bbn-iblock bbn-hxspadding">
           <span class="bbn-iblock" v-text="_('Tasks')"></span><br>
           <span v-if="source.cronid" class="bbn-iblock">
             <span v-text="_('PID')"></span>
@@ -84,7 +84,7 @@
               <div v-text="_('Current task')"
                   class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-top bbn-no-border-right"
               ></div>
-              <div class="bbn-w-100 bbn-c bbn-spadded">
+              <div class="bbn-w-100 bbn-c bbn-spadding">
                 <bbn-dropdown :source="source.quicklist"
                               v-model="currentTask"
                               :placeholder="_('Pick a task')"

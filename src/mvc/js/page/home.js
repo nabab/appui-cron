@@ -165,7 +165,7 @@
       tasksItem: {
         props: ['source'],
         template: `
-<div :class="['bbn-w-100', 'bbn-hspadded', 'bbn-vxspadded', 'node']">
+<div :class="['bbn-w-100', 'bbn-hspadding', 'bbn-vxspadding', 'node']">
   <div class="bbn-flex-width">
     <bbn-countdown :title="info"
                    :target="source.next"
@@ -214,7 +214,7 @@
       failedItem: {
         props: ['source'],
         template: `
-<div :class="['bbn-w-100', 'bbn-hspadded', 'bbn-vxspadded']">
+<div :class="['bbn-w-100', 'bbn-hspadding', 'bbn-vxspadding']">
   <div class="bbn-flex-width bbn-vmiddle">
     <i class="nf nf-fa-warning bbn-right-sspace bbn-red"></i>
     <span class="bbn-medium bbn-flex-fill"
@@ -228,7 +228,7 @@
       activeTasksItem: {
         props: ['source'],
         template: `
-<div class="bbn-w-100 bbn-hspadded bbn-vxspadded node">
+<div class="bbn-w-100 bbn-hspadding bbn-vxspadding node">
   <div class="bbn-flex-width">
 		<div class="bbn-flex-fill"
 				 style="white-space: nowrap">

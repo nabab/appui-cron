@@ -3,7 +3,7 @@
           :data="source.data || {}"
           @success="onSuccess"
 >
-  <div class="bbn-grid-fields bbn-spadded">
+  <div class="bbn-grid-fields bbn-spadding">
     <label><?= _('Controller') ?></label>
     <div class="bbn-flex-width">
       <bbn-input v-model="source.row.file"

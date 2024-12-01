@@ -388,7 +388,7 @@
     components: {
       listItem: {
         template: `
-          <div :class="['bbn-c', 'bbn-xspadded', 'bbn-bordered-bottom', {'bbn-green': !!source.content, 'bbn-red': !!source.error}]"
+          <div :class="['bbn-c', 'bbn-xspadding', 'bbn-border-bottom', {'bbn-green': !!source.content, 'bbn-red': !!source.error}]"
                v-text="time"
           ></div>
         `,

@@ -115,7 +115,7 @@
     components: {
       tree: {
         template: `
-<div class="bbn-spadded bbn-overlay">
+<div class="bbn-spadding bbn-overlay">
   <bbn-tree :source="root + 'data/tree'"
             @select="nodeSel"
   ></bbn-tree>

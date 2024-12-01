@@ -23,7 +23,7 @@
         </bbn-pane>
         <bbn-pane>
           <div class="bbn-flex-height">
-            <div class="bbn-header bbn-xspadded">
+            <div class="bbn-header bbn-xspadding">
               <div class="bbn-flex-width bbn-vmiddle bbn-bottom-xsspace">
                 <span class="bbn-flex-fill bbn-c bbn-b"><?= _('PROCESSES') ?></span>
                 <i class="nf nf-fa-refresh bbn-p" @click="getRef('list').updateData()"></i>
@@ -64,8 +64,8 @@
       <div class="bbn-flex-height">
         <div class="bbn-flex">
           <div class="bbn-w-50">
-            <div class="bbn-header bbn-spadded bbn-b bbn-c"><?= _('SELECTED PROCESS') ?></div>
-            <bbn-toolbar class="bbn-spadded">
+            <div class="bbn-header bbn-spadding bbn-b bbn-c"><?= _('SELECTED PROCESS') ?></div>
+            <bbn-toolbar class="bbn-spadding">
               <bbn-button icon="nf nf-fa-angle_left"
                           title="<?= _('Prev') ?>"
                           @click="prevLog"
@@ -91,7 +91,7 @@
                           class="bbn-left-sspace"
               ></bbn-switch>
             </bbn-toolbar>
-            <div class="bbn-padded bbn-grid-fields">
+            <div class="bbn-padding bbn-grid-fields">
               <label><?= _('Process ID') ?></label>
               <div v-text="currentObj.pid"></div>
               <label><?= _('CRON ID') ?></label>
@@ -104,9 +104,9 @@
               <div v-text="currentObj.duration || ''"></div>
             </div>
           </div>
-          <div class="bbn-w-50 bbn-bordered-left">
-          <div class="bbn-header bbn-spadded bbn-b bbn-c"><?= _('TASK INFO') ?></div>
-            <bbn-toolbar class="bbn-spadded bbn-no-border-left">
+          <div class="bbn-w-50 bbn-border-left">
+          <div class="bbn-header bbn-spadding bbn-b bbn-c"><?= _('TASK INFO') ?></div>
+            <bbn-toolbar class="bbn-spadding bbn-no-border-left">
               <bbn-button icon="nf nf-fa-refresh"
                           title="<?= _('Refresh') ?>"
                           :notext="true"
@@ -156,7 +156,7 @@
                           class="bbn-left-sspace"
               ></bbn-switch>
             </bbn-toolbar>
-            <div class="bbn-padded bbn-grid-fields">
+            <div class="bbn-padding bbn-grid-fields">
               <label><?= _('File') ?></label>
               <div v-text="currentTaskObj.file"></div>
               <label><?= _('Description') ?></label>
@@ -180,7 +180,7 @@
           </div>
         </div>
         <div class="bbn-flex-fill bbn-flex-height">
-          <div class="bbn-header bbn-spadded bbn-c bbn-b"><?= _('OUTPUT') ?></div>
+          <div class="bbn-header bbn-spadding bbn-c bbn-b"><?= _('OUTPUT') ?></div>
           <div class="bbn-flex-fill" v-if="currentLog">
             <bbn-code ref="code"
                       :value="currentOutput"
