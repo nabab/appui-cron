@@ -86,8 +86,8 @@
     },
     methods: {
       browseCli(){
-        this.getPopup().open({
-          title: bbn._('Browse CLI'),
+        this.getPopup({
+          label: bbn._('Browse CLI'),
           width: 350,
           height: 600,
           component: this.$options.components.tree,

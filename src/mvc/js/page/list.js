@@ -232,13 +232,13 @@
                      ref="table"
           >
             <bbns-column field="moment"
-                        title="` + bbn._('Date') + `"
+                        label="` + bbn._('Date') + `"
                         :width="150"
                         type="date"
                         cls="bbn-c"
             ></bbns-column>
             <bbns-column field="content"
-                        title="` + bbn._('Content') + `"
+                        label="` + bbn._('Content') + `"
             ></bbns-column>
             <bbns-column :buttons="[{
                           text: 'Delete',
@@ -331,8 +331,8 @@
         },
         methods: {
           browseCli(){
-            this.getPopup().open({
-              title: bbn._('Browse CLI'),
+            this.getPopup({
+              label: bbn._('Browse CLI'),
               width: 350,
               height: 600,
               component: this.$options.components['appui-cron-tree'],

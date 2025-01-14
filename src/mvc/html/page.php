@@ -3,7 +3,7 @@
 <bbn-router :autoload="true"
             :nav="true"
 >
-	<bbns-container :title="_('Home')"
+	<bbns-container :label="_('Home')"
            :loaded="false"
            :load="true"
            icon="nf nf-fa-home"

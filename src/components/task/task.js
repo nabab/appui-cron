@@ -272,8 +272,8 @@
         })
       },
       edit(){
-        this.getPopup().open({
-          title: bbn._('Edit'),
+        this.getPopup({
+          label: bbn._('Edit'),
           width: 700,
           component: 'appui-cron-form-task',
           source: {

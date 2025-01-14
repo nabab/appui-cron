@@ -167,7 +167,7 @@
         template: `
 <div :class="['bbn-w-100', 'bbn-hspadding', 'bbn-vxspadding', 'node']">
   <div class="bbn-flex-width">
-    <bbn-countdown :title="info"
+    <bbn-countdown :label="info"
                    :target="source.next"
                    precision="second"
                    scale="minute"
