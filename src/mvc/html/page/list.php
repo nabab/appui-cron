@@ -15,7 +15,7 @@
            }]"
 >
   <bbns-column field="id"
-              :hidden="true"
+              :invisible="true"
               :editable="false"
   ></bbns-column>
   <bbns-column field="active"
@@ -41,13 +41,13 @@
   ></bbns-column>
   <bbns-column field="frequency"
               :source="frequencies"
-              :hidden="true"
+              :invisible="true"
               label="<?= _('Frequency') ?>"
               flabel="<?= _('The time to wait between each execution') ?>"
               :required="true"
   ></bbns-column>
   <bbns-column field="timeout"
-              :hidden="true"
+              :invisible="true"
               label="<?= _('Timeout') ?>"
               flabel="<?= _('Timeout in seconds') ?>"
               :required="true"
