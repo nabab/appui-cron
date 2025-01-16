@@ -130,7 +130,7 @@
         if (e.pid) {
           buttons.push({
             text: bbn._('Reset task'),
-            icon: 'nf nf-mdi-refresh',
+            icon: 'nf nf-md-refresh',
             notext: true,
             action: this.reset
           });
