@@ -68,6 +68,13 @@
         "key": "UNI",
         "maxlength": 100
       },
+      "variant": {
+          "type": "varchar",
+          "null": 0,
+          "default": "''",
+          "defaultExpression": false,
+          "maxlength": 255
+      },
       "prev": {
         "type": "datetime",
         "null": 1,
@@ -92,6 +99,15 @@
         "default": "NULL",
         "defaultExpression": 1,
         "maxlength": 6
+      },
+      "notification": {
+        "position": 10,
+        "type": "decimal",
+        "null": 1,
+        "default": "NULL",
+        "defaultExpression": false,
+        "maxlength": 14,
+        "decimals": 4
       },
       "cfg": {
         "type": "json",
