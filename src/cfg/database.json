@@ -105,14 +105,13 @@
         "type": "decimal",
         "null": 1,
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "maxlength": 14,
         "decimals": 4
       },
       "cfg": {
         "type": "json",
-        "null": 0,
-        "generation": ""
+        "null": 0
       },
       "active": {
         "type": "tinyint",

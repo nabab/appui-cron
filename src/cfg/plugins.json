@@ -1,0 +1,27 @@
+[
+    {
+        "text": "Dashboard",
+        "code": "dashboard",
+        "items": [
+            {
+                "text": "Widgets",
+                "code": "widgets",
+                "id_alias": [
+                    "widgets",
+                    "dashboard",
+                    "appui"
+                ],
+                "icon": "nf nf-mdi-widgets",
+                "items": [
+                    {
+                        "text": "CRON",
+                        "code": "cron",
+                        "observe": false,
+                        "closable": true,
+                        "component": "appui-cron-widget-cron"
+                    }
+                ]
+            }
+        ]
+    }
+]
