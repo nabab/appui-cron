@@ -17,24 +17,43 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 stages:          # List of stages for jobs, and their order of execution
+  - codeberg
   - github
 
+codeberg-sync:
+  stage: codeberg
+  script:
+    - echo "Synching with Codeberg"
+    - rm -rf ~/plugins_appui-cron
+    - mkdir ~/plugins_appui-cron
+    - cd ~/plugins_appui-cron
+    - git clone --bare git@git.bbn.so:plugins/appui-cron.git .
+    - git remote add --mirror=fetch codeberg git@codeberg.org:appui/cron.git
+    - git fetch git@git.bbn.so:plugins/appui-cron.git master
+    - git fetch git@codeberg.org:appui/cron.git master
+    - git push -f git@codeberg.org:appui/cron.git master
+    - git push -f git@codeberg.org:appui/cron.git --tags
+    - cd -
+    - rm -rf ~/plugins_appui-cron
+    - echo "Codeberg synching finished !"
+  tags:
+    - codeberg
 github-sync:       # This job runs in the build stage, which runs first.
   stage: github
   script:
     - echo "Synching with Github..."
-    - cd ~/
-    - rm -rf plugins
-    - mkdir -p plugins/appui-cron
-    - git clone --bare git@git.bbn.so:plugins/appui-cron.git plugins/appui-cron
-    - cd plugins/appui-cron
+    - rm -rf ~/plugins_appui-cron
+    - mkdir ~/plugins_appui-cron
+    - cd ~/plugins_appui-cron
+    - git clone --bare git@git.bbn.so:plugins/appui-cron.git .
     - git remote add --mirror=fetch github git@github.com:nabab/appui-cron.git
     - git fetch git@git.bbn.so:plugins/appui-cron.git master
     - git fetch git@github.com:nabab/appui-cron.git master
-    - git push -f git@github.com:nabab/appui-cron.git --all
+    - git push -f git@github.com:nabab/appui-cron.git master
     - git push -f git@github.com:nabab/appui-cron.git --tags
     - cd -
-    - rm -rf plugins
-    - echo "Synching finished !"
+    - rm -rf ~/plugins_appui-cron
+    - echo "Github synching finished !"
   tags:
     - github
+
