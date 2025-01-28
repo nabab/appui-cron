@@ -95,7 +95,7 @@
   <bbns-column field="description"
               label="<?= _('Description') ?>"
               flabel="<?= _('Description of the task') ?>"
-              :hidden="true"
+              :invisible="true"
   ></bbns-column>
   <bbns-column v-if="source.is_dev"
               :width="170"
