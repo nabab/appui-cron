@@ -9,7 +9,7 @@
            uid="id"
            ref="table"
            :toolbar="[{
-             text: _('New task'),
+             label: _('New task'),
              action: 'insert',
              icon: 'nf nf-fa-plus'
            }]"

@@ -117,19 +117,19 @@
       renderButtons(e){
         let buttons = [
           {
-            text: bbn._('Task page'),
+            label: bbn._('Task page'),
             icon: 'nf nf-fa-eye',
             notext: true,
             action: this.view
           },{
-            text: bbn._('Edit'),
+            label: bbn._('Edit'),
             icon: 'nf nf-fa-edit',
             notext: true,
             action: 'edit'
         }];
         if (e.pid) {
           buttons.push({
-            text: bbn._('Reset task'),
+            label: bbn._('Reset task'),
             icon: 'nf nf-md-refresh',
             notext: true,
             action: this.reset
@@ -137,7 +137,7 @@
         }
         if ( this.source.can_delete ){
           buttons.push({
-            text: bbn._('Delete task'),
+            label: bbn._('Delete task'),
             icon: 'nf nf-fa-trash',
             notext: true,
             action: this.remove
@@ -145,7 +145,7 @@
         }
         if ( this.source.can_run ){
           buttons.push({
-            text: bbn._('Run task'),
+            label: bbn._('Run task'),
             icon: 'nf nf-fa-play',
             notext: true,
             action: this.run

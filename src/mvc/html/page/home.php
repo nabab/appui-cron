@@ -1,20 +1,18 @@
 <!-- HTML Document -->
 <div class="bbn-overlay appui-cron-main-container">
   <div class="bbn-flex-height">
-    <bbn-toolbar>
-      <bbn-button title="<?= _('Refresh list') ?>"
+    <bbn-toolbar class="bbn-xspadding">
+      <bbn-button label="<?= _('Refresh list') ?>"
                   icon="nf nf-fa-refresh"
                   @click="refreshTasks"
-                  class="bbn-button-icon-only"
-                  ></bbn-button>
+                  :notext="true"/>
 
       <div class="bbn-toolbar-separator"></div>
 
-      <bbn-button title="<?= _('Go to full list') ?>"
+      <bbn-button label="<?= _('Go to full list') ?>"
                   icon="nf nf-fa-th_list"
                   :url="source.root + 'page/list'"
-                  class="bbn-button-icon-only"
-                  ></bbn-button>
+                  :notext="true"/>
 
       <div class="bbn-toolbar-separator"></div>
 
