@@ -140,7 +140,7 @@
             label: bbn._('Delete task'),
             icon: 'nf nf-fa-trash',
             notext: true,
-            action: this.remove
+            action: this.removeItem
           });
         }
         if ( this.source.can_run ){
@@ -165,7 +165,7 @@
           });
         }
       },
-      remove(e){
+      removeItem(e){
         if ( e.id ){
           this.confirm(bbn._('Are you sure you want to delete this task?'), () => {
             this.post(this.source.root + 'actions/task/delete', {id: e.id}, d => {
