@@ -211,10 +211,13 @@
         methods: {
           activation(){
             let url = this.cp.source.root + 'actions/task/' + (this.source.active ? 'activate' : 'deactivate');
-            this.post(url, {id: this.source.id}, (d) => {
-              if ( !d.success ){
-                this.$set(this.source, 'active', !this.source.active);
-                this.$forceUpdate();
+            this.cp.post(url, {id: this.source.id}, (d) => {
+              if (d.success) {
+                appui.success(this.source.active ? bbn._("Task activated") : bbn._("Task deactivated"));
+              }
+              else {
+                this.source.active = !this.source.active;
+                appui.error();
               }
             });
           }
@@ -261,7 +264,7 @@
           deleteLog(row){
             if ( this.cp.source.can_delete_error && this.source.id && row.filename ){
               this.confirm(bbn._('Are you sure you want to delete this error log?'), () => {
-                this.post(this.cp.source.root + 'actions/log/delete_error', {
+                this.cp.post(this.cp.source.root + 'actions/log/delete_error', {
                   id: this.source.id,
                   filename: row.filename
                 }, d => {
@@ -296,8 +299,8 @@
             methods: {
               deleteAll(){
                 if ( this.cp.source.can_delete_all_error && this.cpError.source.id ){
-                  this.confirm(bbn._('Are you sure you want to delete all error logs of this task?'), () => {
-                    this.post(this.cp.source.root + 'actions/log/delete_all_error', {id: this.cpError.source.id}, d => {
+                  this.cp.confirm(bbn._('Are you sure you want to delete all error logs of this task?'), () => {
+                    this.cp.post(this.cp.source.root + 'actions/log/delete_all_error', {id: this.cpError.source.id}, d => {
                       if ( d.success ){
                         this.cpError.$refs.table.updateData();
                         appui.success(bbn._('All logs deleted'));
