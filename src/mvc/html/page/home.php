@@ -7,28 +7,36 @@
                   @click="refreshTasks"
                   :notext="true"/>
 
-      <div class="bbn-toolbar-separator"></div>
+      <div class="bbn-toolbar-separator"/>
 
       <bbn-button label="<?= _('Go to full list') ?>"
                   icon="nf nf-fa-th_list"
                   :url="source.root + 'page/list'"
                   :notext="true"/>
 
-      <div class="bbn-toolbar-separator"></div>
+      <div class="bbn-toolbar-separator"/>
 
-      <div class="bbn-nowrap bbn-p" @click="toggleActive" @mouseenter="mouseOver" @mouseleave="mouseOut">
+      <div class="bbn-nowrap bbn-p"
+           @click="toggleActive"
+           @mouseenter="mouseOver"
+           @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
                      'bbn-bg-blue': source.active,
                      'bbn-on': source.active,
                      'bbn-bg-red': !source.active,
-                     }" style="width: 24px; height: 24px"></div>
-        <div class="bbn-b bbn-large bbn-iblock bbn-hxspadding" v-text="source.active ? _('ON') : _('OFF')"></div>
+                     }"
+             style="width: 24px; height: 24px"/>
+        <div class="bbn-b bbn-large bbn-iblock bbn-hxspadding"
+             bbn-text="source.active ? _('ON') : _('OFF')"/>
       </div>
 
       <div class="bbn-toolbar-separator"></div>
 
-      <div class="bbn-nowrap bbn-p" @click="togglePoll" @mouseenter="mouseOver" @mouseleave="mouseOut">
+      <div class="bbn-nowrap bbn-p"
+           @click="togglePoll"
+           @mouseenter="mouseOver"
+           @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
                      'bbn-bg-green': source.active && source.poll,
@@ -37,77 +45,83 @@
                      'bbn-bg-red': !source.poll,
                      }"></div>
         <div class="bbn-iblock bbn-hxspadding">
-          <span v-text="_('Poller')" ></span><br>
-          <span v-if="source.pollid" class="bbn-iblock">
-            <span v-text="_('PID')"></span>
-            <span class="bbn-purple bbn-b" v-text="source.pollid"></span>
+          <span bbn-text="_('Poller')"/><br>
+          <span bbn-if="source.pollid"
+                class="bbn-iblock">
+            <span bbn-text="_('PID')"/>
+            <span class="bbn-purple bbn-b"
+                  bbn-text="source.pollid"/>
           </span>
-          <span v-else class="bbn-b" v-text="_('No process')"></span>
+          <span bbn-else
+                class="bbn-b"
+                bbn-text="_('No process')"/>
         </div>
       </div>
 
-      <div class="bbn-toolbar-separator"></div>
+      <div class="bbn-toolbar-separator"/>
 
-      <div class="bbn-nowrap bbn-p" @click="toggleCron" @mouseenter="mouseOver" @mouseleave="mouseOut">
+      <div class="bbn-nowrap bbn-p"
+           @click="toggleCron"
+           @mouseenter="mouseOver"
+           @mouseleave="mouseOut">
         <div :class="{
                      'bbn-diode': true,
                      'bbn-bg-green': source.active && source.cron,
                      'bbn-on': source.active,
                      'bbn-bg-orange': !source.active && source.cron,
                      'bbn-bg-red': !source.cron,
-                     }"></div>
+                     }"/>
         <div class="bbn-iblock bbn-hxspadding">
-          <span class="bbn-iblock" v-text="_('Tasks')"></span><br>
-          <span v-if="source.cronid" class="bbn-iblock">
-            <span v-text="_('PID')"></span>
-            <span class="bbn-purple bbn-b" v-text="source.cronid"></span>
+          <span class="bbn-iblock"
+                bbn-text="_('Tasks')"/>
+          <br>
+          <span bbn-if="source.cronid"
+                class="bbn-iblock">
+            <span bbn-text="_('PID')"/>
+            <span class="bbn-purple bbn-b"
+                  bbn-text="source.cronid"/>
           </span>
-          <span v-else class="bbn-b" v-text="_('No process')"></span>
+          <span bbn-else
+                class="bbn-b"
+                bbn-text="_('No process')"/>
         </div>
-
       </div>
     </bbn-toolbar>
+
     <div class="bbn-flex-fill">
       <div class="bbn-overlay">
         <bbn-splitter orientation="horizontal"
                       class="appui-cron-main-container"
                       :resizable="true"
-                      :collapsible="true"
-        >
+                      :collapsible="true">
           <bbn-pane :size="250"
                     class="appui-cron-pane-list"
-                    :scrollable="true"
-          >
+                    :scrollable="true">
             <div class="bbn-w-100 bbn-bottom-space">
-              <div v-text="_('Current task')"
-                  class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-top bbn-no-border-right"
-              ></div>
+              <div bbn-text="_('Current task')"
+                  class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-top bbn-no-border-right"/>
               <div class="bbn-w-100 bbn-c bbn-spadding">
                 <bbn-dropdown :source="source.quicklist"
-                              v-model="currentTask"
+                              bbn-model="currentTask"
                               :placeholder="_('Pick a task')"
                               @change="selectByDD"
-                              class="bbn-w-100"
-                ></bbn-dropdown>
+                              class="bbn-w-100"/>
               </div>
             </div>
             <div class="bbn-w-100">
-              <div v-text="_('Running tasks')"
-                  class="bbn-b bbn-c bbn-header bbn-large bbn-no-border-right"
-              ></div>
+              <div bbn-text="_('Running tasks')"
+                  class="bbn-b bbn-c bbn-header bbn-large bbn-no-border-right"/>
               <bbn-list :source="tasksList"
                         :component="$options.components['activeTasksItem']"
                         @select="select1"
                         ref="list1"
                         source-value="id"
                         uid="file"
-                        class="bbn-vmargin"
-              ></bbn-list>
+                        class="bbn-vmargin"/>
             </div>
             <div class="bbn-w-100">
-              <div v-text="_('Failed tasks')"
-                  class="bbn-b bbn-large bbn-c bbn-header bbn-no-border-right"
-              ></div>
+              <div bbn-text="_('Failed tasks')"
+                  class="bbn-b bbn-large bbn-c bbn-header bbn-no-border-right"/>
               <bbn-list :source="source.failed"
                         :component="$options.components['failedItem']"
                         ref="list3"
@@ -115,31 +129,29 @@
                         source-text="file"
                         uid="file"
                         @select="select3"
-                        class="bbn-vmargin"
-              ></bbn-list>
+                        class="bbn-vmargin"/>
             </div>
             <div class="bbn-w-100">
-              <div v-text="_('Coming tasks')"
-                  class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-right"
-              ></div>
+              <div bbn-text="_('Coming tasks')"
+                  class="bbn-c bbn-header bbn-b bbn-large bbn-no-border-right"/>
               <bbn-list :source="source.tasks"
                         :component="$options.components['tasksItem']"
                         @select="select2"
                         ref="list2"
                         source-value="id"
                         uid="file"
-                        class="bbn-vmargin"
-              ></bbn-list>
+                        class="bbn-vmargin"/>
             </div>
           </bbn-pane>
           <bbn-pane>
-            <appui-cron-task v-if="currentTask && showTask"
-                            :source="taskSource"
-            ></appui-cron-task>
-            <div v-else
-                class="bbn-overlay bbn-middle"
-            >
-              <span class="bbn-xl bbn-b"><i class="nf nf-fa-arrow_left bbn-right-space"></i><?= _('Select a task') ?></span>
+            <appui-cron-task bbn-if="currentTask && showTask"
+                            :source="taskSource"/>
+            <div bbn-else
+                class="bbn-overlay bbn-middle">
+              <span class="bbn-xl bbn-b">
+                <i class="nf nf-fa-arrow_left bbn-right-space"/>
+                <?= _('Select a task') ?>
+              </span>
             </div>
           </bbn-pane>
         </bbn-splitter>
