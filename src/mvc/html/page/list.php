@@ -12,24 +12,21 @@
              label: _('New task'),
              action: 'insert',
              icon: 'nf nf-fa-plus'
-           }]"
->
+           }]">
   <bbns-column field="id"
               :invisible="true"
-              :editable="false"
-  ></bbns-column>
+              :editable="false"/>
   <bbns-column field="active"
               :width="90"
               label="<?= _('Active') ?>"
               :component="$options.components['appui-cron-switch']"
               :editable="false"
-              cls="bbn-c"
-  ></bbns-column>
+              cls="bbn-c"/>
   <bbns-column field="file"
               label="<?= _('Controller') ?>"
               :render="renderFile"
               :required="true"
-  ></bbns-column>
+              :min-width="200"/>
   <bbns-column field="priority"
               :width="50"
               label="<?= _('Prio.') ?>"
@@ -37,37 +34,34 @@
               type="number"
               :required="true"
               :default="5"
-              cls="bbn-c"
-  ></bbns-column>
+              cls="bbn-c"/>
   <bbns-column field="frequency"
               :source="frequencies"
               :invisible="true"
               label="<?= _('Frequency') ?>"
               flabel="<?= _('The time to wait between each execution') ?>"
               :required="true"
-  ></bbns-column>
+              :width="150"/>
   <bbns-column field="timeout"
               :invisible="true"
               label="<?= _('Timeout') ?>"
               flabel="<?= _('Timeout in seconds') ?>"
               :required="true"
               type="number"
-  ></bbns-column>
+              :width="80"/>
   <bbns-column field="prev"
               :width="90"
               label="<?= _('Prev') ?>"
               flabel="<?= _('Date/time of the previous execution') ?>"
               type="datetime"
               :editable="false"
-              cls="bbn-c"
-  ></bbns-column>
+              cls="bbn-c"/>
   <bbns-column field="next"
               :width="90"
               label="<?= _('Next') ?>"
               flabel="<?= _('Date/time planned for the next execution') ?>"
               type="datetime"
-              cls="bbn-c"
-  ></bbns-column>
+              cls="bbn-c"/>
   <!--bbns-column field="duration"
               :width="60"
               label="<?= _('Dur.') ?>"
@@ -82,26 +76,22 @@
               label="<?= _('PID') ?>"
               flabel="<?= _('Process ID') ?>"
               :editable="false"
-              cls="bbn-c"
-  ></bbns-column>
+              cls="bbn-c"/>
   <bbns-column field="num"
               :width="70"
               type="number"
               label="<?= _('Num') ?>"
               flabel="<?= _('Total number of executions') ?>"
               :editable="false"
-              cls="bbn-c"
-  ></bbns-column>
+              cls="bbn-c"/>
   <bbns-column field="description"
               label="<?= _('Description') ?>"
               flabel="<?= _('Description of the task') ?>"
-              :invisible="true"
-  ></bbns-column>
+              :min-width="200"
+              :invisible="true"/>
   <bbns-column v-if="source.is_dev"
               :width="170"
               flabel="<?= _('Actions') ?>"
               :buttons="renderButtons"
-              cls="bbn-r"
-  ></bbns-column>
-
+              cls="bbn-r"/>
 </bbn-table>
