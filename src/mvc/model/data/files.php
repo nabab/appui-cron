@@ -46,7 +46,7 @@ if ( isset($model->data['data_path']) ){
   foreach ($files as $f){
     if (
       ($tmp = $model->inc->cron->getManager()->getCron(substr($f, 1))) &&
-      (\bbn\X::find($failed, ['id' => $tmp['id']]) === null)
+      (\bbn\X::search($failed, ['id' => $tmp['id']]) === null)
     ){
       $current[] = $tmp;
     }
