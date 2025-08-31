@@ -1,9 +1,5 @@
 <?php
-/*
- * Describe what it does!
- *
- **/
-/** @var $this \bbn\Mvc\Model*/
+/** @var bbn\Mvc\Model $model */
 if ( isset($model->data['file']) && \bbn\Str::checkName($model->data['file']) ){
   $f = $model->inc->cron->getStatusPath($model->data['file']);
   if ( empty($model->data['value']) ){

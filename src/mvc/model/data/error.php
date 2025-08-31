@@ -5,7 +5,7 @@
  * Date: 14/06/2018
  * Time: 16:03
  *
- * @var $model \bbn\Mvc\Model
+ * @var bbn\Mvc\Model $model
  */
 
 if (

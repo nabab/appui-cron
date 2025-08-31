@@ -1,10 +1,6 @@
 <?php
-/*
- * Describe what it does!
- *
- **/
 
-/** @var $this \bbn\Mvc\Model*/
+/** @var bbn\Mvc\Model $model */
 if ($model->hasVar('id', true) && $model->inc->cron->check()) {
   if ($model->data['id'] === 'poll') {
     $model->addData(['type' => 'poll']);

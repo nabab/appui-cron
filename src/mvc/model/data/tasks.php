@@ -1,5 +1,5 @@
 <?php
-/** @var $this \bbn\Mvc\Model*/
+/** @var bbn\Mvc\Model $model */
 $r = [
   'success' => false,
   'check' => $model->inc->cron->check()

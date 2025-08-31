@@ -8,7 +8,7 @@ use bbn\X;
 use bbn\Str;
 use bbn\File\System;
 set_time_limit(0);
-/** @var $ctrl \bbn\Mvc\Controller */
+/** @var bbn\Mvc\Controller $ctrl */
 $fs = new System();
 $path = $ctrl->dataPath() . 'plugins/appui-cron/log';
 $fs->cd($path);

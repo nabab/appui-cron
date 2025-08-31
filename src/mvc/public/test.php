@@ -5,7 +5,7 @@
  * Date: 24/01/2017
  * Time: 05:00
  */
-/** @var \bbn\Mvc\Controller $ctrl */
+/** @var bbn\Mvc\Controller $ctrl */
 
 ;
 $o = [];

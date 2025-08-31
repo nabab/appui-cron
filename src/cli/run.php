@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \bbn\Mvc\Controller $ctrl
+ * @var bbn\Mvc\Controller $ctrl
  */
 if ( isset($ctrl->post['type']) ){
   if ( !defined('BBN_EXTERNAL_USER_ID') && defined('BBN_EXTERNAL_USER_EMAIL') ){

@@ -1,5 +1,5 @@
 <?php
-/* @var $model \bbn\Mvc\Model */
+/* @var bbn\Mvc\Model $model */
 if ( !\is_dir($model->appPath()) ){
   die('You must define BBN_APP_PATH!');
 }

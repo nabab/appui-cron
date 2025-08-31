@@ -1,10 +1,10 @@
 <?php
 /*
- * @var $model \bbn\Mvc\Model
+ * @var bbn\Mvc\Model $model
  *
  **/
 $r = ['success' => false];
-/** @var $this \bbn\Mvc\Model*/
+/** @var bbn\Mvc\Model $model */
 if (\bbn\X::hasProps($model->data, ['file', 'id'], true)) {
   if ($model->data['id'] === 'cron') {
     $cfg = ['type' => 'cron'];

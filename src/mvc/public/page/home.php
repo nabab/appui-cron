@@ -1,10 +1,6 @@
 <?php
-/*
- * Describe what it does!
- *
- **/
 
-/** @var $this \bbn\Mvc\Controller */
+/** @var bbn\Mvc\Controller $ctrl */
 $ctrl->addData(['data_path' => $ctrl->pluginDataPath()])
   ->setIcon('nf nf-fa-home')
   ->setColor('brown', '#FFF')

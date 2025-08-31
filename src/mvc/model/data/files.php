@@ -1,10 +1,6 @@
 <?php
-/*
- * Describe what it does!
- *
- **/
 
-/** @var $this \bbn\Mvc\Model*/
+/** @var bbn\Mvc\Model $model */
 if ( isset($model->data['data_path']) ){
   clearstatcache();
   $has_active = is_file($model->inc->cron->getStatusPath('active'));
