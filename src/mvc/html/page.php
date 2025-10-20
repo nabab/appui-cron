@@ -1,7 +1,7 @@
 <!-- HTML Document -->
 
 <bbn-router :autoload="true"
-            :nav="true"
+            mode="tabs"
 >
 	<bbns-container :label="_('Home')"
            :loaded="false"
