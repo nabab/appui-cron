@@ -33,7 +33,7 @@ $numTodo = count($todo);
 $today = date('Y-m-d');
 $forgetContent = ['poll', 'altares'];
 foreach ($todo as $dirIdx => $dir) {
-  $cronFile = strpos($dir, 'tasks/') === 0 ? $ctrl->db->selectOne('bbn_cron', 'file', ['id' => substr($dir, 6)]) : $dir;
+  $cronFile = Str::pos($dir, 'tasks/') === 0 ? $ctrl->db->selectOne('bbn_cron', 'file', ['id' => Str::sub($dir, 6)]) : $dir;
   $years = $fs->getDirs($dir);
   $numYears = count($years);
   foreach ($years as $yearIdx => $yearDir) {

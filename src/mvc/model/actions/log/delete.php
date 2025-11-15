@@ -5,6 +5,7 @@
  * Date: 12/06/2018
  * Time: 12:57
  */
+use bbn\Str;
 
 $ret = ['success' => false];
 if (
@@ -12,9 +13,9 @@ if (
   !empty($model->data['filename'])
 ){
   $cfg = [
-    'type' => strlen($model->data['id']) === 32 ? 'cron' : $model->data['id']
+    'type' => Str::len($model->data['id']) === 32 ? 'cron' : $model->data['id']
   ];
-  if ( strlen($model->data['id']) === 32 ){
+  if ( Str::len($model->data['id']) === 32 ){
     $cfg['id'] = $model->data['id'];
   }
   $file = dirname($model->inc->cron->logPath($cfg)).'/'.$model->data['filename'];

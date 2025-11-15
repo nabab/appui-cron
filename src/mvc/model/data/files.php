@@ -1,5 +1,6 @@
 <?php
-
+use bbn\X;
+use bbn\Str;
 /** @var bbn\Mvc\Model $model */
 if ( isset($model->data['data_path']) ){
   clearstatcache();
@@ -41,8 +42,8 @@ if ( isset($model->data['data_path']) ){
   $files  = $fs->getFiles('./', null, true);
   foreach ($files as $f){
     if (
-      ($tmp = $model->inc->cron->getManager()->getCron(substr($f, 1))) &&
-      (\bbn\X::search($failed, ['id' => $tmp['id']]) === null)
+      ($tmp = $model->inc->cron->getManager()->getCron(Str::sub($f, 1))) &&
+      (X::search($failed, ['id' => $tmp['id']]) === null)
     ){
       $current[] = $tmp;
     }

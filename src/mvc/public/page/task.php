@@ -1,9 +1,10 @@
 <?php
+use bbn\Str;
 if (
   defined('BBN_BASEURL') &&
-  (strpos(BBN_BASEURL, APPUI_CRON_ROOT . 'page/task/') !== 0) &&
+  (Str::pos(BBN_BASEURL, APPUI_CRON_ROOT . 'page/task/') !== 0) &&
   ($id = $ctrl->arguments[0]) &&
-  \bbn\Str::isUid($id) &&
+  Str::isUid($id) &&
   ($task = $ctrl->inc->cron->getManager()->getCron($id))
 ){
   if ( is_array($task['cfg']) ){
