@@ -191,17 +191,17 @@
         },
         computed: {
           info(){
-            let m = new dayjs(this.source.next),
+            let m = new bbn.date(this.source.next),
                 st = bbn._('Next execution') + ': ';
-            if (m.isValid()) {
+            if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            m = dayjs(this.source.prev);
-            if (m.isValid()) {
+            m = bbn.date(this.source.prev);
+            if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
@@ -247,17 +247,17 @@
         },
         computed: {
           info(){
-            let m = dayjs(this.source.next),
+            let m = bbn.date(this.source.next),
                 st = bbn._('Next execution') + ': ';
-            if (m.isValid()) {
+            if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            m = dayjs(this.source.prev);
-            if (m.isValid()) {
+            m = bbn.date(this.source.prev);
+            if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
