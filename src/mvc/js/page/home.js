@@ -191,7 +191,7 @@
         },
         computed: {
           info(){
-            let m = new bbn.date(this.source.next),
+            let m = bbn.dt(this.source.next),
                 st = bbn._('Next execution') + ': ';
             if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
@@ -200,7 +200,7 @@
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            m = bbn.date(this.source.prev);
+            m = bbn.dt(this.source.prev);
             if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }
@@ -247,7 +247,7 @@
         },
         computed: {
           info(){
-            let m = bbn.date(this.source.next),
+            let m = bbn.dt(this.source.next),
                 st = bbn._('Next execution') + ': ';
             if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
@@ -256,7 +256,7 @@
               st += bbn._('Unknown');
             }
             st += "\n" + bbn._('Previous execution') + ': ';
-            m = bbn.date(this.source.prev);
+            m = bbn.dt(this.source.prev);
             if (m.isValid) {
               st += m.calendar() + ' (' + m.fromNow() + ')'
             }

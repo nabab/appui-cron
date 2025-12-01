@@ -8,7 +8,7 @@
     data(){
       return {
         root: appui.plugins['appui-cron'] + '/',
-        currentDate: bbn.date().format('YYYY-MM-DD HH:mm:ss'),
+        currentDate: bbn.dt().format('YYYY-MM-DD HH:mm:ss'),
         frequencies: [{
           value: 'i1',
           text: bbn._('Every minute')

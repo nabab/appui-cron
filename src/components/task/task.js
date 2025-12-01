@@ -1,7 +1,7 @@
 (() => {
   return {
     data(){
-      let today = bbn.date().format('YYYY-MM-DD');
+      let today = bbn.dt().format('YYYY-MM-DD');
       return {
         today: today,
         currentDay: today,
@@ -105,8 +105,8 @@
               item = list ? list.filteredData[this.currentLogIdx] : false;
           if ( item && item.data ){
             let data = bbn.fn.extend(true, {}, item.data);
-            data.startFormatted = bbn.date(data.start).format('DD/MM/YYYY HH:mm:ss');
-            data.endFormatted = data.duration === undefined ? '' : bbn.date(data.end).format('DD/MM/YYYY HH:mm:ss');
+            data.startFormatted = bbn.dt(data.start).format('DD/MM/YYYY HH:mm:ss');
+            data.endFormatted = data.duration === undefined ? '' : bbn.dt(data.end).format('DD/MM/YYYY HH:mm:ss');
             return data;
           }
         }
@@ -115,14 +115,14 @@
       currentTaskObj(){
         if ( this.source ){
           let data = bbn.fn.extend(true, {}, this.source);
-          if ( data.next && bbn.date(data.next).isValid ){
-            data.nextFormatted = bbn.date(data.next).format('DD/MM/YYYY HH:mm:ss');
+          if ( data.next && bbn.dt(data.next).isValid ){
+            data.nextFormatted = bbn.dt(data.next).format('DD/MM/YYYY HH:mm:ss');
           }
-          if ( data.prev && bbn.date(data.prev).isValid ){
-            data.prevFormatted = bbn.date(data.prev).format('DD/MM/YYYY HH:mm:ss');
+          if ( data.prev && bbn.dt(data.prev).isValid ){
+            data.prevFormatted = bbn.dt(data.prev).format('DD/MM/YYYY HH:mm:ss');
           }
           data.frequencyFormatted = data.frequency ? bbn.fn.getField(this.frequencies, 'text', {value: data.frequency}) : '';
-          data.failed = data.pid && bbn.date(data.prev).add(data.timeout, 's').isBefore();
+          data.failed = data.pid && bbn.dt(data.prev).add(data.timeout, 's').isBefore();
           return data;
         }
         return {}
@@ -285,12 +285,12 @@
         if ( d.task ){
           clearTimeout(this.refreshTimeout);
           if (
-            (this.currentDay === bbn.date().format('YYYY-MM-DD')) &&
+            (this.currentDay === bbn.dt().format('YYYY-MM-DD')) &&
             d.task.next &&
-            bbn.date(d.task.next).isValid &&
-            bbn.date(d.task.next).isAfter()
+            bbn.dt(d.task.next).isValid &&
+            bbn.dt(d.task.next).isAfter()
           ){
-            let t = bbn.date(d.task.next).diff() + 10000;
+            let t = bbn.dt(d.task.next).diff() + 10000;
             this.refreshTimeout = setTimeout(() => {
               this.getRef('list').updateData();
               this.refresh();
@@ -399,7 +399,7 @@
         },
         computed: {
           time(){
-            return bbn.date(this.source.start).format('HH:mm:ss');
+            return bbn.dt(this.source.start).format('HH:mm:ss');
           }
         }
       }
