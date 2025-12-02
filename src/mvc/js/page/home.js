@@ -120,13 +120,15 @@
         })
       },
       mouseOver(e) {
-        if (!e.target.childNodes[0].classList.contains('bbn-hover')) {
-          e.target.childNodes[0].classList.add('bbn-hover');
+        const ele = e.target.getElementsByClassName('bbn-diode')?.[0];
+        if (ele && !ele.classList.contains('bbn-hover')) {
+          ele.classList.add('bbn-hover');
         }
       },
       mouseOut(e) {
-        if (e.target.childNodes[0].classList.contains('bbn-hover')) {
-          e.target.childNodes[0].classList.remove('bbn-hover');
+        const ele = e.target.getElementsByClassName('bbn-diode')?.[0];
+        if (ele && ele.classList.contains('bbn-hover')) {
+          ele.classList.remove('bbn-hover');
         }
       },
       receive(d){
@@ -194,7 +196,7 @@
             let m = bbn.dt(this.source.next),
                 st = bbn._('Next execution') + ': ';
             if (m.isValid) {
-              st += m.calendar() + ' (' + m.fromNow() + ')'
+              //st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
               st += bbn._('Unknown');
@@ -202,7 +204,7 @@
             st += "\n" + bbn._('Previous execution') + ': ';
             m = bbn.dt(this.source.prev);
             if (m.isValid) {
-              st += m.calendar() + ' (' + m.fromNow() + ')'
+              //st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
               st += bbn._('Unknown');
