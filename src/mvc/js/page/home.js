@@ -196,7 +196,7 @@
             let m = bbn.dt(this.source.next),
                 st = bbn._('Next execution') + ': ';
             if (m.isValid) {
-              //st += m.calendar() + ' (' + m.fromNow() + ')'
+              st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
               st += bbn._('Unknown');
@@ -204,7 +204,7 @@
             st += "\n" + bbn._('Previous execution') + ': ';
             m = bbn.dt(this.source.prev);
             if (m.isValid) {
-              //st += m.calendar() + ' (' + m.fromNow() + ')'
+              st += m.calendar() + ' (' + m.fromNow() + ')'
             }
             else {
               st += bbn._('Unknown');
