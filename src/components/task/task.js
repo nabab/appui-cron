@@ -288,9 +288,9 @@
             (this.currentDay === bbn.dt().format('YYYY-MM-DD')) &&
             d.task.next &&
             bbn.dt(d.task.next).isValid &&
-            bbn.dt(d.task.next).isAfter()
+            bbn.dt().isAfter(d.task.next)
           ){
-            let t = bbn.dt(d.task.next).diff() + 10000;
+            let t = bbn.dt().diff(d.task.next) + 10000;
             this.refreshTimeout = setTimeout(() => {
               this.getRef('list').updateData();
               this.refresh();
@@ -357,8 +357,7 @@
             let cm = this.getRef('code').widget;
             if ( cm ){
               cm.focus();
-              // Set the cursor at the end of existing content
-              cm.setCursor(cm.lineCount(), 0);
+              cm.goToTop();
             }
           }
         })

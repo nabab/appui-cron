@@ -174,7 +174,6 @@
             <bbn-code ref="code"
                       :value="currentOutput"
                       :readonly="true"
-                      mode="clike"
                       class="bbn-overlay"
                       bbn-if="currentOutput"/>
             <div bbn-else
