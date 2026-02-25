@@ -484,7 +484,7 @@ msgstr "Êtes-vous sûr de vouloir"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "all background activity?"
-msgstr "toute l'acitivité d'arrière-plan"
+msgstr "toute l'activité d'arrière-plan"
 
 #: /home/okrim/_COMPOSER/dev/vendor/bbn/appui-cron/src/mvc/js/page/home.js
 msgid "the polling system?"
