@@ -1,8 +1,9 @@
 <?php
 use bbn\Str;
+
+/** @var bbn\Mvc\Controller $ctrl */
 if (
-  defined('BBN_BASEURL') &&
-  (Str::pos(BBN_BASEURL, APPUI_CRON_ROOT . 'page/task/') !== 0) &&
+  (Str::pos($ctrl->getConstant('baseURL') ?: '', APPUI_CRON_ROOT . 'page/task/') !== 0) &&
   ($id = $ctrl->arguments[0]) &&
   Str::isUid($id) &&
   ($task = $ctrl->inc->cron->getManager()->getCron($id))
