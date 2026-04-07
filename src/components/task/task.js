@@ -353,11 +353,12 @@
       },
       currentOutput(newVal){
         this.$nextTick(() => {
-          if ( newVal ){
-            let cm = this.getRef('code').widget;
-            if ( cm ){
+          if (newVal) {
+            const code = this.getRef('code');
+            const cm = code?.widget;
+            if (cm) {
               cm.focus();
-              cm.goToTop();
+              code.scrollToTop();
             }
           }
         })
