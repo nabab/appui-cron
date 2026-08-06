@@ -48,6 +48,7 @@ if ( isset($model->data['data_path']) ){
       $current[] = $tmp;
     }
   }
+
   return [
     'files' => $files,
     'current' => $current,
@@ -61,4 +62,5 @@ if ( isset($model->data['data_path']) ){
     'pollid' => $pollid
   ];
 }
+
 return ['success' => false];
