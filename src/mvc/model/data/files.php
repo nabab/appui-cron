@@ -16,8 +16,8 @@ if ( isset($model->data['data_path']) ){
     && ($cronfile = $model->inc->cron->getPidPath(['type' => 'cron']))
     && is_file($cronfile)
   ) {
-    [$cronid, $crontime] = explode('|', File_get_contents($cronfile));
-    if (!file_exists('/proc/'.$cronid)) {
+    [$cronid, $crontime] = explode('|', file_get_contents($cronfile));
+    if (!$has_active) {
       unlink($cronfile);
       $crontime = false;
       $cronid = false;
@@ -28,8 +28,8 @@ if ( isset($model->data['data_path']) ){
     && ($pollfile = $model->inc->cron->getPidPath(['type' => 'poll']))
     && is_file($pollfile)
   ){
-    [$pollid, $polltime] = explode('|', File_get_contents($pollfile));
-    if (!file_exists('/proc/'.$pollid)) {
+    [$pollid, $polltime] = explode('|', file_get_contents($pollfile));
+    if (!$has_active) {
       unlink($pollfile);
       $polltime = false;
       $pollid = false;
