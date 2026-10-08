@@ -1,5 +1,5 @@
 <?php
-/* @var bbn\Mvc\Controller $ctrl */
+/** @var bbn\Mvc\Controller $ctrl */
 if ( !empty($ctrl->arguments) ){
   $ctrl->post['id_cron'] = $ctrl->arguments[0];
 }
